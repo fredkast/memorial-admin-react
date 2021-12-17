@@ -1,0 +1,13 @@
+.header{
+    height: 20vh;
+    width: 100%;
+    background-color: antiquewhite;
+    text-align: center;
+    padding-top: 100px ;
+    padding-bottom: auto;
+}
+.link{
+    color: black;
+    margin: 20px;
+    text-decoration: none;
+}

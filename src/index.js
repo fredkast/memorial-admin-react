@@ -1,12 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import Home from './Pages/Home/index';
+import ListePerso from './Pages/ListePerso';
+import Header from './Composents/Header';
+import Exo2 from './Pages/Exo2';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Error404 from './Composents/404';
+// import './Styles/index'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+
+    <BrowserRouter>
+      <Header/>
+   
+      <Routes>
+        
+        <Route path="/" element={<Home/>}/>
+        <Route path="/exo1" element={<ListePerso/>}/>
+        <Route path="/exo2" element={<Exo2/>}/>
+        <Route path='*' element={<Error404 />} />
+        
+      </Routes>
+
+    </BrowserRouter>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
