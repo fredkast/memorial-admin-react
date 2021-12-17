@@ -13,7 +13,7 @@ function Exo2(){
         });
       }
         // nombre de pokemon a afficher
-      const [nbrPokemon, setCount] = useState(2);
+      const [nbrPokemon, setCount] = useState(20);
 
       const [allPokemons, setAllPokemons] = useState([]);
       const loadPoke = useState(
