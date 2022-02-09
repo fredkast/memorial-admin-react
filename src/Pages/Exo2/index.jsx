@@ -3,7 +3,7 @@ import React,{ useEffect, useState } from "react";
 
 function Exo2(){
 
-    function CreatePokemonObject(result) {
+      function CreatePokemonObject(result) {
         result.forEach(async (pokemon) => {
           const res = await fetch(
             `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
@@ -12,17 +12,25 @@ function Exo2(){
           setAllPokemons((currentList) => [...currentList, data]);
         });
       }
-        // nombre de pokemon a afficher
-      const [nbrPokemon, setCount] = useState(20);
 
+    // nombre de pokemon a afficher
+      const [nbrPokemon, setCount] = useState(20);
       const [allPokemons, setAllPokemons] = useState([]);
-      const loadPoke = useState(
-        "https://pokeapi.co/api/v2/pokemon?limit="+nbrPokemon
-      );
+      // const loadPoke = useState(
+      //   "https://pokeapi.co/api/v2/pokemon?limit="+nbrPokemon
+      // );
+      const [loadPoke, setLoadPoke] = useState(
+        "https://pokeapi.co/api/v2/pokemon?limit=20"
+          );
     
       const getAllPokemons = async () => {
-        const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit="+nbrPokemon);
+        console.log(loadPoke);
+        // const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit="+nbrPokemon);
+        const res = await fetch(loadPoke);
+        //
         const data = await res.json();
+        setCount(nbrPokemon+20);
+        setLoadPoke("https://pokeapi.co/api/v2/pokemon?offset=" + nbrPokemon + "&limit=20")
         CreatePokemonObject(data.results);
       };
     
@@ -30,12 +38,7 @@ function Exo2(){
         getAllPokemons();
       }, []);
 
-      function handleClick(e) {
-        e.preventDefault();
-        setCount(nbrPokemon+20);
-        console.log(nbrPokemon);
-        getAllPokemons()
-      }
+      console.log(allPokemons);
     return(
         
         <div className="container-data">
@@ -53,8 +56,8 @@ function Exo2(){
           
 
         </ul>
-        {/* <button className='button' onclick={()=> {console.log(nbrPokemon);setCount(nbrPokemon+20); }}>Suivants</button> */}
-        <a href="#" onClick={handleClick}>Clique ici</a>
+        <button className='button' onClick={()=> {getAllPokemons()}}>Suivants</button>
+        {/* <a href="#" onClick={handleClick}>Clique ici</a> */}
         </div>
     
     );

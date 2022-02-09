@@ -5,7 +5,7 @@ import {list} from '../../Data/Liste'
 function ListePerso() {
   return (
     <div className="container-data">
-        <h1 className="title">Exercice 1</h1>
+        <h1 className="title">Liste des perso</h1>
         <ul className="perso-list">
           {list.map((perso) =>
             <li className={"perso-card-"+perso.type} key={perso.id} >

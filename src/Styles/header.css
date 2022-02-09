@@ -1,13 +1,21 @@
 .header{
     height: 20vh;
     width: 100%;
-    background-color: antiquewhite;
+    background-color: rgb(26, 25, 23);
     text-align: center;
-    padding-top: 100px ;
+    padding-top: 60px ;
     padding-bottom: auto;
+    margin: 0;
 }
 .link{
-    color: black;
+    color: rgb(250, 250, 250);
     margin: 20px;
     text-decoration: none;
 }
+h1{
+    color: white;
+    font-family: 'Lato';
+}
+.link{
+    font-family: 'Lato';
+  }

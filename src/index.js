@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './Pages/Home/index';
-import ListePerso from './Pages/ListePerso';
-import Header from './Composents/Header';
-import Exo2 from './Pages/Exo2';
-import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import reportWebVitals from './reportWebVitals';
+// components
+import Header from './Composents/Header';
 import Error404 from './Composents/404';
-// import './Styles/index'
+// pages
+import Exo2 from './Pages/Exo2';
+import LandingPage from './Pages/LandingPage/index';
+import ListSoldiers from './Pages/ListSoldiers';
+import SearchByCurrentDate from './Pages/SearchByCurrentDate';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,9 +19,10 @@ ReactDOM.render(
       <Header/>
    
       <Routes>
-        
-        <Route path="/" element={<Home/>}/>
-        <Route path="/exo1" element={<ListePerso/>}/>
+   
+        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/ListeSoldats" element={<ListSoldiers/>}/>
+        <Route path="/SearchByCurrentDate" element={<SearchByCurrentDate/>}/>
         <Route path="/exo2" element={<Exo2/>}/>
         <Route path='*' element={<Error404 />} />
         
