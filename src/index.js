@@ -10,6 +10,8 @@ import Exo2 from './Pages/Exo2';
 import LandingPage from './Pages/LandingPage/index';
 import ListSoldiers from './Pages/ListSoldiers';
 import SearchByCurrentDate from './Pages/SearchByCurrentDate';
+import UpdateSoldier from './Pages/UpdateSoldier';
+import Footer from './Composents/Footer';
 
 
 ReactDOM.render(
@@ -22,12 +24,13 @@ ReactDOM.render(
    
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/ListeSoldats" element={<ListSoldiers/>}/>
+        <Route path="/update" element={<UpdateSoldier/>}/>
         <Route path="/SearchByCurrentDate" element={<SearchByCurrentDate/>}/>
         <Route path="/exo2" element={<Exo2/>}/>
         <Route path='*' element={<Error404 />} />
         
       </Routes>
-
+      <Footer/>
     </BrowserRouter>
     
   </React.StrictMode>,
