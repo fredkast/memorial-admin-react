@@ -9,7 +9,7 @@ import Error404 from './Composents/404';
 import Exo2 from './Pages/Exo2';
 import LandingPage from './Pages/LandingPage/index';
 import ListSoldiers from './Pages/ListSoldiers';
-import SearchByCurrentDate from './Pages/SearchByCurrentDate';
+import SearchByCurrentDate from './Pages/SearchByDate';
 import UpdateSoldier from './Pages/UpdateSoldier';
 import Footer from './Composents/Footer';
 

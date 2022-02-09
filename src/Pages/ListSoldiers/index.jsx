@@ -1,11 +1,16 @@
 import '../../Styles/listSoldier.css'
 import React,{ useEffect, useState } from "react";
-
+import { useHistory, useNavigate } from "react-router-dom"
 
 function ListSoldiers(){
    
 const [soldiers, setAllSoldiers] = useState([])
 
+// navigation vers update
+let navigate = useNavigate()
+function linkToUpdate(){
+  navigate("/update",{ replace: true });
+}
 
 
 useEffect(() => {
@@ -24,7 +29,7 @@ console.log(soldiers)
         
   <div className="container-data">
     <div className='list-container'>
-      <h1 className="title">Liste des soldats</h1>
+      <h1 className="title">Liste des soldats dans la base de donnée</h1>
       <table className="soldier-table">
           <thead className="soldier-thead">
                     <tr>
@@ -42,6 +47,7 @@ console.log(soldiers)
                       {/* <th><p>Lieu de sépulture</p></th> */}
                       {/* <th><p>Biographie</p></th> */}
                       <th><p>Circonstance du décès</p></th>
+                      <th><p>Action</p></th>
                     </tr>
           </thead>
           <tbody>
@@ -63,7 +69,7 @@ console.log(soldiers)
                   {/* <td><p className="title">{soldier.sepulture}</p></td> */}
                   {/* <td><p className="title">{soldier.biographie}</p></td> */}
                   <td><p className="title">{soldier.circonstance}</p></td>
-              
+                  <td><button className='form-btn' onClick={linkToUpdate} >Modifier </button></td>
             </tr> 
             )
           }
