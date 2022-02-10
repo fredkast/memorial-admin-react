@@ -2,17 +2,43 @@ import '../../Styles/listSoldier.css'
 import React,{ useEffect, useState } from "react";
 
 // IL FAUT HYDRATER BODY AVEC LA REQUETE JSON VIA DES INPUT
+// Etape 1 on get les données du soldat pour les introduire dans les input ensuit on hydrate soldierFind puis on appel askApi()
 
 
+// PORBLEME DE FORMAT JSON !!
 
 function UpdateSoldier(){
+
+
   const [soldiersFind, setSoldiersToFind] = useState([])
+// State de l'id a modifier
+  const [textToFind, setidToUpdate] = useState([])
+ // on format pour le body de requete api
+  const idToUpdate = 
+  {
+    id:textToFind
+  }
 
-// const [requete, setRequete] = useState(null);
-
-// appelr l'api dans une fonction
-  
-   function askApi(e){
+  // recherche du soldat pour hydrater
+  function searchThisId(e){
+    e.preventDefault();
+    fetch('https://api.tytnature.fr/soldats/read.php', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       // le text format JSON
+       body: JSON.stringify(idToUpdate),
+     })
+     .then((response) => response.json()
+     .then((data) =>{
+       // on insere dans le state soldiersFind pour afficher dans la liste 
+      setSoldiersToFind(data);
+     })
+     .catch((error) => console.log(error))
+     )}
+    
+    
+    // modification du soldat trouvé
+   function updateAPI(e){
      // empecher de re render le component au click
     e.preventDefault();
     fetch('https://api.tytnature.fr/soldats/update.php', {
@@ -21,18 +47,18 @@ function UpdateSoldier(){
         body: JSON.stringify(
           {
             id: "4",
-          nom: "REACT",
-          prenom: "REACT",
-          grade:"Soldat de 2eme classe",
-          age: "33",
-          deces: "2022-02-02",
-          armee: "1",
-          unitee: "1",
-          theatre: "1",
-          biographie:  "test",
-          circonstance: "MODIIFER DEPUIS REACT",
-          sepulture: "test",
-          image: "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
+            nom: "REACT",
+            prenom: "REACT",
+            grade:"Soldat de 2eme classe",
+            age: "33",
+            deces: "2022-02-02",
+            armee: "1",
+            unitee: "1",
+            theatre: "1",
+            biographie:  "test",
+            circonstance: "MODIIFER DEPUIS REACT",
+            sepulture: "test",
+            image: "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
           }
         )
       })
@@ -42,7 +68,10 @@ function UpdateSoldier(){
       })
       .catch((error) => console.log(error))
       )}
-  
+    
+      console.log(soldiersFind)
+      console.log(idToUpdate)
+
   return(     
     <div className="container-data">
       <h1 className="title">Modifier un soldat</h1>
@@ -50,9 +79,12 @@ function UpdateSoldier(){
             <form className="form" >
               <div className="input-row">
                 <div className="input-field">
-                  <label htmlFor="input_text">id</label>
-                  <input id="id" type="number" data-length="4" />
-                  
+                <label htmlFor="input_text">id à rechercher :</label>
+
+                {/* recherche du soldat avec cet ID */}
+                <input id="id" type="number" data-length="4" onChange={(e) => setidToUpdate(e.target.value)}/>
+                <button className='btn-green'  onClick={searchThisId} >Rechercher</button>
+
                 </div>
               </div>
               <div className="">
@@ -123,15 +155,14 @@ function UpdateSoldier(){
                   <textarea id="sepulture" type="text-area" data-length="4" />
                 </div>
               </div>
-
-        
-
-              <button className='btn-yellow'  onClick={askApi} >
+              <button className='btn-yellow'  onClick={updateAPI} >
                   Modifier
               </button>
             </form>
             </div>
     </div>
+    
   );
 }
+
 export default UpdateSoldier
