@@ -26,7 +26,6 @@ ReactDOM.render(
         <Route path="/ListeSoldats" element={<ListSoldiers/>}/>
         <Route path="/update" element={<UpdateSoldier/>}/>
         <Route path="/SearchByCurrentDate" element={<SearchByCurrentDate/>}/>
-        <Route path="/exo2" element={<Exo2/>}/>
         <Route path='*' element={<Error404 />} />
         
       </Routes>

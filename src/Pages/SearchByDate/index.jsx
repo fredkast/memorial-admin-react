@@ -7,23 +7,45 @@ function SearchByCurrentDate(){
 const [soldiersFind, setSoldiersToFind] = useState([])
 
 
-useEffect(() => {
-  fetch(`https://api.tytnature.fr/soldats/readOfDay.php`)
-      .then((response) => response.json()
-      .then((data) =>{
-        setSoldiersToFind(data);
-      })
-      .catch((error) => console.log(error))
-      )},
-[])
+function askApi(e){
+  // empecher de re render le component au click
+ e.preventDefault();
+ fetch('https://api.tytnature.fr/soldats/readOnDate.php', {
+     method: 'POST',
+     headers: { 'Content-Type': 'application/json' },
+     body: JSON.stringify(
+       {
+        "userDate":"2022-02-02"
+      }
+     )
+   })
+   .then((response) => response.json()
+   .then((data) =>{
+    setSoldiersToFind(data);
+   })
+   .catch((error) => console.log(error))
+   )}
 
+
+if (!soldiersFind.length){
+  return(
+    <div className="container-data">
+      <h1 className="title">Chercher un soldat</h1>
+        <div className='form-container'>
+          <input className='search-input'></input>
+          <input className="btn-green" type="submit" value="Envoyer" onClick={askApi}></input>
+        </div>
+    </div>
+  )
+}
  return(
-        
+     
+  
   <div className="container-data">
   <h1 className="title">Chercher un soldat</h1>
   <div className='form-container'>
     <input className='search-input'></input>
-    <input className="btn-green" type="submit" value="Envoyer"></input>
+    <input className="btn-green" type="submit" value="Envoyer" onClick={askApi}></input>
   </div>
   <div className='list-container'>
   <table className="soldier-table">
