@@ -75,17 +75,17 @@ function UpdateSoldier(){
   return(     
     <div className="container-data">
       <h1 className="title">Modifier un soldat</h1>
-      <div className='form-container'>
+      <div className='first-container'>
             <form className="form" >
-              <div className="input-row">
-                <div className="input-field">
-                <label htmlFor="input_text">id à rechercher :</label>
+              <div className="second-container">
+             
+                  <label htmlFor="input_text">id à rechercher :</label>
 
-                {/* recherche du soldat avec cet ID */}
-                <input id="id" type="number" data-length="4" onChange={(e) => setidToUpdate(e.target.value)}/>
-                <button className='btn-green'  onClick={searchThisId} >Rechercher</button>
+                  {/* recherche du soldat avec cet ID */}
+                  <input id="id" type="number" data-length="4" onChange={(e) => setidToUpdate(e.target.value)}/>
+                  <button className='btn-green'  onClick={searchThisId} >Rechercher</button>
 
-                </div>
+              
               </div>
               <div className="">
                 <div className="input-field">
@@ -110,7 +110,7 @@ function UpdateSoldier(){
               <div className="">
                 <div className="input-field">
                   <label htmlFor="input_text">Grade :</label>
-                  <input id="grade" type="number" data-length="4" />
+                  <input id="grade" type="text" />
                 </div>
               </div>
               <div className="">
@@ -128,7 +128,13 @@ function UpdateSoldier(){
               <div className="">
                 <div className="input-field">
                   <label htmlFor="input_text">Armée :</label>
-                  <input id="armee" type="number" data-length="4" />
+                  <select name="armee" id="armee">
+                      <option value="1">Armée de Terre</option>
+                      <option value="2">Armée de l'Air</option>
+                      <option value="3">Marine National</option>
+                      <option value="4">Gendarmerie National</option>
+                      <option value="5">Autre</option>
+                  </select>
                 </div>
               </div>
               <div className="">
@@ -137,23 +143,23 @@ function UpdateSoldier(){
                   <input id="unitee" type="number" data-length="4" />
                 </div>
               </div>
-              <div className="">
-                <div className="input-field">
+              <div className="textarea-container">
+                
                   <label htmlFor="input_text">Circonstences du déces :</label>
                   <textarea id="circonstence" type="text" data-length="4" />
-                </div>
+                
               </div>
-              <div className="">
-                <div className="input-field">
+              <div className="textarea-container">
+              
                   <label htmlFor="input_text">Biographie :</label>
                   <textarea id="biographie" type="text" data-length="4" />
-                </div>
+                
               </div>
-              <div className="">
-                <div className="input-field">
+              
+              <div className="textarea-container">
                   <label htmlFor="input_text">Lieu de sépulture</label>
                   <textarea id="sepulture" type="text-area" data-length="4" />
-                </div>
+               
               </div>
               <button className='btn-yellow'  onClick={updateAPI} >
                   Modifier

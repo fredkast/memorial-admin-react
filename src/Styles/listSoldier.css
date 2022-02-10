@@ -6,9 +6,16 @@
   h1{
     font-size: 20px;
     text-align: center;
+    font-family: 'Lato';
+
   }
   h2{
     font-size: 18px;
+    font-family: 'Lato';
+  }
+  p{
+    font-size: 14px;
+    font-family: 'Lato';
   }
   .title{
     text-align: center;
@@ -24,6 +31,20 @@
     margin: 0;
     height: auto;
     min-height: 55vh;
+    padding-bottom: 40px;
+  }
+  .container-data-background{
+    background-image:url(https://www.urbalab.fr/wp-content/uploads/2020/07/EJGwYwiXYAAsacI-1200x745.jpg);
+    background-size: cover;
+    filter: grayscale(1);
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato';
+    margin: 0;
+    height: 150px;
     padding-bottom: 40px;
   }
   .soldier-list{
@@ -58,9 +79,7 @@
   ul li{
     list-style: none;
   }
-  .list-container{
-    /* width: 80%; */
-  }
+ 
   .soldier-thead{
     background-color: #b9a9a9;
   }
@@ -87,16 +106,22 @@
   textarea{
     border: solid 1px;
     border-radius: 10px;
-    width: 50vw;
+    width: 100%;
     min-width: 200px;
-    max-width: 400px;
+    height: 8vh;
+    min-height: 100px;
   }
-  
+  .textarea-container{
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
   form{
     display: grid;
-    justify-items: end;
+    justify-items: center;
   }
-  .form-container{
+  .first-container{
     width: 50%;
     background-color: white;
     padding: 30px;
@@ -106,6 +131,17 @@
     display: grid;
     justify-items: center;
   }
+  .second-container{
+    width: 80%;
+    background-color: beige;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 1px 10px 20px rgb(189, 186, 186);
+    margin-bottom: 20px;
+    display: grid;
+    justify-items: center;
+  }
+
   .btn-green{
     margin: 20px;
     padding-left: 20px;

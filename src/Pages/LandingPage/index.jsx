@@ -11,6 +11,12 @@ function LandingPage(){
   const [soldiers, setAllSoldiers] = useState([])
   const [isLoaded, setIsLoaded] = useState([])
 
+  // affichage de la date actuelle
+  const d = new Date();
+  const month = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+  let currentMonth = month[d.getMonth()];
+  const currentDay = d.getDay()
+
   useEffect(() => {
     fetch(`https://api.tytnature.fr/soldats/readOfDay.php`)
         .then((response) => response.json()
@@ -28,9 +34,9 @@ function LandingPage(){
 if (!soldiers.length){
   return(
     <div className="container-data">
-      <div className='list-container'>
+      <div className='first-container'>
         <h1 className="title">Soldat du jour</h1>
-        <p>Aucun soldat n'est mort le {Date()}</p>
+        <p>Aucun soldat n'est mort un {currentDay + " " + currentMonth}</p>
       </div>
     </div>
   )
@@ -39,7 +45,7 @@ if (!soldiers.length){
   return(
     <div className="container-data">
       <h1>Bienvenue</h1>
-      <div className="form-container">
+      <div className="first-container">
       <div className='list-container'>
           <h2 className="title">Soldat du jour</h2>
           <table className="soldier-table">

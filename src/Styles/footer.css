@@ -1,9 +1,13 @@
 .footer{
     background: linear-gradient(to right, #0e2de0, #c51010ed);
-    height: 8vh;
+    height: auto;
     width: 100%;
     text-align: center;
-    padding-top: 60px ;
-    padding-bottom: auto;
-    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.footer p{
+    font-family: 'Lato';
+    color: white;
 }
