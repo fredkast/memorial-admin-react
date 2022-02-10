@@ -38,7 +38,7 @@ const [requete, setRequete] = useState(null);
         unitee: "1",
         theatre: "1",
         biographie:  "test",
-        circonstance: "test",
+        circonstance: "MODIIFER DEPUIS REACT",
         sepulture: "test",
         image: "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
       });

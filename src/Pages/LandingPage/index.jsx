@@ -78,7 +78,7 @@ if (!isLoaded){
   return(
     <div className="container-data">
       <h1 className="title">Soldat du jour</h1>
-      <p>Aucuns soldat n'est mort le {Date()}</p>
+      <p>Aucun soldat n'est mort le {Date()}</p>
     </div>
     )
 
