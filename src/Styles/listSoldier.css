@@ -5,6 +5,10 @@
   }
   h1{
     font-size: 20px;
+    text-align: center;
+  }
+  h2{
+    font-size: 18px;
   }
   .title{
     text-align: center;
@@ -55,7 +59,7 @@
     list-style: none;
   }
   .list-container{
-    width: 80%;
+    /* width: 80%; */
   }
   .soldier-thead{
     background-color: #b9a9a9;

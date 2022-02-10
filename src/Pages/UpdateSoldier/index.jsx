@@ -1,5 +1,6 @@
 import '../../Styles/listSoldier.css'
 import React,{ useEffect, useState } from "react";
+import userEvent from '@testing-library/user-event';
 
 // IL FAUT HYDRATER BODY AVEC LA REQUETE JSON VIA DES INPUT
 // {
@@ -20,47 +21,36 @@ import React,{ useEffect, useState } from "react";
 
 function UpdateSoldier(){
 
-const [requete, setRequete] = useState(null);
-
-
-
+// const [requete, setRequete] = useState(null);
 
 // appelr l'api dans une fonction
-  async function askApi(){
-      setRequete({
-        id : "4",
-        nom: "REACT",
-        prenom: "REACT",
-        grade:"Soldat de 2eme classe",
-        age: "33",
-        deces: "2022-02-02",
-        armee: "1",
-        unitee: "1",
-        theatre: "1",
-        biographie:  "test",
-        circonstance: "MODIIFER DEPUIS REACT",
-        sepulture: "test",
-        image: "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
-      });
-      console.log(requete);
-      try{
-        const res = await fetch('https://api.tytnature.fr/soldats/update.php', {
+  function askApi(){
+        fetch('https://api.tytnature.fr/soldats/update.php', {
           method: 'PUT',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requete)
-        })
-        if (!res.ok) {
-          console.log('echec');
-        }
-      } 
-      catch (err) {
-        console.log('echec');
-      }
+          // headers: {
+          //   'Accept': 'application/json',
+          //   'Content-Type': 'application/json',
+          // },
+          body: JSON.stringify({
+            id : "4",
+            nom: "REACT",
+            prenom: "REACT",
+            grade:"Soldat de 2eme classe",
+            age: "33",
+            deces: "2022-02-02",
+            armee: "1",
+            unitee: "1",
+            theatre: "1",
+            biographie:  "test",
+            circonstance: "MODIIFER DEPUIS REACT",
+            sepulture: "test",
+            image: "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
+          })
+        }) 
+        .then(response => response.json())
+        .then(data => alert(data.message) ) 
   }
-    
+
 
 
   
