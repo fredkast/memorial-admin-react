@@ -23,7 +23,7 @@ useEffect(() => {
       )},
 [])
 
-console.log(soldiers)
+console.log()
 
  return(
         
@@ -69,7 +69,7 @@ console.log(soldiers)
                   {/* <td><p className="title">{soldier.sepulture}</p></td> */}
                   {/* <td><p className="title">{soldier.biographie}</p></td> */}
                   <td><p className="title">{soldier.circonstance}</p></td>
-                  <td><button className='form-btn' onClick={linkToUpdate} >Modifier </button></td>
+                  <td><button className='btn-yellow' onClick={linkToUpdate} >Modifier </button></td>
             </tr> 
             )
           }

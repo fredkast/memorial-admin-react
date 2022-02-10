@@ -21,9 +21,11 @@ useEffect(() => {
         
   <div className="container-data">
   <h1 className="title">Chercher un soldat</h1>
-
-<input className='search-input'></input>
-<input type="submit" value="Envoyer"></input>
+  <div className='form-container'>
+    <input className='search-input'></input>
+    <input className="btn-green" type="submit" value="Envoyer"></input>
+  </div>
+  <div className='list-container'>
   <table className="soldier-table">
       <thead className="soldier-thead">
                 <tr>
@@ -67,7 +69,9 @@ useEffect(() => {
         )
       }
       </tbody>
+      
   </table>
+  </div>
   </div>
 
 );

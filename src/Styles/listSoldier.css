@@ -91,7 +91,35 @@
     min-width: 200px;
     max-width: 400px;
   }
-  .form-btn{
+  
+  form{
+    display: grid;
+    justify-items: end;
+  }
+  .form-container{
+    width: 50%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 1px 10px 20px rgb(189, 186, 186);
+    margin-bottom: 20px;
+    display: grid;
+    justify-items: center;
+  }
+  .btn-green{
+    margin: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(65, 128, 15);
+    box-shadow: 1px 5px 10px #a4a0a0;
+    cursor: pointer;
+    color: white;
+  }
+  .btn-yellow{
     margin: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -103,15 +131,4 @@
     box-shadow: 1px 5px 10px #a4a0a0;
     cursor: pointer;
     color: white;
-  }
-  form{
-    display: grid;
-    justify-items: end;
-  }
-  .form-container{
-    width: 50%;
-    background-color: white;
-    padding: 30px;
-    border-radius: 30px;
-    box-shadow: 1px 10px 20px rgb(189, 186, 186)
   }

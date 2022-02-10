@@ -1,64 +1,53 @@
 import '../../Styles/listSoldier.css'
 import React,{ useEffect, useState } from "react";
-import userEvent from '@testing-library/user-event';
 
 // IL FAUT HYDRATER BODY AVEC LA REQUETE JSON VIA DES INPUT
-// {
-//   "id" : "4",
-//   "nom": "OK",
-//   "prenom": "nom ",
-//   "grade":"Soldat de 2eme classe",
-//   "age": "33",
-//   "deces": "2022-02-02",
-//   "armee": "1",
-//   "unitee": "1",
-//   "theatre": "1",
-//   "biographie":  "test",
-//   "circonstance": "test",
-//   "sepulture": "test",
-//   "image": "test"
-// }
+
+
 
 function UpdateSoldier(){
+  const [soldiersFind, setSoldiersToFind] = useState([])
 
 // const [requete, setRequete] = useState(null);
 
 // appelr l'api dans une fonction
-  function askApi(){
-        fetch('https://api.tytnature.fr/soldats/update.php', {
-          method: 'PUT',
-          // headers: {
-          //   'Accept': 'application/json',
-          //   'Content-Type': 'application/json',
-          // },
-          body: JSON.stringify({
-            id : "4",
-            nom: "REACT",
-            prenom: "REACT",
-            grade:"Soldat de 2eme classe",
-            age: "33",
-            deces: "2022-02-02",
-            armee: "1",
-            unitee: "1",
-            theatre: "1",
-            biographie:  "test",
-            circonstance: "MODIIFER DEPUIS REACT",
-            sepulture: "test",
-            image: "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
-          })
-        }) 
-        .then(response => response.json())
-        .then(data => alert(data.message) ) 
-  }
-
-
-
+  
+   function askApi(e){
+     // empecher de re render le component au click
+    e.preventDefault();
+    fetch('https://api.tytnature.fr/soldats/update.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(
+          {
+            id: "4",
+          nom: "REACT",
+          prenom: "REACT",
+          grade:"Soldat de 2eme classe",
+          age: "33",
+          deces: "2022-02-02",
+          armee: "1",
+          unitee: "1",
+          theatre: "1",
+          biographie:  "test",
+          circonstance: "MODIIFER DEPUIS REACT",
+          sepulture: "test",
+          image: "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
+          }
+        )
+      })
+      .then((response) => response.json()
+      .then((data) =>{
+        console.log(data.message);
+      })
+      .catch((error) => console.log(error))
+      )}
   
   return(     
     <div className="container-data">
       <h1 className="title">Modifier un soldat</h1>
       <div className='form-container'>
-            <form className="form">
+            <form className="form" >
               <div className="input-row">
                 <div className="input-field">
                   <label htmlFor="input_text">id</label>
@@ -137,7 +126,7 @@ function UpdateSoldier(){
 
         
 
-              <button className='form-btn' onClick={askApi}>
+              <button className='btn-yellow'  onClick={askApi} >
                   Modifier
               </button>
             </form>

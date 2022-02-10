@@ -24,60 +24,7 @@ function LandingPage(){
 
   console.log(soldiers)
 
-// if (!isLoaded){
-//   return(
-//     <p>OK</p>
-  //   <div className="container-data">
-  //   <h1 className="title">Liste des soldats</h1>
-  //   <table className="soldier-table">
-  //       <thead className="soldier-thead">
-  //                 <tr>
-  //                   <th><p>id</p></th>
-  //                   <th><p>Image</p></th>
-  //                   <th><p>Grade</p></th>
-  //                   <th><p>Prénom</p></th>
-  //                   <th><p>Nom</p></th>
-                    
-  //                   <th><p>Date de décès</p></th>
-  //                   <th><p>Age</p></th>
-  //                   <th><p>Conflit</p></th>
-  //                   <th><p>Armée</p></th>
-  //                   <th><p>Unitée</p></th>
-  //                   <th><p>Lieu de sépulture</p></th>
-  //                   <th><p>Biographie</p></th>
-  //                   <th><p>Circonstance du décès</p></th>
-  //                 </tr>
-  //       </thead>
-        
-  //       <tbody>
-  //       {
-  //       soldiers.map((soldier) =>
-  //         <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
-            
-  //               <td><p className="title">{soldier.id}</p></td>
-  //               <td><img className="soldier-img" src={soldier.image}></img></td>
-  //               <td><p className="title">{soldier.grade}</p></td>
-  //               <td><p className="title">{soldier.prenom}</p></td>
-  //               <td><p className="title">{soldier.nom}</p></td>
-                
-  //               <td><p className="title">{soldier.deces}</p></td>
-  //               <td><p className="title">{soldier.age}</p></td>
-  //               <td><p className="title">{soldier.theatre}</p></td>
-  //               <td><p className="title">{soldier.armee}</p></td>
-  //               <td><p className="title">{soldier.unitee}</p></td>
-  //               <td><p className="title">{soldier.sepulture}</p></td>
-  //               <td><p className="title">{soldier.biographie}</p></td>
-  //               <td><p className="title">{soldier.circonstance}</p></td>
-            
-  //         </tr> 
-  //         )
-  //       }
-  //       </tbody>
-  //   </table>
-  //   </div>
-  
-//    );
-// }
+// si il n'y a pas de soldat mort aujourd'hui
 if (!soldiers.length){
   return(
     <div className="container-data">
@@ -88,6 +35,7 @@ if (!soldiers.length){
     </div>
   )
 }
+// sinon on les affiche dans la liste
   return(
     <div className="container-data">
       <h1>Bienvenue</h1>
@@ -102,16 +50,17 @@ if (!soldiers.length){
                           <th><p>Grade</p></th>
                           <th><p>Prénom</p></th>
                           <th><p>Nom</p></th>
-                          
+                          <th><p>Conflit</p></th>
+                          <th><p>Unitée</p></th>
+                          <th><p>Unitée</p></th>
+                          <th><p>Action</p></th>
                           {/* <th><p>Date de décès</p></th> */}
                           {/* <th><p>Age</p></th> */}
-                          <th><p>Conflit</p></th>
-                          {/* <th><p>Armée</p></th> */}
-                          <th><p>Unitée</p></th>
+                          {/* <th><p>Armée</p></th> */}                
                           {/* <th><p>Lieu de sépulture</p></th> */}
                           {/* <th><p>Biographie</p></th> */}
                           {/* <th><p>Circonstance du décès</p></th> */}
-                          <th><p>Action</p></th>
+                          
                         </tr>
               </thead>
               <tbody>
@@ -133,7 +82,7 @@ if (!soldiers.length){
                       {/* <td><p className="title">{soldier.sepulture}</p></td> */}
                       {/* <td><p className="title">{soldier.biographie}</p></td> */}
                       {/* <td><p className="title">{soldier.circonstance}</p></td> */}
-                      <td><button className='form-btn' onClick={linkToUpdate}>Modifier </button></td>
+                      <td><button className='btn-yellow' onClick={linkToUpdate}>Modifier </button></td>
                 </tr> 
                 )
               }
