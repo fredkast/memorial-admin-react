@@ -3,13 +3,26 @@ import React,{ useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 
 function ListSoldiers(){
-   
-const [soldiers, setAllSoldiers] = useState([])
+  const [idToSend, setIdToSend] = useState({}); 
+  const [soldiers, setAllSoldiers] = useState([]);
+
 
 // navigation vers update
+
+
+
+
+
+
+
+//IL FAUT TRANSMETTRE A UPDATE L ID
+
 let navigate = useNavigate()
+
 function linkToUpdate(){
-  navigate("/update",{ replace: true });
+  console.log(idToSend)
+ navigate("/update",{ replace: true , });
+
 }
 
 useEffect(() => {
@@ -21,8 +34,6 @@ useEffect(() => {
       .catch((error) => console.log(error))
       )},
 [])
-
-console.log()
 
  return(
         
@@ -68,7 +79,11 @@ console.log()
                   {/* <td><p className="title">{soldier.sepulture}</p></td> */}
                   {/* <td><p className="title">{soldier.biographie}</p></td> */}
                   <td><p className="title">{soldier.circonstance}</p></td>
-                  <td><button className='btn-yellow' onClick={linkToUpdate} >Modifier </button></td>
+                  <td>
+                    <button className='btn-yellow' onClick={linkToUpdate} >Modifier </button>
+                    <button className='btn-green'  >Voir </button>
+
+                  </td>
             </tr> 
             )
           }

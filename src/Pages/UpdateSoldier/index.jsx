@@ -1,5 +1,6 @@
 import '../../Styles/listSoldier.css'
 import React,{  useState } from "react";
+import { useLocation } from "react-router-dom"
 
 // Il faut modifier le soldierFind via ce que l'on tape dans les input
 // pour ensuite envoyer le body modifier a l'api
@@ -52,11 +53,18 @@ let emptySoldier = {
   image: ""
 }
 
-console.log(soldiersFind)
-console.log(JSON.stringify(idToUpdate))
-console.log(JSON.stringify(soldiersFind.nom))
 
-// recherche du soldat pour hydrater la requete API
+// on recupere l'id du soldat sur lequel on cliquer depuis ListSoldiers
+// const {state} = useLocation();
+// const { id } = state;
+// console.log(id)
+// setidToUpdate(id)
+
+// console.log(soldiersFind)
+// console.log(JSON.stringify(idToUpdate))
+// console.log(JSON.stringify(soldiersFind.nom))
+
+//ETAPE 1 recherche du soldat pour hydrater la requete API
   function searchThisId(e){
     e.preventDefault();
     fetch('https://api.tytnature.fr/soldats/read.php', {
@@ -77,7 +85,7 @@ console.log(JSON.stringify(soldiersFind.nom))
      )}
     
     
-    // UPDATE modification du soldat trouvé
+    //ETAPE 2 UPDATE modification du soldat trouvé
    function updateAPI(e){
      // empecher de re render le component au click
     e.preventDefault();
@@ -109,7 +117,7 @@ console.log(JSON.stringify(soldiersFind.nom))
       .catch((error) => console.log(error))
       )}
     
-  // si le soldat n'est pas trouvé (soldiersFind = est vide)
+  // si le soldat existe (soldiersFind != est vide)
   if (!(soldiersFind.id == "X") ){
     return(     
       <div className="container-data">
@@ -219,9 +227,9 @@ console.log(JSON.stringify(soldiersFind.nom))
                 <h2 className='text_aligne'>Ce soldat n'existe pas dans la base de données</h2>
             </div>
 
-            <button className='btn-yellow'  onClick={updateAPI} >
+            {/* <button className='btn-yellow'  onClick={updateAPI} >
                 Modifier
-            </button>
+            </button> */}
           </form>
           </div>
   </div>
