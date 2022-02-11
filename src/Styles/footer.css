@@ -1,5 +1,6 @@
 .footer{
-    background: linear-gradient(to right, #0e2de0, #c51010ed);
+    background: rgb(15,27,219);
+    background: linear-gradient(90deg, rgba(15,27,219,1) 0%, rgba(241,241,246,1) 50%, rgba(255,0,33,1) 100%);
     height: auto;
     width: 100%;
     text-align: center;
@@ -9,5 +10,5 @@
 }
 .footer p{
     font-family: 'Lato';
-    color: white;
+    color: black;
 }

@@ -37,8 +37,8 @@ function askApi(e){
 if (!soldiersFind.length){
   return(
     <div className="container-data">
-      <h1 className="title">Chercher un soldat</h1>
-      <p>exemple : 2022-02-02</p>
+    <h1 className="title">Chercher les soldats morts à une date précise</h1>
+      <p className="italic">Exemple : 2022-02-02</p>
         <div className='first-container'>
           <input className='search-input' onChange={(e) => setTextToFind(e.target.value)}></input>
           
@@ -50,7 +50,7 @@ if (!soldiersFind.length){
 // sinon on affiche le résultat
  return(
   <div className="container-data">
-    <h1 className="title">Chercher un soldat</h1>
+    <h1 className="title">Résultas</h1>
     <div className='first-container'>
       <input className='search-input' onChange={(e) => setTextToFind(e.target.value)}></input>
       <input className="btn-green" type="submit" value="Envoyer" onClick={askApi}></input>

@@ -17,9 +17,22 @@
     font-size: 14px;
     font-family: 'Lato';
   }
+  a{
+    font-size: 14px;
+    font-family: 'Lato';
+    color: black;
+    text-decoration: none;
+  }
   .title{
     text-align: center;
     margin: 20px;
+  }
+  .text_aligne{
+    text-align: center;
+    color:red;
+  }
+  .italic{
+    font-style: italic;
   }
   .container-data{
     background: #f8f8f8;
@@ -79,7 +92,9 @@
   ul li{
     list-style: none;
   }
- 
+  .display_row{
+    display: flex;
+  }
   .soldier-thead{
     background-color: #b9a9a9;
   }
@@ -88,8 +103,15 @@
     box-sizing: border-box;
     text-indent: initial;
   }
-  .input-field{
+  .input_field{
     padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  #id_input{
+    width: auto;
   }
 
   label{
@@ -98,10 +120,11 @@
   input{
     border: solid 1px;
     border-radius: 20px;
-    width: 50vw;
+    width: 100%;
     min-width: 200px;
     max-width: 400px;
     text-align: center;
+
   }
   textarea{
     border: solid 1px;

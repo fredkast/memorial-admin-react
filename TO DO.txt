@@ -1,0 +1,8 @@
+/////////////////////////////////////////
+//////// A FAIRE ////////////////////////
+
+
+1. Continuer la page update.php
+2. Creer la focntion POST pour ajouter des soldats a la BDD
+3. Gerer l'import d'image
+4. Comfirmer le donnes style unitee armee conflit ....

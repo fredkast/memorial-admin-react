@@ -12,7 +12,6 @@ function linkToUpdate(){
   navigate("/update",{ replace: true });
 }
 
-
 useEffect(() => {
   fetch(`https://api.tytnature.fr/soldats/readAll.php`)
       .then((response) => response.json()
