@@ -12,7 +12,7 @@ import ListSoldiers from './Pages/ListSoldiers';
 import SearchByCurrentDate from './Pages/SearchByDate';
 import UpdateSoldier from './Pages/UpdateSoldier';
 import Footer from './Composents/Footer';
-
+import Add from './Pages/AddSolider';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -26,6 +26,7 @@ ReactDOM.render(
         <Route path="/ListeSoldats" element={<ListSoldiers/>}/>
         <Route path="/update" element={<UpdateSoldier/>}/>
         <Route path="/SearchByCurrentDate" element={<SearchByCurrentDate/>}/>
+        <Route path="/add" element={<Add/>}/>
         <Route path='*' element={<Error404 />} />
         
       </Routes>

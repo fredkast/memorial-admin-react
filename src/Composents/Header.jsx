@@ -9,9 +9,10 @@ function Header(){
                 <p className='h1-like'>Memorial</p>
                 <div>
                 <Link className="link" to="/">Accueil</Link>
-                <Link className="link" to="/update">Modifier</Link>
-                <Link className="link" to="/ListeSoldats">Liste des soldats</Link>
+                <Link className="link" to="/update">Chercher un soldat</Link>
                 <Link className="link" to="/SearchByCurrentDate">Chercher une date</Link>
+                <Link className="link" to="/ListeSoldats">Liste des soldats</Link>
+                <Link className="link" to="/add">Ajouter un soldat</Link>
                 </div>
             </div>
         </div>

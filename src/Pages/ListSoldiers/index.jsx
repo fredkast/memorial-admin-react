@@ -24,6 +24,11 @@ function linkToUpdate(){
  navigate("/update",{ replace: true , });
 
 }
+function linkToDelete(){
+  console.log(idToSend)
+ navigate("/delete",{ replace: true , });
+
+}
 
 useEffect(() => {
   fetch(`https://api.tytnature.fr/soldats/readAll.php`)
@@ -80,15 +85,20 @@ useEffect(() => {
                   {/* <td><p className="title">{soldier.biographie}</p></td> */}
                   <td><p className="title">{soldier.circonstance}</p></td>
                   <td>
-                    <button className='btn-yellow' onClick={linkToUpdate} >Modifier </button>
-                    <button className='btn-green'  >Voir </button>
-
+                    <button className='color-green' onClick={linkToUpdate} >Modifier </button>
+                    {/* <button className=''  >Voir </button> */}
+                    <button className='color-red'  onClick={linkToDelete}>Supprimer </button>
                   </td>
             </tr> 
             )
           }
           </tbody>
       </table>
+
+
+      {/* A DEVELOPPEER */}
+      
+      <button>Ajouter un soldat</button>
     </div>
   </div>
 

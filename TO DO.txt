@@ -6,5 +6,7 @@
 Lien depuis modifier de ListSoldier
 
 2. Creer la focntion POST pour ajouter des soldats a la BDD
+
 3. Gerer l'import d'image
+
 4. Comfirmer le donnes style unitee armee conflit ....
