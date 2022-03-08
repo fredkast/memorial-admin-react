@@ -2,7 +2,7 @@ import React,{ useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 
 
-function LandingPage(){
+function HomePage(){
   let navigate = useNavigate()
   function linkToUpdate(){
     navigate("/update",{ replace: true });
@@ -29,7 +29,6 @@ function LandingPage(){
         )},
   [])
 
-  console.log(soldiers)
 
 // si il n'y a pas de soldat mort aujourd'hui
 if (!soldiers.length){
@@ -104,4 +103,4 @@ if (!soldiers.length){
 
     
 }
-export default LandingPage
+export default HomePage

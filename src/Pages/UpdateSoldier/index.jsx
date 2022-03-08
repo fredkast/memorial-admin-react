@@ -1,6 +1,5 @@
 import '../../Styles/listSoldier.css'
 import React,{  useState } from "react";
-import { useLocation } from "react-router-dom"
 
 // Il faut modifier le soldierFind via ce que l'on tape dans les input
 // pour ensuite envoyer le body modifier a l'api
@@ -65,6 +64,7 @@ let emptySoldier = {
 // console.log(JSON.stringify(soldiersFind.nom))
 
 //ETAPE 1 recherche du soldat pour hydrater la requete API
+
   function searchThisId(e){
     e.preventDefault();
     fetch('https://api.tytnature.fr/soldats/read.php', {
@@ -77,6 +77,7 @@ let emptySoldier = {
      .then((data) =>{
        // on insere dans le state soldiersFind pour afficher dans la liste 
       setSoldiersToFind(data);
+      console.log(data)
      })
      .catch(() => {
       // on vide soldiersFind si il n'y pas cet id dans la BDD 
@@ -151,7 +152,30 @@ let emptySoldier = {
                   </div>
                   <div className="input_field">
                     <label htmlFor="input_text">Grade :</label>
-                    <input id="grade" type="text" value={soldiersFind.grade}/>
+                    {/* <input id="grade" type="text" value={soldiersFind.grade}/> */}
+                    <select name="grade" id="grade" defaultValue={soldiersFind.grade}>
+                      <option value={soldiersFind.grade}>{soldiersFind.grade}</option>
+                      <option value="1">Soldat de 2eme classe</option>
+                      <option value="2">Soldat de 1ere classe</option>
+                      <option value="3">Caporal</option>
+                      <option value="4">Caporal-chef</option>
+                      <option value="5">Caporal-chef de 1ere classe</option>
+                      <option value="6">Sergent</option>
+                      <option value="7">Sergent-Chef</option>
+                      <option value="8">Adjudant</option>
+                      <option value="9">Adjudant-Chef</option>
+                      <option value="10">Major</option>
+                      <option value="11">Sous-Lieutenant</option>
+                      <option value="12">Lieutenant</option>
+                      <option value="13">Capitaine</option>
+                      <option value="15">Commandant</option>
+                      <option value="16">Lieutenant-Colonel</option>
+                      <option value="17">Colonel</option>
+                      <option value="18">Géneral de Brigade</option>
+                      <option value="19">Géneral de Division</option>
+                      <option value="20">Géneral de Corps d'Armée</option>
+                      <option value="21">Géneral de d'Armée</option>
+                    </select>
                   </div>
                 </div>
 
@@ -163,6 +187,7 @@ let emptySoldier = {
                   <div className="input_field">
                     <label htmlFor="input_text">Armée :</label>
                     <select name="armee" id="armee">
+                        <option defaultValue={soldiersFind.armee}>{soldiersFind.armee}</option>
                         <option value="1">Armée de Terre</option>
                         <option value="2">Armée de l'Air</option>
                         <option value="3">Marine National</option>

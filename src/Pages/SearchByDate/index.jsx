@@ -1,6 +1,5 @@
-import '../../Styles/listSoldier.css'
-
 import React,{ useState } from "react";
+import '../../Styles/listSoldier.css'
 
 function SearchByCurrentDate(){
 
@@ -19,7 +18,8 @@ const bodyRequest =
 function askApi(e){
   // empecher de re render le component au click
   e.preventDefault();
-  fetch('https://api.tytnature.fr/soldats/readOnDate.php', {
+  console.log(bodyRequest)
+  fetch('https://api.tytnature.fr/soldats/readOnDate', {
      method: 'POST',
      headers: { 'Content-Type': 'application/json' },
      // le text format JSON
@@ -29,6 +29,7 @@ function askApi(e){
    .then((data) =>{
      // on insere dans le state soldiersFind pour afficher dans la liste 
     setSoldiersToFind(data);
+    
    })
    .catch((error) => console.log(error))
    )}
@@ -79,19 +80,19 @@ if (!soldiersFind.length){
         soldiersFind.map((soldier) =>
           <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
             
-                <td><p className="title">{soldier.id}</p></td>
+                <td><p style={{margin:10}}>{soldier.id}</p></td>
                 <td><img className="soldier-img" src={soldier.image}></img></td>
-                <td><p className="title">{soldier.grade}</p></td>
-                <td><p className="title">{soldier.prenom}</p></td>
-                <td><p className="title">{soldier.nom}</p></td>            
-                <td><p className="title">{soldier.deces}</p></td>
-                <td><p className="title">{soldier.age}</p></td>
-                <td><p className="title">{soldier.theatre}</p></td>
-                <td><p className="title">{soldier.armee}</p></td>
-                <td><p className="title">{soldier.unitee}</p></td>
-                <td><p className="title">{soldier.sepulture}</p></td>
-                <td><p className="title">{soldier.biographie}</p></td>
-                <td><p className="title">{soldier.circonstance}</p></td>
+                <td><p style={{margin:10}}>{soldier.grade}</p></td>
+                <td><p style={{margin:10}}>{soldier.prenom}</p></td>
+                <td><p style={{margin:10}}>{soldier.nom}</p></td>            
+                <td><p style={{margin:10}}>{soldier.deces}</p></td>
+                <td><p style={{margin:10}}>{soldier.age}</p></td>
+                <td><p style={{margin:10}}>{soldier.theatre}</p></td>
+                <td><p style={{margin:10}}>{soldier.armee}</p></td>
+                <td><p style={{margin:10}}>{soldier.unitee}</p></td>
+                <td><p style={{margin:10}}>{soldier.sepulture}</p></td>
+                <td><p style={{margin:10}}>{soldier.biographie}</p></td>
+                <td><p style={{margin:10}}>{soldier.circonstance}</p></td>
             
           </tr> 
           )

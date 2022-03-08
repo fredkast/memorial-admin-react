@@ -9,4 +9,6 @@ Lien depuis modifier de ListSoldier
 
 3. Gerer l'import d'image
 
-4. Comfirmer le donnes style unitee armee conflit ....
+4. Comfirmer le donnees du style : unitee armee conflit ....
+
+5. Ajouter une image dans la BDD via API

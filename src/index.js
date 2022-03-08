@@ -6,13 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import Header from './Composents/Header';
 import Error404 from './Composents/404';
 // pages
-import Exo2 from './Pages/Exo2';
-import LandingPage from './Pages/LandingPage/index';
+import HomePage from './Pages/HomePage/index';
 import ListSoldiers from './Pages/ListSoldiers';
 import SearchByCurrentDate from './Pages/SearchByDate';
 import UpdateSoldier from './Pages/UpdateSoldier';
 import Footer from './Composents/Footer';
-import Add from './Pages/AddSolider';
+import Add from './Pages/AddSolider/index';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,7 +21,7 @@ ReactDOM.render(
    
       <Routes>
    
-        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/" element={<HomePage/>}/>
         <Route path="/ListeSoldats" element={<ListSoldiers/>}/>
         <Route path="/update" element={<UpdateSoldier/>}/>
         <Route path="/SearchByCurrentDate" element={<SearchByCurrentDate/>}/>
