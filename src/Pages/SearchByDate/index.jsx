@@ -1,5 +1,5 @@
 import React,{ useState } from "react";
-import '../../Styles/listSoldier.css'
+// import '../../Styles/style.css'
 
 function SearchByCurrentDate(){
 

@@ -1,4 +1,6 @@
-import '../../Styles/listSoldier.css'
+// ----------  Soldiers List component ---------------------------
+
+// import '../../Styles/listSoldier.css'
 import React,{ useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom"
 
@@ -8,14 +10,17 @@ import { useNavigate, Link } from "react-router-dom"
 // "voulez vous vraiment supp ?" plutot que alert ligne 35
 
 function ListSoldiers(){
+
   const [idToSend, setIdToSend] = useState({}); 
   const [soldiers, setAllSoldiers] = useState([]);
-
+  // redirection
   let navigate = useNavigate()
 
-  function linkToUpdate(){
-    console.log(idToSend)
-    navigate("/update",{ replace: true , });
+
+  function linkToUpdate(id){
+    // envois de l'id en props vers le component Update
+    navigate('/update',{state:{id:id}});
+    console.log(id)
   }
 
   function idToDelete(id){
@@ -50,7 +55,8 @@ function ListSoldiers(){
           setAllSoldiers(data);
         })
         .catch((error) => console.log(error))
-        )},
+        )
+      },
   [])
 
   return(
@@ -97,7 +103,7 @@ function ListSoldiers(){
                     <td><p style={{margin:10}}>{soldier.biographie}</p></td>
                     <td><p style={{margin:10}}>{soldier.circonstance}</p></td>
                     <td>
-                      <button className='color-green' onClick={linkToUpdate} >Modifier </button>
+                      <button className='color-green' onClick={(e) => linkToUpdate(soldier.id)} >Modifier </button>
                       <button className='color-red'   onClick={(e) => idToDelete(soldier.id)}>Supprimer </button>
                     </td>
               </tr> 

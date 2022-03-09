@@ -1,105 +1,100 @@
-import React,{  useState, useEffect } from "react";
-import { useLocation } from 'react-router-dom';
+import React,{  useState } from "react";
 
-// Le component se rerender automatiquement ce qui empeche de taper dans les input
+function SearchSoldier(){
 
-function UpdateSoldier(){
-  
+  // State de l'id a modifier
+    const [textToFind, setidToUpdate] = useState([])
+    // on formate pour le body de requete api
+    const idToUpdate = 
+    {
+      id:textToFind
+    }
+
   // Le state avec les donnees du soldat trouvé
   const [soldiersFind, setSoldiersToFind] = useState([
-    {}
+    {
+      id: "",
+      nom: "",
+      prenom: "",
+      grade:"",
+      age: "",
+      deces: "",
+      armee: "",
+      unitee: "",
+      theatre: "",
+      biographie:  "",
+      circonstance: "",
+      sepulture: "",
+      image: ""
+    }
   ])
-// +++>> il faut hydrater chaque champs en dessous
-
-  // on creer un soldat qui sera hydraté avec les nouvelles donneées
-
-  const [Name, setName] = useState([])
-  const [Firstname, setFirstname] = useState([])
-  const [Grade, setGrade] = useState([])
-  const [Age, setAge] = useState([])
-  const [Date, setDate] = useState([])
-  const [Army, setArmy] = useState([])
-  const [Unit, setUnit] = useState([])
-  const [Conflit, setConflit] = useState([])
-  const [Bio, setBio] = useState([])
-  const [Circ, setCirc] = useState([])
-  const [Sepult, setSepult] = useState([])
-
-  console.log(Name)
-
-  // Etape 1 : afficher les données du soldat depuis l'api
-  const {state} = useLocation();
-  const bodyRequest = 
-  {
-    "id":state.id
+  // on initialise un objet vide dans le cas ou l'id n'existe pas
+  let emptySoldier = {
+    id: "X",
+    nom: "",
+    prenom: "",
+    grade:"",
+    age: "",
+    deces: "",
+    armee: "",
+    unitee: "",
+    theatre: "",
+    biographie:  "",
+    circonstance: "",
+    sepulture: "",
+    image: ""
   }
-  useEffect(() => {
-    fetch('https://api.tytnature.fr/soldats/read.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      // le text format JSON
-      body: JSON.stringify(bodyRequest),
-    })
-    .then((response) => response.json()
-    .then((data) =>{
-      // on insere dans le state soldiersFind pour afficher dans la liste 
-      setSoldiersToFind(data);
-      console.log("Reponse :"+ data)
-    })
-    .catch(() => {
-      // on vide soldiersFind si il n'y pas cet id dans la BDD 
-      console.log("Fail API request")
-      })
-    )},
-  [])
-  
-  //ETAPE 2 UPDATE modification du soldat trouvé
-  function updateAPI(e){
-      // empecher de re render le component au click
+
+
+  //ETAPE 1 recherche du soldat pour hydrater la requete API
+
+    function searchThisId(e){
       e.preventDefault();
-      fetch('https://api.tytnature.fr/soldats/update.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(
-            {
-              id: JSON.stringify(soldiersFind.id),
-              nom: JSON.stringify(soldiersFind.nom),
-              prenom: JSON.stringify(soldiersFind.prenom),
-              grade: JSON.stringify(soldiersFind.grade),
-              age: JSON.stringify(soldiersFind.age),
-              deces: JSON.stringify(soldiersFind.deces),
-              armee: JSON.stringify(soldiersFind.armee),
-              unitee: JSON.stringify(soldiersFind.unitee),
-              theatre: JSON.stringify(soldiersFind.theatre),
-              biographie:  JSON.stringify(soldiersFind.biographie),
-              circonstance: JSON.stringify(soldiersFind.circonstance),
-              sepulture: JSON.stringify(soldiersFind.sepulture),
-              image: "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
-            }
-          )
+      fetch('https://api.tytnature.fr/soldats/read.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        // le text format JSON
+        body: JSON.stringify(idToUpdate),
+      })
+      .then((response) => response.json()
+      .then((data) =>{
+        // on insere dans le state soldiersFind pour afficher dans la liste 
+        setSoldiersToFind(data);
+        console.log(data)
+      })
+      .catch(() => {
+        // on vide soldiersFind si il n'y pas cet id dans la BDD 
+      setSoldiersToFind(emptySoldier);
         })
-        .then((response) => response.json()
-        .then((data) =>{
-          console.log(data.message);
-        })
-        .catch((error) => console.log(error))
-        )}
+      )}
       
+    // si le soldat existe (soldiersFind != est vide)
+    if (!(soldiersFind.id == "X") ){
       return(     
         <div className="container-data">
-          <h1 className="title">Modifier le soldat n°{state.id}</h1>
+          <h1 className="title">Chercher un soldat</h1>
           <div className='first-container'>
                 <form className="form" >
+
+                  {/* recherche du soldat avec cet ID */}
+                  <div className="second-container">         
+                      <label htmlFor="input_text">ID à rechercher :</label>                  
+                      <input id="id_input" type="number" data-length="4" onChange={(e) => setidToUpdate(e.target.value)}/>
+                      <button className='btn-green'  onClick={searchThisId} >Rechercher ce soldat</button>
+                  </div>
+
                   <div className="display_row">
                       <div className="input_field">
                         <label htmlFor="input_text">Nom :</label>
-                        <input id="name" type="text" data-length="4" value={soldiersFind.nom} onChange={(e) => setName(e.target.value)}/>
+                        <input id="name" type="text" data-length="4" value={soldiersFind.nom} />
+                        {/* (datas=>({ ...datas,[index]: e.target.value})) */}
                       </div>
                       <div className="input_field">
                         <label htmlFor="input_text">Prénom :</label>
                         <input id="prenom" type="text" data-length="4" value={soldiersFind.prenom} />
                       </div>
                   </div>
+
                   <div className="display_row">
                     <div className="input_field">
                       <label htmlFor="input_text">Age :</label>
@@ -107,6 +102,7 @@ function UpdateSoldier(){
                     </div>
                     <div className="input_field">
                       <label htmlFor="input_text">Grade :</label>
+                      {/* <input id="grade" type="text" value={soldiersFind.grade}/> */}
                       <select name="grade" id="grade" defaultValue={soldiersFind.grade}>
                         <option value={soldiersFind.grade}>{soldiersFind.grade}</option>
                         <option value="1">Soldat de 2eme classe</option>
@@ -151,16 +147,20 @@ function UpdateSoldier(){
                     </div>
                   </div>
 
+                
                     <div className="input_field">
                       <label htmlFor="input_text">Conflit :</label>
                       <input id="conflit" type="text" data-length="4" value={soldiersFind.conflit}/>
                     </div>
-
+                  
+                    
+                  
                     <div className="input_field">
                       <label htmlFor="input_text">Unitée :</label>
                       <input id="unitee" type="text" data-length="4" value={soldiersFind.unitee}/>
                     </div>
                 
+
                   <div className="textarea-container">
                     
                       <label htmlFor="input_text">Circonstences du déces :</label>
@@ -179,14 +179,29 @@ function UpdateSoldier(){
                       <textarea id="sepulture" type="text-area" data-length="4" value={soldiersFind.sepulture}/>
                   
                   </div>
-                  <button className='btn-yellow'  onClick={updateAPI} >
-                      Modifier
-                  </button>
+             
                 </form>
                 </div>
         </div>
       );
     }
+    
+    return(
+      <div className="container-data">
+      <h1 className="title">Modifier un soldat</h1>
+      <div className='first-container'>
+            <form className="form" >
+              {/* recherche du soldat avec cet ID */}
+              <div className="second-container">         
+                  <label htmlFor="input_text">ID à rechercher :</label>                  
+                  <input id="id" type="number" data-length="4" onChange={(e) => setidToUpdate(e.target.value)}/>
+                  <button className='btn-green'  onClick={searchThisId} >Rechercher ce soldat</button>
+                  <h2 className='text_aligne'>Ce soldat n'existe pas dans la base de données</h2>
+              </div>
+            </form>
+            </div>
+    </div>
+    );
+}
 
-
-export default UpdateSoldier
+export default SearchSoldier

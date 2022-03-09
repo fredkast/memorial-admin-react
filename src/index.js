@@ -12,6 +12,9 @@ import SearchByCurrentDate from './Pages/SearchByDate';
 import UpdateSoldier from './Pages/UpdateSoldier';
 import Footer from './Composents/Footer';
 import Add from './Pages/AddSolider/index';
+import SearchSoldier from './Pages/SearchSoldier';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,6 +26,7 @@ ReactDOM.render(
    
         <Route path="/" element={<HomePage/>}/>
         <Route path="/ListeSoldats" element={<ListSoldiers/>}/>
+        <Route path="/search" element={<SearchSoldier/>}/>
         <Route path="/update" element={<UpdateSoldier/>}/>
         <Route path="/SearchByCurrentDate" element={<SearchByCurrentDate/>}/>
         <Route path="/add" element={<Add/>}/>

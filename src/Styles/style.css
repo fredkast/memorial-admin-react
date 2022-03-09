@@ -253,9 +253,11 @@
     color: red;
     border: none;
     margin:5px!important;
+    cursor: pointer;
   }
   .color-green{
     color: green;
     border: none;
     margin:5px!important;
+    cursor: pointer;
   }
