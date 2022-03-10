@@ -1,10 +1,11 @@
+// Component Search By ID
+
 import React,{  useState } from "react";
 
 function SearchSoldier(){
 
   // State de l'id a modifier
     const [textToFind, setidToUpdate] = useState([])
-    // on formate pour le body de requete api
     const idToUpdate = 
     {
       id:textToFind
@@ -44,7 +45,6 @@ function SearchSoldier(){
     sepulture: "",
     image: ""
   }
-
 
   //ETAPE 1 recherche du soldat pour hydrater la requete API
 
@@ -146,40 +146,27 @@ function SearchSoldier(){
                       </select>
                     </div>
                   </div>
-
-                
                     <div className="input_field">
                       <label htmlFor="input_text">Conflit :</label>
                       <input id="conflit" type="text" data-length="4" value={soldiersFind.conflit}/>
                     </div>
-                  
-                    
-                  
                     <div className="input_field">
                       <label htmlFor="input_text">Unitée :</label>
                       <input id="unitee" type="text" data-length="4" value={soldiersFind.unitee}/>
                     </div>
-                
-
                   <div className="textarea-container">
-                    
                       <label htmlFor="input_text">Circonstences du déces :</label>
                       <textarea id="circonstence" type="text" data-length="4" value={soldiersFind.circonstance}/>
-                    
                   </div>
                   <div className="textarea-container">
                   
                       <label htmlFor="input_text">Biographie :</label>
                       <textarea id="biographie" type="text" data-length="4" value={soldiersFind.biographie}/>
-                    
                   </div>
-                  
                   <div className="textarea-container">
                       <label htmlFor="input_text">Lieu de sépulture*</label>
                       <textarea id="sepulture" type="text-area" data-length="4" value={soldiersFind.sepulture}/>
-                  
                   </div>
-             
                 </form>
                 </div>
         </div>

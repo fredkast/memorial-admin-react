@@ -1,4 +1,4 @@
-// ----------  Soldiers List component ---------------------------
+//  Component Soldiers List 
 
 // import '../../Styles/listSoldier.css'
 import React,{ useEffect, useState } from "react";
@@ -11,7 +11,7 @@ import { useNavigate, Link } from "react-router-dom"
 
 function ListSoldiers(){
 
-  const [idToSend, setIdToSend] = useState({}); 
+  // const [idToSend, setIdToSend] = useState({}); 
   const [soldiers, setAllSoldiers] = useState([]);
   // redirection
   let navigate = useNavigate()
@@ -51,7 +51,7 @@ function ListSoldiers(){
     fetch(`https://api.tytnature.fr/soldats/readAll.php`)
         .then((response) => response.json()
         .then((data) =>{
-          
+          console.log(data)
           setAllSoldiers(data);
         })
         .catch((error) => console.log(error))
@@ -89,7 +89,7 @@ function ListSoldiers(){
               <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
                 
                     <td><p style={{margin:10}} >{soldier.id}</p></td>
-                    <td><img className="soldier-img" src={soldier.image}></img></td>
+                    <td><img className="soldier-img" style={{maxWidth:50}} src={soldier.image}></img></td>
                     <td><p style={{margin:10}}>{soldier.grade}</p></td>
                     <td><p style={{margin:10}}>{soldier.prenom}</p></td>
                     <td><p style={{margin:10}}>{soldier.nom}</p></td>

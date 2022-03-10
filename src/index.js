@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 // components
 import Header from './Composents/Header';
+import SideNav from './Composents/SideNav';
 import Error404 from './Composents/404';
 // pages
 import HomePage from './Pages/HomePage/index';
@@ -21,7 +22,7 @@ ReactDOM.render(
 
     <BrowserRouter>
       <Header/>
-   
+      {/* <SideNav/> */}
       <Routes>
    
         <Route path="/" element={<HomePage/>}/>
@@ -31,7 +32,7 @@ ReactDOM.render(
         <Route path="/SearchByCurrentDate" element={<SearchByCurrentDate/>}/>
         <Route path="/add" element={<Add/>}/>
         <Route path='*' element={<Error404 />} />
-        
+       
       </Routes>
       <Footer/>
     </BrowserRouter>

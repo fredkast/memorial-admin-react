@@ -1,5 +1,9 @@
+// Composent HomePage
+
+// TODO : Widget avec le nombre de données dans la BDD
+
 import React,{ useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../../Styles/style.css";
 
 function HomePage(){
@@ -16,7 +20,7 @@ function HomePage(){
   const month = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
   let currentMonth = month[d.getMonth()];
   const currentDay = d.getDate()
-  
+  const currentYear = d.getFullYear();
 
   useEffect(() => {
     fetch(`https://api.tytnature.fr/soldats/readOfDay.php`)
@@ -46,8 +50,7 @@ if (!soldiers.length){
     <div className="container-data">
       <h1>Bienvenue</h1>
       <div className="first-container">
-      <div className='list-container'>
-          <h2 className="title">Soldat du jour</h2>
+          <h2 className="title">Soldat du jour<hr width="50"></hr></h2>
           <table className="soldier-table">
               <thead className="soldier-thead">
                         <tr>
@@ -56,10 +59,10 @@ if (!soldiers.length){
                           <th><p>Grade</p></th>
                           <th><p>Prénom</p></th>
                           <th><p>Nom</p></th>
-                          <th><p>Conflit</p></th>
-                          <th><p>Unitée</p></th>
-                          <th><p>Unitée</p></th>
-                          <th><p>Action</p></th>
+                          {/* <th><p>Conflit</p></th> */}
+                          {/* <th><p>Unitée</p></th> */}
+                          <th><p>Date</p></th>
+                          {/* <th><p>Action</p></th> */}
                           {/* <th><p>Date de décès</p></th> */}
                           {/* <th><p>Age</p></th> */}
                           {/* <th><p>Armée</p></th> */}                
@@ -79,23 +82,37 @@ if (!soldiers.length){
                       <td><p className="title">{soldier.grade}</p></td>
                       <td><p className="title">{soldier.prenom}</p></td>
                       <td><p className="title">{soldier.nom}</p></td>
+                      <td><p className="title">{soldier.deces}</p></td>
                       
-                      {/* <td><p className="title">{soldier.deces}</p></td> */}
                       {/* <td><p className="title">{soldier.age}</p></td> */}
-                      <td><p className="title">{soldier.theatre}</p></td>
+                      {/* <td><p className="title">{soldier.theatre}</p></td> */}
                       {/* <td><p className="title">{soldier.armee}</p></td> */}
-                      <td><p className="title">{soldier.unitee}</p></td>
+                      {/* <td><p className="title">{soldier.unitee}</p></td> */}
+
                       {/* <td><p className="title">{soldier.sepulture}</p></td> */}
                       {/* <td><p className="title">{soldier.biographie}</p></td> */}
                       {/* <td><p className="title">{soldier.circonstance}</p></td> */}
-                      <td><button className='btn-yellow' onClick={linkToUpdate}>Modifier </button></td>
+                      {/* <td><button className='btn-yellow' onClick={linkToUpdate}>Voir</button></td> */}
                 </tr> 
                 )
               }
               </tbody>
           </table>
+      </div>
+      <div className="display_row">
+        <div className="first-container">
+          <h2 className="title">Date du jour<hr width="50"></hr></h2>
+          <p style={{fontSize:20}}>{currentDay} {currentMonth} {currentYear}</p>
+        </div>
+        <div className="first-container">
+          <h2 className="title">Ajouter un soldat<hr width="50"></hr></h2>
+          <button className="btn-green"><Link className="link" to="/add">Ajouter un soldat</Link></button>
+        </div>
+        <div className="first-container">
+          <h2 className="title">Nombre de Données<hr width="50"></hr></h2>
         </div>
       </div>
+      
     </div>
     )
 

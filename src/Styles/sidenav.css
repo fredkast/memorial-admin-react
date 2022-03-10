@@ -1,0 +1,27 @@
+/* LATERAL NAV STYLE */
+.sideNav {
+    height: 100vh;
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+    margin: 0;
+    padding-top: 12p;
+    top: 63px;
+  
+    background-color: #2b2828;
+    
+    padding-top: 60px;
+  }
+  
+  .sideNav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sideNav a:hover {
+    color: #f1f1f1;
+  }

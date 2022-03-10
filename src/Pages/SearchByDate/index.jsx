@@ -1,16 +1,14 @@
+// Component SearchByDate
+
 import React,{ useState } from "react";
-// import '../../Styles/style.css'
 
 function SearchByCurrentDate(){
 
 // La liste des soldats qui seront trouvés
 const [soldiersFind, setSoldiersToFind] = useState([])
-// le text de la recherche
+// la date de la recherche
 const [textToFind, setTextToFind] = useState([])
-// On format le text de l'input pour qu'il devient le Body de la requete API
-//"userDate":"2022-02-02"
 const bodyRequest = 
-
   {
     "userDate":textToFind
  }
@@ -22,14 +20,11 @@ function askApi(e){
   fetch('https://api.tytnature.fr/soldats/readOnDate', {
      method: 'POST',
      headers: { 'Content-Type': 'application/json' },
-     // le text format JSON
      body: JSON.stringify(bodyRequest),
    })
    .then((response) => response.json()
    .then((data) =>{
-     // on insere dans le state soldiersFind pour afficher dans la liste 
     setSoldiersToFind(data);
-    
    })
    .catch((error) => console.log(error))
    )}
