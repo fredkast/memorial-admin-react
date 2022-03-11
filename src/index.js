@@ -18,6 +18,7 @@ import SearchSoldier from './Pages/SearchSoldier';
 
 
 ReactDOM.render(
+
   <React.StrictMode>
 
     <BrowserRouter>

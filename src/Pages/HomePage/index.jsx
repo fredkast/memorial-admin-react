@@ -38,9 +38,26 @@ function HomePage(){
 if (!soldiers.length){
   return(
     <div className="container-data">
+       <h1>Memorial Admin dashboard</h1>
+       <p className="underline">Bienvenue</p>
+
       <div className='first-container'>
-        <h1 className="title">Soldat du jour</h1>
+      <h2 className="title">Soldat du jour<hr width="50"></hr></h2>
+     
         <p>Aucun soldat n'est mort un {currentDay + " " + currentMonth +"."}</p>
+      </div>
+      <div className="display_row">
+        <div className="first-container">
+          <h2 className="title">Date du jour<hr width="50"></hr></h2>
+          <p style={{fontSize:20}}>{currentDay} {currentMonth} {currentYear}</p>
+        </div>
+        <div className="first-container">
+          <h2 className="title">Ajouter un soldat<hr width="50"></hr></h2>
+          <button className="btn-green"><Link className="link" to="/add">Ajouter un soldat</Link></button>
+        </div>
+        <div className="first-container">
+          <h2 className="title">Nombre de Données<hr width="50"></hr></h2>
+        </div>
       </div>
     </div>
   )
@@ -48,7 +65,8 @@ if (!soldiers.length){
 // sinon on les affiche dans la liste
   return(
     <div className="container-data">
-      <h1>Bienvenue</h1>
+      <h1>Memorial Admin dashboard</h1>
+       <p className="underline">Bienvenue</p>
       <div className="first-container">
           <h2 className="title">Soldat du jour<hr width="50"></hr></h2>
           <table className="soldier-table">
@@ -77,7 +95,7 @@ if (!soldiers.length){
               soldiers.map((soldier) =>
                 <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
                   
-                      <td><p className="title">{soldier.id}</p></td>
+                      <td ><p className="title">{soldier.id}</p></td>
                       <td><img className="soldier-img" src={soldier.image}></img></td>
                       <td><p className="title">{soldier.grade}</p></td>
                       <td><p className="title">{soldier.prenom}</p></td>
@@ -112,7 +130,6 @@ if (!soldiers.length){
           <h2 className="title">Nombre de Données<hr width="50"></hr></h2>
         </div>
       </div>
-      
     </div>
     )
 

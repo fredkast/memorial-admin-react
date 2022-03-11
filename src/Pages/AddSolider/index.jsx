@@ -56,7 +56,9 @@ function createSoldier(e){
 
   return (
     <div className="container-data">
-    <h1 className="title">Ajouter un soldat</h1>
+    <h1 className="title">Ajouter</h1>
+    <p className="underline">Ajouter un soldat dans la base de données de Memorial</p>
+
     <div className='first-container'>
           <form className="form" >   
             <div className="display_row">

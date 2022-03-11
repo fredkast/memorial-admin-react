@@ -73,6 +73,8 @@ function SearchSoldier(){
       return(     
         <div className="container-data">
           <h1 className="title">Chercher un soldat</h1>
+          <p className="underline">Chercher par ID</p>
+
           <div className='first-container'>
                 <form className="form" >
 

@@ -7,10 +7,11 @@ function SearchByCurrentDate(){
 // La liste des soldats qui seront trouvés
 const [soldiersFind, setSoldiersToFind] = useState([])
 // la date de la recherche
-const [textToFind, setTextToFind] = useState([])
+const [dateToFind, setTextToFind] = useState([])
+
 const bodyRequest = 
   {
-    "userDate":textToFind
+    "userDate":dateToFind
  }
 
 function askApi(e){
@@ -33,12 +34,13 @@ function askApi(e){
 if (!soldiersFind.length){
   return(
     <div className="container-data">
-    <h1 className="title">Chercher les soldats morts à une date précise</h1>
+    <h1 className="title">Chercher par date</h1>
+    <p className="underline">Chercher les soldats morts à une date précise</p>
       <p className="italic">Exemple : 2022-02-02</p>
         <div className='first-container'>
           <input className='search-input' onChange={(e) => setTextToFind(e.target.value)}></input>
           
-          <input className="btn-green" type="submit" value="Envoyer" onClick={askApi}></input>
+          <input className="btn-blue" type="submit" value="Envoyer" onClick={askApi}></input>
         </div>
     </div>
   )

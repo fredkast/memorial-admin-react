@@ -7,7 +7,7 @@ import { useLocation, Link } from 'react-router-dom';
 
 function UpdateSoldier(){
 
-  // ***** Etape 1 : afficher les données du soldat (id passé par SoldierList) depuis l'api
+  // ---------------------------------***** ETAPE 1 : afficher les données du soldat (id passé par SoldierList) depuis l'api
   const {state} = useLocation();
   
   const bodyRequest = 
@@ -24,25 +24,32 @@ function UpdateSoldier(){
     })
     .then((response) => response.json()
     .then((data) =>{
-      // on insere dans le state soldiersFind pour afficher dans la liste 
+      // on incrémente dans le state soldiersFind pour afficher dans les input
       setSoldiersToFind(data);
+
+console.log(data)
     })
     .catch(() => {
-      // on vide soldiersFind si il n'y pas cet id dans la BDD 
       console.log("Fail API request")
+      alert("Erreur dans la reécupération de données")
       })
     )},
   [])
 
-  // Les données du soldat trouvé hydrate soldierFind
+  // Les données du soldat trouvé incremente soldierFind
   const [soldiersFind, setSoldiersToFind] = useState([
     {}
   ])
   
-  //**** ETAPE 2 methide UPDATE modification du soldat trouvé
+
+console.log(soldiersFind.nom)
+
+
+
+  //--------------------------------------------------------**** ETAPE 2 methide UPDATE modification du soldat trouvé
 
   // on creer un state des champs qui seront hydraté avec les nouvelles donneées des input
-  //const [Id, setId] = useState([]) id est reucpere depuis le soldat créé via l'etape 1
+  // id est récupéré depuis le soldat créé via l'etape 1
 
   const [Name, setName] = useState([])
   const [Firstname, setFirstname] = useState([])
@@ -95,6 +102,8 @@ function UpdateSoldier(){
       return(     
         <div className="container-data">
           <h1 className="title">Modifier le soldat n°{state.id}</h1>
+          <p className="underline">Modifier les champs </p>
+
           <div className="first-container ">
             <div className="display_row" style={{justifyContent:"center"}}>
               <img className="soldier-img" src={soldiersFind.image} ></img>
@@ -131,7 +140,11 @@ function UpdateSoldier(){
                   <div className="display_row">
                       <div className="input_field">
                         <label htmlFor="input_text">Nom : <span style={{margin:0, color:"grey"}}>{soldiersFind.nom}</span></label>
-                        <input id="name" type="text"  placeholder={soldiersFind.nom} onChange={(e) => setName(e.target.value)} required/>
+                        <input id="name" type="text"  value={soldiersFind.nom}  required/>
+
+                        {/* <TextField id="name" type="text"  value={nom} onChange={(e) => setName(e.target.value)} required/> */}
+
+
                       </div>
                       <div className="input_field">
                         <label htmlFor="input_text">Prénom : <span style={{margin:0, color:"grey"}}>{soldiersFind.prenom}</span></label>

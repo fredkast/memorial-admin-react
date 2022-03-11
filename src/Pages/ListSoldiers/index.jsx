@@ -63,7 +63,15 @@ function ListSoldiers(){
           
     <div className="container-data">
       <div className='list-container'>
-        <h1 className="title">Liste des soldats dans la base de donnée</h1>
+        <h1 className="title">Soldats </h1>
+           <p className="underline">Toutes les données de la base de donnée</p>
+        <div className="display-row">
+          <p style={{color:"olive", margin:5}}>Armée de Terre</p>
+          <p style={{color:"deepskyblue",margin:5}}>Armée de l'air</p>
+          <p style={{color:"navy",margin:5}}>Marine Nationale</p>
+          <p style={{color:"lightskyblue",margin:5}}>Gendarmerie</p>
+          <p style={{color:"slategray",margin:5}}>Autres</p>
+        </div>
         <table className="soldier-table">
             <thead className="soldier-thead">
                       <tr>
@@ -75,11 +83,11 @@ function ListSoldiers(){
                         <th><p>Date de décès</p></th>
                         <th><p>Age</p></th>
                         <th><p>Conflit</p></th>
-                        <th><p>Armée</p></th>
+                        {/* <th><p>Armée</p></th> */}
                         <th><p>Unitée</p></th>
-                        <th><p>Lieu de sépulture</p></th>
+                        {/* <th><p>Lieu de sépulture</p></th>
                         <th><p>Biographie</p></th>
-                        <th><p>Circonstance du décès</p></th>
+                        <th><p>Circonstance du décès</p></th> */}
                         <th><p>Action</p></th>
                       </tr>
             </thead>
@@ -88,7 +96,7 @@ function ListSoldiers(){
             soldiers.map((soldier) =>
               <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
                 
-                    <td><p style={{margin:10}} >{soldier.id}</p></td>
+                    <td className={"armeeColor-"+soldier.armee}><p style={{margin:10}}  >{soldier.id}</p></td>
                     <td><img className="soldier-img" style={{maxWidth:50}} src={soldier.image}></img></td>
                     <td><p style={{margin:10}}>{soldier.grade}</p></td>
                     <td><p style={{margin:10}}>{soldier.prenom}</p></td>
@@ -97,14 +105,16 @@ function ListSoldiers(){
                     <td><p style={{margin:10}}>{soldier.deces}</p></td>
                     <td><p style={{margin:10}}>{soldier.age}</p></td>
                     <td><p style={{margin:10}}>{soldier.theatre}</p></td>
-                    <td><p style={{margin:10}}>{soldier.armee}</p></td>
+                    {/* <td><p style={{margin:10}}>{soldier.armee}</p></td> */}
                     <td><p style={{margin:10}}>{soldier.unitee}</p></td>
-                    <td><p style={{margin:10}}>{soldier.sepulture}</p></td>
+                    {/* <td><p style={{margin:10}}>{soldier.sepulture}</p></td>
                     <td><p style={{margin:10}}>{soldier.biographie}</p></td>
-                    <td><p style={{margin:10}}>{soldier.circonstance}</p></td>
+                    <td><p style={{margin:10}}>{soldier.circonstance}</p></td> */}
                     <td>
-                      <button className='color-green' onClick={(e) => linkToUpdate(soldier.id)} >Modifier </button>
-                      <button className='color-red'   onClick={(e) => idToDelete(soldier.id)}>Supprimer </button>
+                      <div className="display-row">
+                        <img className="icon" src={"img/update.png"} onClick={(e) => linkToUpdate(soldier.id)}></img>
+                        <img className="icon" src={"img/delete.png"} onClick={(e) => idToDelete(soldier.id)}></img>
+                      </div>
                     </td>
               </tr> 
               )
@@ -115,7 +125,7 @@ function ListSoldiers(){
 
         {/* A DEVELOPPEER */}
         <Link to="/add">
-          <button className='btn-green'>Ajouter un soldat</button>
+          <button className='btn-blue'>Ajouter un soldat</button>
         </Link>
       </div>
     </div>
