@@ -8,4 +8,6 @@
 
 4. Comfirmer le donnees du style : unitee armee conflit ....
 
-- Theme sombre
+- Theme sombre a mettre en place = balise html <meta> color
+
+- Mettre en place dans Soldat le sexe du soldat avec css une couleur quand homme ou femme
