@@ -49,7 +49,7 @@ if (!soldiers.length){
       <div className="display_row">
         <div className="first-container">
           <h2 className="title">Date du jour<hr width="50"></hr></h2>
-          <p style={{fontSize:20}}>{currentDay} {currentMonth} {currentYear}</p>
+          <p style={{fontSize:35, color:'greenyellow',textAlign:"center"}}>{currentDay} {currentMonth} {currentYear}</p>
         </div>
         <div className="first-container">
           <h2 className="title">Ajouter un soldat<hr width="50"></hr></h2>

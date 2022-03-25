@@ -24,27 +24,31 @@ function ListSoldiers(){
   }
 
   function idToDelete(id){
-    fetch('https://api.tytnature.fr/soldats/delete', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(
-        {
-          "id":id
-        }
-      ),
-    })
-    .then((response) => response.json()
-    .then((data) =>{
-      console.log(data);
-      if(data.message === "success"){
-       alert("Données supprimées !")
-       window.location.reload(false);
-      }
-    })
-    .catch((error) =>{ console.log(error)
-        alert("Echec de la suppression !")
+    var result = window.confirm("Êtes-vous sûr de vouloir supprimer de la base de donnée l'identifiant "+id);
+    if (result) {
+      fetch('https://api.tytnature.fr/soldats/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(
+          {
+            "id":id
+          }
+        ),
       })
-    )}
+      .then((response) => response.json()
+      .then((data) =>{
+        console.log(data);
+        if(data.message === "success"){
+        alert("Données supprimées !")
+        window.location.reload(false);
+        }
+      })
+      .catch((error) =>{ console.log(error)
+          alert("Echec de la suppression !")
+        })
+      )
+    }
+  }
 
 
   useEffect(() => {
@@ -63,7 +67,7 @@ function ListSoldiers(){
           
     <div className="container-data">
       <div className='list-container'>
-        <h1 className="title">Soldats </h1>
+        <h1 className="title">Nos soldats morts pour la France</h1>
            <p className="underline">Toutes les données de la base de donnée</p>
         <div className="display-row">
           <p style={{color:"olive", margin:5}}>Armée de Terre</p>

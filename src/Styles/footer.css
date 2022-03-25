@@ -13,3 +13,9 @@
     font-family: 'Lato';
     color: black;
 }
+.citation{
+    font-style: italic;
+    color: white;
+    background-color: black;
+    box-shadow: 0px 0px 12px 10px #131417;
+}

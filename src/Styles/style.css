@@ -57,6 +57,9 @@
     font-style: italic;
   }
  
+  /* INPUT */
+
+
   input{
     border: solid 0.5px rgb(166, 187, 192);
     border-radius: 5px;
@@ -65,24 +68,43 @@
     min-width: 200px;
     max-width: 400px;
     text-align: center;
-    background-color: white;
+    background: rgb(94, 90, 88);
+    color:white
   }
+  #add_img_soldier{
+    width: 100%;
+  }
+
   textarea{
     border: solid 0.5px rgb(166, 187, 192);
     border-radius: 5px;
     width: 100%;
     min-height: 200px;
-    background-color: white;
+    background: rgb(94, 90, 88);
+    color:white
   }
-  
+  select{
+    background: rgb(94, 90, 88);
+    color:white
+  }
+
   form{
     display: grid;
     justify-items: center;
   }
   #id_input{
     width: auto;
+    background: rgb(94, 90, 88);
+    color:white
   }
-
+  .input_field{
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    text-align: center;
+    /* background: red; */
+  }
   label{
     padding-right: 10px;
     font-size: 16px;
@@ -92,11 +114,11 @@
 
   /* Container */
   .first-container{
-    width:auto;
-    background-color: #131417;
+    width:80%;
+    background-color: #2e3033;
     padding: 30px;
-    border-radius: 30px;
-    /* box-shadow: 0px 6px 30px 1px #f1eeee4a; */
+    border-radius: 20px;
+    box-shadow: 0px 6px 10px 1px #9184844a;
     margin: 20px;
     display: grid;
     justify-items: center;
@@ -105,7 +127,7 @@
     width: 80%;
     background-color: #131417;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     /* box-shadow: 0px 6px 30px 1px #f1eeee4a; */
     margin-bottom: 20px;
     display: grid;
@@ -113,7 +135,7 @@
   }
 
   .container-data{
-    background: #1E1F25;
+    background: #000000;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -201,14 +223,10 @@
     width: 80%;
     border-radius: 15px;
   }
-  .input_field{
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-    text-align: center;
-    /* background: red; */
-  }
+
+
+  /* Couleur des armées */
+
   /* Armee de terre */
   .armeeColor-1{
     background-color: olive;
@@ -338,4 +356,9 @@
   width: 1.5em;
   height: 1.5em;
   margin: 10px;
+  }
+
+  /* Nav */
+  #nav_add_soldier_link{
+    text-transform: uppercase!important;
   }

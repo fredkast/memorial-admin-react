@@ -56,7 +56,7 @@ function createSoldier(e){
 
   return (
     <div className="container-data">
-    <h1 className="title">Ajouter</h1>
+    <h1 className="title">Ajouter un soldat</h1>
     <p className="underline">Ajouter un soldat dans la base de données de Memorial</p>
 
     <div className='first-container'>
@@ -163,12 +163,12 @@ function createSoldier(e){
                 <label htmlFor="input_text">Lieu de sépulture*</label>
                 <textarea id="sepulture" type="text-area" data-length="4" onChange={(e) => setSepult(e.target.value)}/>
             </div>
-            <div>
-                <label htmlFor="input_text">Image par défault</label>
-                <input id="image_default" type="radio" />
+            <div className="display_row">
+                <label htmlFor="input_text">Photo du soldat</label>
+                <input id="add_img_soldier" type="file" />
             </div>
 
-            <button className='btn-submit' onClick={createSoldier} >
+            <button className='btn-blue' onClick={createSoldier} >
                 Ajouter
             </button>
           </form>

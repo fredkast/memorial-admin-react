@@ -6,6 +6,8 @@ function Footer(){
     return(
         <div>
             <div className='container-data-background'>
+                <p className='citation'>Parce qu'il est seul à pouvoir regarder la mort dans les yeux, seul le soldat est un homme libre !</p>
+                <p >Richard Hoffmann</p>
             </div>
             <div className='footer'>
                 

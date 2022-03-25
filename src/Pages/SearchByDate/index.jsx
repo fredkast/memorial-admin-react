@@ -38,9 +38,9 @@ if (!soldiersFind.length){
     <p className="underline">Chercher les soldats morts à une date précise</p>
       <p className="italic">Exemple : 2022-02-02</p>
         <div className='first-container'>
-          <input className='search-input' onChange={(e) => setTextToFind(e.target.value)}></input>
-          
+          <input type="date"  className='search-input' onChange={(e) => setTextToFind(e.target.value)}></input>
           <input className="btn-blue" type="submit" value="Envoyer" onClick={askApi}></input>
+          <p style={{color:"red"}}>Il n'y a pas de soldat mort à cette date.</p>
         </div>
     </div>
   )
@@ -50,7 +50,7 @@ if (!soldiersFind.length){
   <div className="container-data">
     <h1 className="title">Résultas</h1>
     <div className='first-container'>
-      <input className='search-input' onChange={(e) => setTextToFind(e.target.value)}></input>
+      <input type="date" className='search-input' onChange={(e) => setTextToFind(e.target.value)}></input>
       <input className="btn-green" type="submit" value="Envoyer" onClick={askApi}></input>
     </div>
     <div className='list-container'>

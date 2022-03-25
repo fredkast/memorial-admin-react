@@ -74,22 +74,56 @@ function SearchSoldier(){
         <div className="container-data">
           <h1 className="title">Chercher un soldat</h1>
           <p className="underline">Chercher par ID</p>
-
-          <div className='first-container'>
-                <form className="form" >
-
-                  {/* recherche du soldat avec cet ID */}
-                  <div className="second-container">         
-                      <label htmlFor="input_text">ID à rechercher :</label>                  
-                      <input id="id_input" type="number" data-length="4" onChange={(e) => setidToUpdate(e.target.value)}/>
+           {/* recherche du soldat avec cet ID */}
+           <div className="first-container">         
+                      <label htmlFor="input_text" style={{margin:5}}>ID à rechercher :</label>                  
+                      <input id="id_input" type="number" min="1" data-length="4" onChange={(e) => setidToUpdate(e.target.value)}/>
                       <button className='btn-green'  onClick={searchThisId} >Rechercher ce soldat</button>
                   </div>
+          <div className="first-container ">
 
+            <div className="display_row">
+                <h2> <span style={{margin:5, color:"white", fontSize:30}}>{soldiersFind.grade}</span></h2>
+                <h2> <span style={{margin:5, color:"white", fontSize:30}}>{soldiersFind.nom}</span></h2>
+                <h2> <span style={{margin:5, color:"white", fontSize:30}}>{soldiersFind.prenom}</span></h2>
+
+            </div>
+                
+            <div className="display_row" style={{justifyContent:"center"}}>
+              <img className="soldier-img" src={soldiersFind.image} ></img>
+            </div>
+
+            <div className="display_row"> 
+              <ul>
+                <p>Date de déces : <span style={{margin:0, color:"grey"}}>{soldiersFind.date_deces}</span></p>
+                <p>Age : <span style={{margin:0, color:"grey"}}>{soldiersFind.age} ans</span></p>
+                <p>Mort pour la France en/au : {soldiersFind.conflit}</p>
+              </ul>
+              <ul>
+              </ul>
+            </div>
+           
+              <p style={{margin:15}}>Armée : <span style={{marginLeft:5, color:"grey"}}>{soldiersFind.armee}</span></p>
+              <p style={{margin:15}}>Unitée : <span style={{margin:5, color:"grey"}}>{soldiersFind.unitee}</span></p>
+
+            <div className="display_row" style={{justifyContent:"space-between"}}>
+              <ul>
+                <p>Biographie : </p>
+                <span style={{margin:0, color:"grey"}}>{soldiersFind.biographie}</span>
+                <p>Circonstances : </p>
+                <span style={{margin:0, color:"grey"}}>{soldiersFind.circonstance}</span>
+                <p>Sépulture : </p>
+                <span style={{margin:0, color:"grey"}}>{soldiersFind.sepulture}</span>
+              </ul>
+            </div>
+
+          </div>
+          {/* <div className='first-container'>
+                <form className="form" >
                   <div className="display_row">
                       <div className="input_field">
                         <label htmlFor="input_text">Nom :</label>
                         <input id="name" type="text" data-length="4" value={soldiersFind.nom} />
-                        {/* (datas=>({ ...datas,[index]: e.target.value})) */}
                       </div>
                       <div className="input_field">
                         <label htmlFor="input_text">Prénom :</label>
@@ -104,7 +138,6 @@ function SearchSoldier(){
                     </div>
                     <div className="input_field">
                       <label htmlFor="input_text">Grade :</label>
-                      {/* <input id="grade" type="text" value={soldiersFind.grade}/> */}
                       <select name="grade" id="grade" defaultValue={soldiersFind.grade}>
                         <option value={soldiersFind.grade}>{soldiersFind.grade}</option>
                         <option value="1">Soldat de 2eme classe</option>
@@ -170,7 +203,7 @@ function SearchSoldier(){
                       <textarea id="sepulture" type="text-area" data-length="4" value={soldiersFind.sepulture}/>
                   </div>
                 </form>
-                </div>
+          </div> */}
         </div>
       );
     }
@@ -183,7 +216,7 @@ function SearchSoldier(){
               {/* recherche du soldat avec cet ID */}
               <div className="second-container">         
                   <label htmlFor="input_text">ID à rechercher :</label>                  
-                  <input id="id" type="number" data-length="4" onChange={(e) => setidToUpdate(e.target.value)}/>
+                  <input id="id_input" type="number" min="1" data-length="4" onChange={(e) => setidToUpdate(e.target.value)}/>
                   <button className='btn-green'  onClick={searchThisId} >Rechercher ce soldat</button>
                   <h2 className='text_aligne'>Ce soldat n'existe pas dans la base de données</h2>
               </div>

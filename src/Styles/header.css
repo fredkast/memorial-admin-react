@@ -1,30 +1,50 @@
 .header{
-    height: 12vh;
+    height: 15vh;
     width: 100%;
-    background-color: #1E1F25;
-    text-align: center;
+    background-color: #000000;
     margin-bottom: 40px;
     margin: 0;
     display: flex;
-    flex-direction: row;
-
-}
-.header-container{
+    flex-direction: column;
+align-items: center;}
+.header-upper_line{
     height: 10vh;
     width: 100%;
     background-color: rgb(26, 25, 23);
-    text-align: center;
+    text-align: left;
     margin: 0;
-    box-shadow: 0px 6px 30px 1px #f1eeee4a;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
     z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.header-lower_line{
+    width: 100%;
+    background: radial-gradient(circle at 0% -25%,#FF8947 0%,#FF8354 0,#DA2C94 42%,#3E13A5 110%);
+    text-align: right;
+    margin: 0;
+    box-shadow: 0px 5px 15px 1px #8f77778a;
+    z-index: 5;
+    border-radius: 10px;
+    width: 80%;
+}
+#site_logo{
+ 
+  text-decoration: none;
+  width: 80%;
+}
+/* #site_logo:hover{
+  transition: all .5s ease-in-out;
+  transform: scale(1.1);
+} */
 .link{
-    color: rgb(250, 250, 250);
+    color: black!important;
     margin: 20px;
     text-decoration: none;
+    font-weight: 800;
+}
+.link:hover{
+  color: white!important;
 }
 .h1-like{
     color: white;
