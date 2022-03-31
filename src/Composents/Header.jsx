@@ -3,7 +3,6 @@
 import '../Styles/header.css'
 import React,{ useState } from "react";
 import { Link } from 'react-router-dom';
-// import moon from '../../public/img/moon.png'
 
 function Header(){
     // State du curseur
@@ -26,8 +25,9 @@ function Header(){
         <div className='header'>
             <div className='header-upper_line' >
                 <div style={{width:'80%'}}>
-                    <p id="site_logo" className='h1-like'> <Link style={{fontSize:40}} to="/"> Memorial </Link> </p>
+                    <p id="site_logo" className='h1-like'> <Link style={{fontSize:40}} to="/">Projet Memorial </Link> </p>
                 </div>
+                <div><img src="" alt="" />Mon compte</div>
             </div>
             <div className='header-lower_line'>
                 <div style={{width:'80%'}}>

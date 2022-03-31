@@ -1,15 +1,13 @@
 /* LATERAL NAV STYLE */
 .sideNav {
-    height: 100vh;
+    height: -webkit-fill-available; 
     width: 200px;
     position: absolute;
     z-index: 1;
     margin: 0;
     padding-top: 12p;
     top: 63px;
-  
     background-color: #2b2828;
-    
     padding-top: 60px;
   }
   
@@ -24,4 +22,14 @@
   
   .sideNav a:hover {
     color: #f1f1f1;
+  }
+  
+  .link-sidenav{
+    color: rgb(202, 191, 191)!important;
+    margin: 20px;
+    text-decoration: none;
+    font-weight: 800;
+  }
+  .link-sidenav:hover{
+    color: rgb(82, 72, 72)!important;
   }

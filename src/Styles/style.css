@@ -117,7 +117,7 @@
     width:80%;
     background-color: #2e3033;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 2px;
     box-shadow: 0px 6px 10px 1px #9184844a;
     margin: 20px;
     display: grid;
@@ -135,9 +135,9 @@
   }
 
   .container-data{
+    padding-left: 130px;
     background: #000000;
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -152,6 +152,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: 130px;
   }
   
   .container-data-background{
@@ -198,7 +199,7 @@
     text-align: center;
     width: auto;  */
     border: solid 1px grey;
-    background: dimgrey;
+    background: rgb(0, 0, 0);
 
   }
   .soldier-img{
@@ -248,8 +249,16 @@
     background-color: slategray;
   }
 
+  /* Soldier GENDER */
+  .soldier-gender-MALE{
+    background-color: rgb(64, 64, 233);
   
-  
+
+  }
+  .soldier-gender-FEMALE{
+    background-color: rgb(220, 76, 233);
+   
+  }
   
 /* BOUTONS */
   button{

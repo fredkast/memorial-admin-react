@@ -23,7 +23,7 @@ ReactDOM.render(
 
     <BrowserRouter>
       <Header/>
-      {/* <SideNav/> */}
+      <SideNav/>
       <Routes>
    
         <Route path="/" element={<HomePage/>}/>

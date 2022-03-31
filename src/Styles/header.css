@@ -6,7 +6,7 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-align-items: center;}
+    align-items: center;}
 .header-upper_line{
     height: 10vh;
     width: 100%;
@@ -27,9 +27,10 @@ align-items: center;}
     z-index: 5;
     border-radius: 10px;
     width: 80%;
+    margin-left: 200px;
 }
-#site_logo{
- 
+#site_logo a{
+  font-family: 'Bebas Neue', cursive!important;
   text-decoration: none;
   width: 80%;
 }

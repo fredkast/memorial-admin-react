@@ -80,7 +80,8 @@ function ListSoldiers(){
             <thead className="soldier-thead">
                       <tr>
                         <th><p>N°</p></th>
-                        <th><p>Image</p></th>
+                        <th></th>
+                        <th><p>Genre</p></th>
                         <th><p>Grade</p></th>
                         <th><p>Prénom</p></th>
                         <th><p>Nom</p></th>
@@ -102,6 +103,7 @@ function ListSoldiers(){
                 
                     <td className={"armeeColor-"+soldier.armee}><p style={{margin:10}}  >{soldier.id}</p></td>
                     <td><img className="soldier-img" style={{maxWidth:50}} src={soldier.image}></img></td>
+                    <td className={"soldier-gender-"+soldier.genre}></td>
                     <td><p style={{margin:10}}>{soldier.grade}</p></td>
                     <td><p style={{margin:10}}>{soldier.prenom}</p></td>
                     <td><p style={{margin:10}}>{soldier.nom}</p></td>

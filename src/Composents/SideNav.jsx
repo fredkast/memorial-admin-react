@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 
 function SideNav(){
     const date = new Date()
-    const currentDay = date.getDate()
+    const currentDay = date.getDate();
+    const currentDate = date.getDay()-1;
+    const currentYear = date.getFullYear()
     return(
        <div id="mySidenav" class="sideNav">
-                    <p>{currentDay}</p>
-                    <Link className="link" to="/search">Chercher un soldat</Link>
-                    <Link className="link" to="/SearchByCurrentDate">Chercher une date</Link>
-                    <Link className="link" to="/add">Ajouter un soldat</Link>
-                    <Link className="link" to="/ListeSoldats">Liste des soldats</Link>
+                    <p style={{textAlign:'center'}}>Date :{currentDay}-{currentDate}-{currentYear}</p>
+                    <Link className="link-sidenav" to="/">Site Memorial.fr</Link>
+                    <Link className="link-sidenav" to="/">Ministère des armées</Link>
+                    <Link className="link-sidenav" to="/">Instagram Memorial</Link>
+
         </div>
 
              
