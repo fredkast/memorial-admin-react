@@ -30,7 +30,7 @@ function Header(){
                 <div><img src="" alt="" />Mon compte</div>
             </div>
             <div className='header-lower_line'>
-                <div style={{width:'80%'}}>
+                <div style={{width:'100%'}}>
                     <div>
                         <Link id='nav_add_soldier_link' className="link" to="/add">Ajouter un soldat</Link>
                         <Link className="link" to="/search">Chercher un soldat</Link>

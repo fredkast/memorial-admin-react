@@ -72,7 +72,7 @@ function ListSoldiers(){
         <div className="display-row">
           <p style={{color:"olive", margin:5}}>Armée de Terre</p>
           <p style={{color:"deepskyblue",margin:5}}>Armée de l'air</p>
-          <p style={{color:"navy",margin:5}}>Marine Nationale</p>
+          <p style={{color:"#1e1ee1",margin:5}}>Marine Nationale</p>
           <p style={{color:"lightskyblue",margin:5}}>Gendarmerie</p>
           <p style={{color:"slategray",margin:5}}>Autres</p>
         </div>
@@ -103,7 +103,7 @@ function ListSoldiers(){
                 
                     <td className={"armeeColor-"+soldier.armee}><p style={{margin:10}}  >{soldier.id}</p></td>
                     <td><img className="soldier-img" style={{maxWidth:50}} src={soldier.image}></img></td>
-                    <td className={"soldier-gender-"+soldier.genre}></td>
+                    <td className={"soldier-gender-"+soldier.genre}><p style={{margin:10}}>{soldier.genre}</p></td>
                     <td><p style={{margin:10}}>{soldier.grade}</p></td>
                     <td><p style={{margin:10}}>{soldier.prenom}</p></td>
                     <td><p style={{margin:10}}>{soldier.nom}</p></td>

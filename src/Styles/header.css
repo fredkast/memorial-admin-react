@@ -19,15 +19,12 @@
     align-items: center;
 }
 .header-lower_line{
-    width: 100%;
-    background: radial-gradient(circle at 0% -25%,#FF8947 0%,#FF8354 0,#DA2C94 42%,#3E13A5 110%);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
     text-align: right;
     margin: 0;
     box-shadow: 0px 5px 15px 1px #8f77778a;
     z-index: 5;
-    border-radius: 10px;
-    width: 80%;
-    margin-left: 200px;
+    width: 100%;
 }
 #site_logo a{
   font-family: 'Bebas Neue', cursive!important;
@@ -58,6 +55,9 @@
 .link{
     font-family: 'Lato';
   }
+#nav_add_soldier_link{
+  color: white !important;
+}
 /* The switch - the box around the slider */
 .switch {
     position: relative;

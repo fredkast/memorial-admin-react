@@ -62,6 +62,7 @@ console.log(soldiersFind.nom)
   const [Bio, setBio] = useState([])
   const [Circ, setCirc] = useState([])
   const [Sepult, setSepult] = useState([])
+  const [Gender, setGender] = useState([])
 
   function updateAPI(e){
       e.preventDefault();
@@ -79,6 +80,7 @@ console.log(soldiersFind.nom)
         "biographie":  Bio,
         "circonstance": Circ,
         "sepulture": Sepult,
+        "gender": Gender,
         "image": "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
        }
 
@@ -114,6 +116,7 @@ console.log(soldiersFind.nom)
                 <p>Nom : <span style={{margin:0, color:"grey"}}>{soldiersFind.nom}</span></p>
                 <p>Prénom : <span style={{margin:0, color:"grey"}}>{soldiersFind.prenom}</span></p>
                 <p>Date de déces : <span style={{margin:0, color:"grey"}}>{soldiersFind.date_deces}</span></p>
+                <p>Genre : <span style={{margin:0, color:"grey"}}>{ soldiersFind.gender}</span></p>
 
               </ul>
               <ul>
@@ -191,7 +194,6 @@ console.log(soldiersFind.nom)
                       </div>
                   </div>
                   <div className="display_row">
-                   
                     <div className="input_field">
                       <label htmlFor="input_text">Armée* :<span style={{margin:0, color:"grey"}}> {soldiersFind.armee}</span></label>
                       <select name="armee" id="armee" onChange={(e) => setArmy(e.target.value)} required>
@@ -202,6 +204,15 @@ console.log(soldiersFind.nom)
                           <option value="4">Gendarmerie National</option>
                           <option value="5">Autre</option>
                       </select>
+                    </div>
+                  </div>
+                  <div className="display_row">
+                    <label>Genre:</label>
+                    <div className="display_row">
+                      <label for="male">Homme :</label>
+                        <input type="radio" name="gender" id="male" value="MALE" onChange={(e) => setGender(e.target.value)}/>
+                        <label for="female" >Femme :</label>
+                        <input type="radio" name="gender" id="female" value="FEMALE" onChange={(e) => setGender(e.target.value)}/>
                     </div>
                   </div>
 
@@ -238,7 +249,6 @@ console.log(soldiersFind.nom)
                   <div className="textarea-container">
                       <label htmlFor="input_text">Lieu de sépulture*</label>
                       <textarea id="sepulture" type="text-area" data-length="4" placeholder={soldiersFind.sepulture} onChange={(e) => setSepult(e.target.value)} required/>
-                  
                   </div>
                   <div className="display_row">
                     <Link className="btn-red" style={{textAlign:"center",fontSize:"auto"}}  to="/">

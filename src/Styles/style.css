@@ -2,6 +2,7 @@
     background-color: #131417;
     padding: 0px;
     margin: 0px;
+    
   }
   h1{
     font-size: 30px;
@@ -71,8 +72,19 @@
     background: rgb(94, 90, 88);
     color:white
   }
+
+  input[type=radio]{
+    width: auto;
+    height: 1em;
+    min-width:  auto;
+    max-width: auto;
+  }
+  
   #add_img_soldier{
-    width: 100%;
+    width: auto;
+    border:none;
+    height: auto;
+    background-color: rgba(255, 0, 0, 0);
   }
 
   textarea{
@@ -114,7 +126,7 @@
 
   /* Container */
   .first-container{
-    width:80%;
+    width:70%;
     background-color: #2e3033;
     padding: 30px;
     border-radius: 2px;
@@ -250,13 +262,13 @@
   }
 
   /* Soldier GENDER */
-  .soldier-gender-MALE{
-    background-color: rgb(64, 64, 233);
+  .soldier-gender-MALE p{
+    color: rgb(64, 64, 233);
   
 
   }
-  .soldier-gender-FEMALE{
-    background-color: rgb(220, 76, 233);
+  .soldier-gender-FEMALE p{
+    color: rgb(220, 76, 233);
    
   }
   

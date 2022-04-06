@@ -16,6 +16,8 @@ Compte icone
 
 - Auth page loging
 
+- TOKEN POUR create delete update
+
 ////////////////////////////
 ////////// OK /////////////
 
