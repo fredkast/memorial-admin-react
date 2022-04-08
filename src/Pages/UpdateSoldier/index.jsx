@@ -32,8 +32,7 @@ function UpdateSoldier(){
   const [Sepult, setSepult] = useState([])
   const [Gender, setGender] = useState([])
   const [Image, setImage] = useState([])
-
-  console.log("image", Image)
+  const [EncodedImage, setEncodedImage] = useState([])
 
   // ---------------------------------***** ETAPE 1 : afficher les données du soldat (id passé par SoldierList) depuis l'api
   const bodyRequest = 
@@ -58,7 +57,7 @@ function UpdateSoldier(){
       setAge(data.age)
       setDate(data.date_deces)
       setArmy(data.armee)
-      setUnit(data.unitee)
+      // setUnit(data.unitee)
       setConflit(data.conflit)
       setBio(data.biographie)
       setCirc(data.circonstance)
@@ -77,10 +76,9 @@ function UpdateSoldier(){
   const bodyRequestForUpload = JSON.stringify(
         {
           "file":Image,
-          "fileName": Firstname+Name,
+          "fileName": Id,
         }
       )
-  console.log(bodyRequestForUpload)
 
 
   const bodyRequestForUpdate = 
@@ -99,7 +97,7 @@ function UpdateSoldier(){
       "circonstance": Circ,
       "sepulture": Sepult,
       "gender": Gender,
-      "image": 'https://api.tytnature.fr/img/soldiers/'+Firstname+Name+'.jpg',
+      "image": 'https://api.tytnature.fr/img/soldiers/'+Id+'.jpg',
     }
   console.log(bodyRequestForUpdate)
 
@@ -109,7 +107,7 @@ function UpdateSoldier(){
     e.preventDefault();
 
     // Si l'image est modifier alors on UPLOAD + UPDATE
-    if(Image.length != 0){
+    if(EncodedImage.length != 0){
       console.log("IMAGE", 'PRESENTE')
       fetch(
         'https://api.tytnature.fr/soldats/update.php',
@@ -124,7 +122,8 @@ function UpdateSoldier(){
           if(result.message === "Udapte succesful"){
                 console.log('UPDATE',"Données sauvegardées !")
 
-                fetch('https://api.tytnature.fr/soldats/upload.php', {
+                fetch('https://api.tytnature.fr/soldats/upload.php', 
+                {
                   method: 'POST',
                   body: bodyRequestForUpload
                 })
@@ -139,7 +138,6 @@ function UpdateSoldier(){
                 .catch(
                   (error) => {
                     // UPLOAD FAIL
-                    console.log("ERROOOOOOR",error)
                     alert("Echec sauvegarde de l'image ! Une erreur est survenue.")
                   })
                 )
@@ -150,7 +148,7 @@ function UpdateSoldier(){
         })
 
     }else{
-      console.log("IMAGE", 'Pas d image')
+      console.log("IMAGE", "Pas d'image")
       // Si l'image n'est pas a modifier alors on update suelement les champs remplis
       fetch(
         'https://api.tytnature.fr/soldats/update.php',
@@ -171,12 +169,13 @@ function UpdateSoldier(){
   // Encode IMAGE
   const imagePreview = (e) => {
     if (e.target.files && e.target.files.length > 0) {
-      setImage(URL.createObjectURL( e.target.files[0]));
+      setEncodedImage(URL.createObjectURL( e.target.files[0]));
       var file =  e.target.files[0];
       var reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onloadend = function() {
-        setImage(reader.result);
+        setEncodedImage(reader.result);
+        setImage(reader.result)
       }
     }
   };
@@ -220,16 +219,15 @@ function UpdateSoldier(){
                       <input id="age" type="number"  value={Age} onChange={(e) => setAge(e.target.value)} />
                     </div>
                     <div className="input_field">
-                      <label htmlFor="input_text">Date déces : *</label>
+                      <label htmlFor="input_text">Date déces : </label>
                       <input id="deces" type="date" data-length="4" value={Date} onChange={(e) => setDate(e.target.value)} />
                     </div>
                   </div>
 
                   {/* <REQUIRED></REQUIRED> */}
-                  <div className="dsplay_row" style={{color:'red'}}>Champs obligatoires si modifications</div>
 
                   <div className="display_row">
-                    <label style={{color:'red'}}>Genre* : </label>
+                    <label style={{color:'red'}} >Genre* : </label>
                     <div className="display_row">
                       <label  for="female" >Femme :</label>
                         <input type="radio" name="gender" id="FEMALE" value="FEMALE" onChange={(e) => setGender(e.target.value)}/>
@@ -240,9 +238,9 @@ function UpdateSoldier(){
 
                   <div className="display_row">
                     <div className="input_field">
-                        <label style={{color:'red'}} htmlFor="input_text">Grade* : </label>
+                        <label htmlFor="input_text">Grade : </label>
                         <select name="grade" id="grade" onChange={(e) => setGrade(e.target.value)}>
-                          <option value="" disabled selected>Choisissez un grade</option>
+                          <option value={Grade} disabled selected>{Grade}</option>
                           <option value="Soldat de 2eme classe">Soldat de 2eme classe</option>
                           <option value="Soldat de 1ere classe">Soldat de 1ere classe</option>
                           <option value="Caporal">Caporal</option>
@@ -268,9 +266,9 @@ function UpdateSoldier(){
                   </div>
                   <div className="display_row">
                     <div className="input_field">
-                      <label style={{color:'red'}} htmlFor="input_text">Armée* :</label>
+                      <label htmlFor="input_text">Armée :</label>
                       <select name="armee" id="armee" onChange={(e) => setArmy(e.target.value)} >
-                          <option value="" disabled selected>Choisissez une Armée</option>
+                          <option value={Army} disabled selected>{Army}</option>
                           <option value="1">Armée de Terre</option>
                           <option value="2">Armée de l'Air</option>
                           <option value="3">Marine National</option>
@@ -282,9 +280,9 @@ function UpdateSoldier(){
   
                   <div className="display_row">
                     <div className="input_field">
-                      <label style={{color:'red'}} htmlFor="input_text">Conflit* :</label>
+                      <label  htmlFor="input_text">Conflit :</label>
                       <select name="conflit" id="conflit" onChange={(e) => setConflit(e.target.value)} >
-                        <option value="" disabled selected >Choisissez un conflit</option>
+                        <option value={Conflit} disabled selected >{Conflit}</option>
                         <option value="1">Mali</option>
                       </select>
                     </div>
@@ -294,7 +292,7 @@ function UpdateSoldier(){
                       <label style={{color:'red'}} htmlFor="input_text">Unitée* : </label>
                       <select name="unitee" id="unitee" onChange={(e) => setUnit(e.target.value)} required>
                         <option value="1">3eme Regiment d'Infanterie de Marine</option>
-                        <option value="2"  disabled selected >Choisissez une unitée</option>
+                        <option value=""  disabled selected >Choisissez une unitée</option>
                       </select>
                     </div>
                   </div>
