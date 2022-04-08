@@ -6,8 +6,6 @@
 
 - Verifier coté client les donnees du style : unitee armee conflit ....
 
-- Compte
-
 - gerer les confit les armee et les unnitee !
 
 - Auth page loging

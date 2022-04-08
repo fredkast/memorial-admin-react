@@ -20,17 +20,13 @@ function Header(){
         console.log("Dark-mode: "+check)
     };
     const [color, setColor] = useState(false)
-    const date = new Date()
-    const currentDay = date.getDate();
-    const currentDate = date.getDay();
-    const currentYear = date.getFullYear()
+   
     return(
         <div className='header'>
             <div className='header-upper_line' >
                 <div style={{width:'80%'}}>
                     <p id="site_logo" className='h1-like'> <Link style={{fontSize:40}} to="/">Projet Memorial </Link> </p>
                 </div>
-                <p style={{textAlign:'center', margin:10}}>Date : {currentDate}-{currentDay}-{currentYear}</p>
 
                 <div><p style={{color:'white'}}>Mon compte</p>
                 </div>

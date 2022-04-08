@@ -55,23 +55,7 @@ if (!soldiersFind.length){
     </div>
     <div className='list-container'>
     <table className="soldier-table">
-        <thead className="soldier-thead">
-                  <tr>
-                    <th><p>id</p></th>
-                    <th><p>Image</p></th>
-                    <th><p>Grade</p></th>
-                    <th><p>Prénom</p></th>
-                    <th><p>Nom</p></th>
-                    <th><p>Date de décès</p></th>
-                    <th><p>Age</p></th>
-                    <th><p>Conflit</p></th>
-                    <th><p>Armée</p></th>
-                    <th><p>Unitée</p></th>
-                    <th><p>Lieu de sépulture</p></th>
-                    <th><p>Biographie</p></th>
-                    <th><p>Circonstance du décès</p></th>
-                  </tr>
-        </thead>
+       
         <tbody>
         {
         soldiersFind.map((soldier) =>
@@ -79,17 +63,11 @@ if (!soldiersFind.length){
             
                 <td><p style={{margin:10}}>{soldier.id}</p></td>
                 <td><img className="soldier-img" src={soldier.image}></img></td>
-                <td><p style={{margin:10}}>{soldier.grade}</p></td>
-                <td><p style={{margin:10}}>{soldier.prenom}</p></td>
-                <td><p style={{margin:10}}>{soldier.nom}</p></td>            
-                <td><p style={{margin:10}}>{soldier.deces}</p></td>
-                <td><p style={{margin:10}}>{soldier.age}</p></td>
-                <td><p style={{margin:10}}>{soldier.theatre}</p></td>
-                <td><p style={{margin:10}}>{soldier.armee}</p></td>
-                <td><p style={{margin:10}}>{soldier.unitee}</p></td>
-                <td><p style={{margin:10}}>{soldier.sepulture}</p></td>
-                <td><p style={{margin:10}}>{soldier.biographie}</p></td>
-                <td><p style={{margin:10}}>{soldier.circonstance}</p></td>
+                <td><p style={{margin:10}}>{soldier.grade} {soldier.nom} {soldier.prenom}.</p></td>
+                <td><p style={{margin:10}}> Mort pour la France le {soldier.deces}<br></br>à l'age de {soldier.age}ans, en operation à/au {soldier.theatre}.</p></td>
+  
+                <td><p style={{margin:10}}>Appartenant à l' {soldier.armee}, au sein de/du {soldier.unitee}</p></td>
+             
             
           </tr> 
           )
