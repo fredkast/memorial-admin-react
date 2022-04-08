@@ -2,21 +2,19 @@
 //////// A FAIRE ////////////////////////
 
 
-1. Continuer la page update.php (modifier les input) 
+ 
 
-!!!
-3. Gerer l'import d'image via fonction PHP
+- Verifier coté client les donnees du style : unitee armee conflit ....
 
-4. Comfirmer le donnees du style : unitee armee conflit ....
+- Compte
 
-Compte icone
-
-
-- gerer les confit les armee et les unnitee 
+- gerer les confit les armee et les unnitee !
 
 - Auth page loging
 
 - TOKEN POUR create delete update
+
+- Chercher par DAte => Alerte quand personne de trouve
 
 ////////////////////////////
 ////////// OK /////////////
@@ -25,3 +23,4 @@ Compte icone
 - chercher par date
 - ajouter un soldat 
 - supprimer un soldat 
+- Gerer l'import d'image via fonction PHP

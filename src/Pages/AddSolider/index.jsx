@@ -22,34 +22,27 @@ function Add() {
     const [Image, setImage] = useState([])
     const [EncodedImage,setEncodedImage] = useState([])
 
-
+  // preview de l'image choisi pour le soldat
   const imagePreview = (e) => {
     if (e.target.files && e.target.files.length > 0) {
       setImage(URL.createObjectURL( e.target.files[0]));
       var file =  e.target.files[0];
-      console.log(file)
-
       var reader = new FileReader();
       reader.readAsDataURL(file);
-      
       reader.onloadend = function() {
-        console.log('RESULT', reader.result)
         setEncodedImage(reader.result);
       }
     }
   };
-
- // console.log("image = "+ Image)
-
-    const uploadBodyRequest = 
+  // body de la requete Upload soldier Img 
+  const uploadBodyRequest = 
       {
         "file":EncodedImage,
         "fileName": Firstname+Name,
       }
-    console.log(uploadBodyRequest);
 
-
-    const bodyRequest = 
+    // Body de la requete Create
+  const bodyRequest = 
       {
         "nom": Name,
         "prenom": Firstname,
@@ -63,16 +56,14 @@ function Add() {
         "circonstance": Circ,
         "sepulture": Sepult,
         "gender": Gender,
-        "image": Image,
+        "image": 'https://api.tytnature.fr/img/soldiers/'+Firstname+Name+'.jpg',
      }
-
 
 function createSoldier(e){
   e.preventDefault();
 
-  // 1  Upload de l'image vers freeimage.host
-
-	 	fetch(
+    // #1 upload image to server
+    fetch(
 			'https://api.tytnature.fr/soldats/upload.php',
         {
           method: 'POST',
@@ -101,30 +92,9 @@ function createSoldier(e){
         })
         )
 			})
-
-
-
 			.catch((error) => {
 				console.error('Error:', error);
 			});
-      
-  // //  Sauvegarde des informations vers l'API de MEMORIAL
-  //  fetch('https://api.tytnature.fr/soldats/create', {
-  //      method: 'POST',
-  //      headers: { 'Content-Type': 'application/json' },
-  //      body: JSON.stringify(bodyRequest)
-  //    })
-  //    .then((response) => response.json()
-  //    .then((data) =>{
-  //      console.log(data.message);
-  //      if(data.message === "Add succesful"){
-  //       alert("Données sauvegardées !")
-  //      }
-  //    })
-  //    .catch((error) =>{ console.log(error)
-  //     alert("Echec sauvegarde ! Veuillez remplir tous les champs.")
-  //    })
-  //    )
     }
 
   return (
@@ -241,7 +211,9 @@ function createSoldier(e){
                 <label htmlFor="input_text">Lieu de sépulture*</label>
                 <textarea id="sepulture" type="text-area" data-length="4" onChange={(e) => setSepult(e.target.value)}/>
             </div>
+            <p style={{fontStyle:'italic'}}>Taille conseillée : 500x500px, format JPG,JEP,PNG</p>
             <div className="display_row">
+               
                 <label htmlFor="input_text">Photo du soldat: </label>
                 <input id="add_img_soldier" type="file"  onChange={imagePreview}/>
 

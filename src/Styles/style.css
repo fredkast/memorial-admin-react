@@ -14,7 +14,7 @@
     text-transform: uppercase;
   }
   .underline{
-    color: violet;
+    color: green;
     margin-bottom: 60px;
   }
   h2{
@@ -41,7 +41,7 @@
   }
   td{
     text-align: center;
-
+    background-color: rgb(22, 21, 21);
   }
   hr{
     border: 2px solid olive;
@@ -127,9 +127,9 @@
   /* Container */
   .first-container{
     width:70%;
-    background-color: #2e3033;
+    background-color: #2e30337a;
     padding: 30px;
-    border-radius: 2px;
+    border-radius: 10px;
     box-shadow: 0px 6px 10px 1px #9184844a;
     margin: 20px;
     display: grid;
@@ -164,7 +164,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 130px;
   }
   
   .container-data-background{
@@ -183,12 +182,14 @@
   }
   .display_row{
     display: flex;
+    margin: 10px;
   }
   .textarea-container{
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
   }
   /* Soldat  */
 
@@ -204,19 +205,71 @@
   }
   .soldier-card{
     background-color: black(255, 255, 255);
-    /* border-radius: 5px;
-    box-shadow: 0px 4px 4px 1px #f1eeee4a;
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
-    width: auto;  */
     border: solid 1px grey;
     background: rgb(0, 0, 0);
 
   }
   .soldier-img{
-    max-height: 200px;
+    max-height: auto;
     max-width: 300px;
+  }
+  .soldier-img-container{
+    position: relative;
+    background-color: #4e5257;
+  }
+
+  .ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+  }
+  .ribbon::before,
+  .ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+    border: 5px solid #2980b9;
+  }
+  .ribbon span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    background-color: black;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  /* top left*/
+  
+  .ribbon-top-left::before,
+  .ribbon-top-left::after {
+    border-top-color: red;
+    border-left-color: red;
+  }
+  .ribbon-top-left::before {
+    top: 0;
+    right: 0;
+  }
+  .ribbon-top-left::after {
+    bottom: 0;
+    left: 0;
+  }
+  .ribbon-top-left span {
+    right: 8px;
+    top: 4px;
+    transform: rotate(-45deg);
+  }
+  
+
+
+
+  .soldier-img_small{
+    max-height: auto;
+    max-width: 75px;
   }
   .soldier-name{  
     color: white;
@@ -230,13 +283,13 @@
     background-color: black;
   }
   .soldier-table{
-    border-collapse: collapse;
     box-sizing: border-box;
     text-indent: initial;
     width: 80%;
-    border-radius: 15px;
   }
-
+  .soldier_text p{
+    color: rgb(195, 197, 199);
+  }
 
   /* Couleur des armées */
 

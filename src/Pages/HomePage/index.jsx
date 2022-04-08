@@ -68,49 +68,14 @@ if (!soldiers.length){
       <h1>Memorial Admin dashboard</h1>
        <p className="underline">Bienvenue</p>
       <div className="first-container">
-          <h2 className="title">Soldat du jour<hr width="50"></hr></h2>
+          <h2 className="title">Soldats du jour<hr width="50"></hr></h2>
           <table className="soldier-table">
-              <thead className="soldier-thead">
-                        <tr>
-                          <th><p>id</p></th>
-                          <th><p>Image</p></th>
-                          <th><p>Grade</p></th>
-                          <th><p>Prénom</p></th>
-                          <th><p>Nom</p></th>
-                          {/* <th><p>Conflit</p></th> */}
-                          {/* <th><p>Unitée</p></th> */}
-                          <th><p>Date</p></th>
-                          {/* <th><p>Action</p></th> */}
-                          {/* <th><p>Date de décès</p></th> */}
-                          {/* <th><p>Age</p></th> */}
-                          {/* <th><p>Armée</p></th> */}                
-                          {/* <th><p>Lieu de sépulture</p></th> */}
-                          {/* <th><p>Biographie</p></th> */}
-                          {/* <th><p>Circonstance du décès</p></th> */}
-                          
-                        </tr>
-              </thead>
               <tbody>
               {
               soldiers.map((soldier) =>
                 <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
-                  
-                      <td ><p className="title">{soldier.id}</p></td>
-                      <td><img className="soldier-img" src={soldier.image}></img></td>
-                      <td><p className="title">{soldier.grade}</p></td>
-                      <td><p className="title">{soldier.prenom}</p></td>
-                      <td><p className="title">{soldier.nom}</p></td>
-                      <td><p className="title">{soldier.deces}</p></td>
-                      
-                      {/* <td><p className="title">{soldier.age}</p></td> */}
-                      {/* <td><p className="title">{soldier.theatre}</p></td> */}
-                      {/* <td><p className="title">{soldier.armee}</p></td> */}
-                      {/* <td><p className="title">{soldier.unitee}</p></td> */}
-
-                      {/* <td><p className="title">{soldier.sepulture}</p></td> */}
-                      {/* <td><p className="title">{soldier.biographie}</p></td> */}
-                      {/* <td><p className="title">{soldier.circonstance}</p></td> */}
-                      {/* <td><button className='btn-yellow' onClick={linkToUpdate}>Voir</button></td> */}
+                      <td className="soldier-img-container"><div className="ribbon ribbon-top-left"><span>RIP</span></div><img className="soldier-img_small"  src={soldier.image}></img></td>
+                      <td><p className="title">{soldier.grade} {soldier.nom} {soldier.prenom} <br></br>Mort le : <br></br>{soldier.deces}</p></td>                      
                 </tr> 
                 )
               }

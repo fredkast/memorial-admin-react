@@ -1,5 +1,5 @@
 .header{
-    height: 15vh;
+    height: auto;
     width: 100%;
     background-color: #000000;
     margin-bottom: 40px;
@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;}
 .header-upper_line{
-    height: 10vh;
+    height: 100px;
     width: 100%;
     background-color: rgb(26, 25, 23);
     text-align: left;
@@ -24,8 +24,10 @@
     margin: 0;
     box-shadow: 0px 5px 15px 1px #8f77778a;
     z-index: 5;
+    height: 50px;
     width: 100%;
-}
+    display: flex;
+    align-items: center;}
 #site_logo a{
   font-family: 'Bebas Neue', cursive!important;
   text-decoration: none;
@@ -57,7 +59,15 @@
   }
 #nav_add_soldier_link{
   color: white !important;
+  border: solid;
+  border-radius: 5px;
+  padding: 5px;
 }
+#nav_add_soldier_link:hover{
+  color:Black!important;
+}
+
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;

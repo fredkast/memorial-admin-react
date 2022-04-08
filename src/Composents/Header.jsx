@@ -20,14 +20,20 @@ function Header(){
         console.log("Dark-mode: "+check)
     };
     const [color, setColor] = useState(false)
-
+    const date = new Date()
+    const currentDay = date.getDate();
+    const currentDate = date.getDay();
+    const currentYear = date.getFullYear()
     return(
         <div className='header'>
             <div className='header-upper_line' >
                 <div style={{width:'80%'}}>
                     <p id="site_logo" className='h1-like'> <Link style={{fontSize:40}} to="/">Projet Memorial </Link> </p>
                 </div>
-                <div><img src="" alt="" />Mon compte</div>
+                <p style={{textAlign:'center', margin:10}}>Date : {currentDate}-{currentDay}-{currentYear}</p>
+
+                <div><p style={{color:'white'}}>Mon compte</p>
+                </div>
             </div>
             <div className='header-lower_line'>
                 <div style={{width:'100%'}}>
@@ -36,6 +42,7 @@ function Header(){
                         <Link className="link" to="/search">Chercher un soldat</Link>
                         <Link className="link" to="/SearchByCurrentDate">Chercher une date</Link>
                         <Link className="link" to="/ListeSoldats">Liste des soldats</Link>
+                        
                     </div>
                 </div>
             </div>

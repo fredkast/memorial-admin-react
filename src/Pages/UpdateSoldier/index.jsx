@@ -1,5 +1,11 @@
 // Component Update Soldier
 
+
+
+// probleme avec UNite et photo
+//IL FAUT ESSAYER DE METTRE LA FONCTION UPLOAD APRES LE UPDATE ???
+
+
 import React,{  useState, useEffect } from "react";
 import { useLocation, Link } from 'react-router-dom';
 
@@ -7,50 +13,12 @@ import { useLocation, Link } from 'react-router-dom';
 
 function UpdateSoldier(){
 
-  // ---------------------------------***** ETAPE 1 : afficher les données du soldat (id passé par SoldierList) depuis l'api
+  // const [soldiersFind, setSoldiersToFind] = useState([{}])
+
   const {state} = useLocation();
-  
-  const bodyRequest = 
-  {
-    "id":state.id
-  }
 
-  useEffect(() => {
-    fetch('https://api.tytnature.fr/soldats/read.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      // le text format JSON
-      body: JSON.stringify(bodyRequest),
-    })
-    .then((response) => response.json()
-    .then((data) =>{
-      // on incrémente dans le state soldiersFind pour afficher dans les input
-      setSoldiersToFind(data);
-
-console.log(data)
-    })
-    .catch(() => {
-      console.log("Fail API request")
-      alert("Erreur dans la reécupération de données")
-      })
-    )},
-  [])
-
-  // Les données du soldat trouvé incremente soldierFind
-  const [soldiersFind, setSoldiersToFind] = useState([
-    {}
-  ])
-  
-
-console.log(soldiersFind.nom)
-
-
-
-  //--------------------------------------------------------**** ETAPE 2 methide UPDATE modification du soldat trouvé
-
-  // on creer un state des champs qui seront hydraté avec les nouvelles donneées des input
-  // id est récupéré depuis le soldat créé via l'etape 1
-
+    // on creer un state des champs qui seront hydraté avec les nouvelles donneées des input
+  const [Id, setId] = useState([])
   const [Name, setName] = useState([])
   const [Firstname, setFirstname] = useState([])
   const [Grade, setGrade] = useState([])
@@ -63,113 +31,218 @@ console.log(soldiersFind.nom)
   const [Circ, setCirc] = useState([])
   const [Sepult, setSepult] = useState([])
   const [Gender, setGender] = useState([])
+  const [Image, setImage] = useState([])
 
+  console.log("image", Image)
+
+  // ---------------------------------***** ETAPE 1 : afficher les données du soldat (id passé par SoldierList) depuis l'api
+  const bodyRequest = 
+  {
+    "id":state.id
+  }
+  // GET soldiers's data request
+  useEffect(() => {
+    fetch('https://api.tytnature.fr/soldats/read.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      // le text format JSON
+      body: JSON.stringify(bodyRequest),
+    })
+    .then((response) => response.json()
+    .then((data) =>{
+
+      setId(data.id)
+      setName(data.nom);
+      setFirstname(data.prenom)
+      setGrade(data.grade)
+      setAge(data.age)
+      setDate(data.date_deces)
+      setArmy(data.armee)
+      setUnit(data.unitee)
+      setConflit(data.conflit)
+      setBio(data.biographie)
+      setCirc(data.circonstance)
+      setSepult(data.sepulture)
+      setGender(data.gender)
+      setImage(data.image)
+
+    })
+    .catch(() => {
+      console.log("Fail API request")
+      alert("Erreur dans la reécupération de données")
+      })
+    )},
+  [])
+  //--------------------------------------------------------**** ETAPE 2 methode UPDATE modification du soldat trouvé
+  const bodyRequestForUpload = JSON.stringify(
+        {
+          "file":Image,
+          "fileName": Firstname+Name,
+        }
+      )
+  console.log(bodyRequestForUpload)
+
+
+  const bodyRequestForUpdate = 
+  // UPDATE request's body
+    {
+      "id": Id,
+      "nom": Name,
+      "prenom": Firstname,
+      "grade": Grade,
+      "age": Age,
+      "deces": Date,
+      "armee": Army,
+      "unitee": Unit,
+      "theatre": Conflit,
+      "biographie": Bio,
+      "circonstance": Circ,
+      "sepulture": Sepult,
+      "gender": Gender,
+      "image": 'https://api.tytnature.fr/img/soldiers/'+Firstname+Name+'.jpg',
+    }
+  console.log(bodyRequestForUpdate)
+
+// #1 upload image to server
+ 
   function updateAPI(e){
-      e.preventDefault();
-      const bodyRequestForUpdate = 
-       {
-        "id": soldiersFind.id,
-        "nom": Name,
-        "prenom": Firstname,
-        "grade": Grade,
-        "age": Age,
-        "deces": Date,
-        "armee": Army,
-        "unitee": Unit,
-        "theatre": Conflit,
-        "biographie":  Bio,
-        "circonstance": Circ,
-        "sepulture": Sepult,
-        "gender": Gender,
-        "image": "https://api.tytnature.fr/image/soldat/unknow-soldier.jpeg"
-       }
+    e.preventDefault();
 
-      console.log(bodyRequestForUpdate)
+    // Si l'image est modifier alors on UPLOAD + UPDATE
+    if(Image.length != 0){
+      console.log("IMAGE", 'PRESENTE')
+      fetch(
+        'https://api.tytnature.fr/soldats/update.php',
+          {
+            method: 'POST',
+            body: JSON.stringify(bodyRequestForUpdate)
+          }
+        )
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result.message) 
+          if(result.message === "Udapte succesful"){
+                console.log('UPDATE',"Données sauvegardées !")
 
-      fetch('https://api.tytnature.fr/soldats/update.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(bodyRequestForUpdate)
+                fetch('https://api.tytnature.fr/soldats/upload.php', {
+                  method: 'POST',
+                  body: bodyRequestForUpload
+                })
+                .then((response) => response.json()
+                .then((data) =>{
+                  // GLOBAL UPDATE SUCCESS
+                  console.log(data.result)
+                  console.log("UPLOAD","Image sauvegardée !")
+                  alert("Données modifiées !")
+                  window.location.reload(false);
+                })
+                .catch(
+                  (error) => {
+                    // UPLOAD FAIL
+                    console.log("ERROOOOOOR",error)
+                    alert("Echec sauvegarde de l'image ! Une erreur est survenue.")
+                  })
+                )
+                // GLOBAL UPDATE FAIL
+            }else{
+                alert("Erreur: veuillez remplir les champs obligatoires!")
+            }            
         })
-        .then((response) => response.json()
-        .then((data) =>{
-          console.log("REPONSE :"+ data)
+
+    }else{
+      console.log("IMAGE", 'Pas d image')
+      // Si l'image n'est pas a modifier alors on update suelement les champs remplis
+      fetch(
+        'https://api.tytnature.fr/soldats/update.php',
+          {
+            method: 'POST',
+            body: JSON.stringify(bodyRequestForUpdate)
+          }
+        )
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result.message) 
+          alert("Données modifiées !")
+          window.location.reload(false);
         })
-        .catch(
-          (error) => {
-            console.log("ERROR: "+error)
-          })
-        )}
-      
-      return(     
+    }
+    
+  };
+  // Encode IMAGE
+  const imagePreview = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setImage(URL.createObjectURL( e.target.files[0]));
+      var file =  e.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = function() {
+        setImage(reader.result);
+      }
+    }
+  };
+
+  return(     
         <div className="container-data">
           <h1 className="title">Modifier le soldat n°{state.id}</h1>
           <p className="underline">Modifier les champs </p>
 
-          <div className="first-container ">
-            <div className="display_row" style={{justifyContent:"center"}}>
-              <img className="soldier-img" src={soldiersFind.image} ></img>
-            </div>
-            <div className="display_row"> 
-              <ul>
-                <p>Grade : <span style={{margin:0, color:"grey"}}>{soldiersFind.grade}</span></p>
-                <p>Nom : <span style={{margin:0, color:"grey"}}>{soldiersFind.nom}</span></p>
-                <p>Prénom : <span style={{margin:0, color:"grey"}}>{soldiersFind.prenom}</span></p>
-                <p>Date de déces : <span style={{margin:0, color:"grey"}}>{soldiersFind.date_deces}</span></p>
-                <p>Genre : <span style={{margin:0, color:"grey"}}>{ soldiersFind.gender}</span></p>
+          {/* FORMS */}
 
-              </ul>
-              <ul>
-                <p>Age : <span style={{margin:0, color:"grey"}}>{soldiersFind.age}</span></p>
-                <p>Armée : <span style={{margin:0, color:"grey"}}>{soldiersFind.armee}</span></p>
-                <p>Unitée : <span style={{margin:0, color:"grey"}}>{soldiersFind.unitee}</span></p>
-                <p>Conflit : <span style={{margin:0, color:"grey"}}>{soldiersFind.conflit}</span></p>
-
-              </ul>
-            </div>
-            <div className="display_row" style={{justifyContent:"space-between"}}>
-              <ul>
-                <p>Biographie : </p>
-                <span style={{margin:0, color:"grey"}}>{soldiersFind.biographie}</span>
-                <p>Circonstances : </p>
-                <span style={{margin:0, color:"grey"}}>{soldiersFind.circonstance}</span>
-                <p>Sépulture : </p>
-                <span style={{margin:0, color:"grey"}}>{soldiersFind.sepulture}</span>
-              </ul>
-            </div>
-          </div>
           <div className='first-container'>
                 <form className="form" >
+
+                  <div className="textarea-container">
+                        <label htmlFor="input_text">Image:</label>
+                        <img style={{color:'green', margin:20}} className="soldier-img" src={Image} alt={Name + Firstname}/>
+                  </div>
+                    <p style={{fontStyle:'italic'}}>Taille conseillée : 500x500px, format JPG,JEP,PNG</p>
+                    
+                  {/* PHOTO */}
+                  <div className="display_row">
+                        <label htmlFor="input_text">Photo du soldat: </label>
+                        <input id="add_img_soldier" type="file" onChange={imagePreview}/>
+                  </div>
+                  
                   <div className="display_row">
                       <div className="input_field">
-                        <label htmlFor="input_text">Nom : <span style={{margin:0, color:"grey"}}>{soldiersFind.nom}</span></label>
-                        <input id="name" type="text"  value={soldiersFind.nom}  required/>
-
-                        {/* <TextField id="name" type="text"  value={nom} onChange={(e) => setName(e.target.value)} required/> */}
-
-
+                        <label htmlFor="input_text">Nom : </label>
+                        <input id="name" type="text"  value={Name} onChange={e => setName(e.target.value.trim())} />
                       </div>
                       <div className="input_field">
-                        <label htmlFor="input_text">Prénom : <span style={{margin:0, color:"grey"}}>{soldiersFind.prenom}</span></label>
-                        <input id="prenom" type="text"  placeholder={soldiersFind.prenom} onChange={(e) => setFirstname(e.target.value)} required/>
+                        <label htmlFor="input_text">Prénom : </label>
+                        <input id="prenom" type="text"  value={Firstname} onChange={(e) => setFirstname(e.target.value.trim())} />
                       </div>
                   </div>
+
                   <div className="display_row">
                     <div className="input_field">
                       <label htmlFor="input_text">Age :</label>
-                      <input id="age" type="number"  placeholder={soldiersFind.age} onChange={(e) => setAge(e.target.value)} required/>
+                      <input id="age" type="number"  value={Age} onChange={(e) => setAge(e.target.value)} />
                     </div>
                     <div className="input_field">
-                      <label htmlFor="input_text">Date déces : <span style={{margin:0, color:"grey"}}>{soldiersFind.date_deces}</span>*</label>
-                      <input id="deces" type="date" data-length="4" placeholder={soldiersFind.date_deces} onChange={(e) => setDate(e.target.value)} required/>
+                      <label htmlFor="input_text">Date déces : *</label>
+                      <input id="deces" type="date" data-length="4" value={Date} onChange={(e) => setDate(e.target.value)} />
                     </div>
-                    
                   </div>
+
+                  {/* <REQUIRED></REQUIRED> */}
+                  <div className="dsplay_row" style={{color:'red'}}>Champs obligatoires si modifications</div>
+
+                  <div className="display_row">
+                    <label style={{color:'red'}}>Genre* : </label>
+                    <div className="display_row">
+                      <label  for="female" >Femme :</label>
+                        <input type="radio" name="gender" id="FEMALE" value="FEMALE" onChange={(e) => setGender(e.target.value)}/>
+                      <label for="female" >Homme :</label>
+                        <input type="radio" name="gender" id="MALE" value="MALE" onChange={(e) => setGender(e.target.value)}/>
+                    </div>
+                  </div>
+
                   <div className="display_row">
                     <div className="input_field">
-                        <label htmlFor="input_text">Grade* : <span style={{margin:0, color:"grey"}}>{soldiersFind.grade}</span></label>
-                        <select name="grade" id="grade" onChange={(e) => setGrade(e.target.value)} required>
-                          <option value="" disabled selected>Selectionner un grade</option>
+                        <label style={{color:'red'}} htmlFor="input_text">Grade* : </label>
+                        <select name="grade" id="grade" onChange={(e) => setGrade(e.target.value)}>
+                          <option value="" disabled selected>Choisissez un grade</option>
                           <option value="Soldat de 2eme classe">Soldat de 2eme classe</option>
                           <option value="Soldat de 1ere classe">Soldat de 1ere classe</option>
                           <option value="Caporal">Caporal</option>
@@ -195,9 +268,9 @@ console.log(soldiersFind.nom)
                   </div>
                   <div className="display_row">
                     <div className="input_field">
-                      <label htmlFor="input_text">Armée* :<span style={{margin:0, color:"grey"}}> {soldiersFind.armee}</span></label>
-                      <select name="armee" id="armee" onChange={(e) => setArmy(e.target.value)} required>
-                          <option disabled selected  >Selectionner une armée</option>
+                      <label style={{color:'red'}} htmlFor="input_text">Armée* :</label>
+                      <select name="armee" id="armee" onChange={(e) => setArmy(e.target.value)} >
+                          <option value="" disabled selected>Choisissez une Armée</option>
                           <option value="1">Armée de Terre</option>
                           <option value="2">Armée de l'Air</option>
                           <option value="3">Marine National</option>
@@ -206,50 +279,45 @@ console.log(soldiersFind.nom)
                       </select>
                     </div>
                   </div>
+  
                   <div className="display_row">
-                    <label>Genre:</label>
-                    <div className="display_row">
-                      <label for="male">Homme :</label>
-                        <input type="radio" name="gender" id="male" value="MALE" onChange={(e) => setGender(e.target.value)}/>
-                        <label for="female" >Femme :</label>
-                        <input type="radio" name="gender" id="female" value="FEMALE" onChange={(e) => setGender(e.target.value)}/>
-                    </div>
-                  </div>
-
                     <div className="input_field">
-
-                      <label htmlFor="input_text">Conflit* :<span style={{margin:0, color:"grey"}}> {soldiersFind.theatre}</span></label>
-                      <select name="conflit" id="conflit" onChange={(e) => setConflit(e.target.value)} required>
-                        <option disabled selected  >Selectionner un conflit</option>
+                      <label style={{color:'red'}} htmlFor="input_text">Conflit* :</label>
+                      <select name="conflit" id="conflit" onChange={(e) => setConflit(e.target.value)} >
+                        <option value="" disabled selected >Choisissez un conflit</option>
                         <option value="1">Mali</option>
                       </select>
                     </div>
-
+                  </div>
+                  <div className="display_row">
                     <div className="input_field">
-                      <label htmlFor="input_text">Unitée : <span style={{margin:0, color:"grey"}}> {soldiersFind.unitee}</span></label>
+                      <label style={{color:'red'}} htmlFor="input_text">Unitée* : </label>
                       <select name="unitee" id="unitee" onChange={(e) => setUnit(e.target.value)} required>
-                          <option disabled selected  >Selectionner une unitée</option>
-                          <option value="1">3eme Regiment d'Infanterie de Marine</option>
+                        <option value="1">3eme Regiment d'Infanterie de Marine</option>
+                        <option value="2"  disabled selected >Choisissez une unitée</option>
                       </select>
                     </div>
-                
+                  </div>
                   <div className="textarea-container">
                     
                       <label htmlFor="input_text">Circonstances du déces :</label>
-                      <textarea id="circonstence" type="text" data-length="4" placeholder={soldiersFind.circonstance} onChange={(e) => setCirc(e.target.value)} required/>
+                      <textarea id="circonstence" type="text" data-length="4" value={Circ} onChange={(e) => setCirc(e.target.value)} />
                     
                   </div>
                   <div className="textarea-container">
                   
                       <label htmlFor="input_text">Biographie :</label>
-                      <textarea id="biographie" type="text" data-length="4" placeholder={soldiersFind.biographie} onChange={(e) => setBio(e.target.value)} required/>
+                      <textarea id="biographie" type="text" data-length="4" value={Bio} onChange={(e) => setBio(e.target.value)} />
                     
                   </div>
                   
                   <div className="textarea-container">
                       <label htmlFor="input_text">Lieu de sépulture*</label>
-                      <textarea id="sepulture" type="text-area" data-length="4" placeholder={soldiersFind.sepulture} onChange={(e) => setSepult(e.target.value)} required/>
+                      <textarea id="sepulture" type="text-area" data-length="4" value={Sepult} onChange={(e) => setSepult(e.target.value)} />
                   </div>
+                  
+
+                {/* SUBMIT */}
                   <div className="display_row">
                     <Link className="btn-red" style={{textAlign:"center",fontSize:"auto"}}  to="/">
                       Annuler
