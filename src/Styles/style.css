@@ -436,3 +436,13 @@
   #nav_add_soldier_link{
     text-transform: uppercase!important;
   }
+
+  .soldier-gender-MALE::after{
+    content: "\2642";
+    color:white;
+  }
+  .soldier-gender-FEMALE::after{
+    content: "\2640";
+    color:white;
+  }
+  

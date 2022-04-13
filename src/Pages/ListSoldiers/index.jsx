@@ -17,6 +17,8 @@ function ListSoldiers(){
   let navigate = useNavigate()
 
 
+  
+
   function linkToUpdate(id){
     // envois de l'id en props vers le component Update
     navigate('/update',{state:{id:id}});
@@ -81,16 +83,13 @@ function ListSoldiers(){
                       <tr>
                         <th><p></p></th>
                         <th></th>
-                        <th><p></p></th>
+                        <th><p>Date d'ajout</p></th>
+                        <th></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Grade</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Date de décès</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Age</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Conflit</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Unitée</p></th>
-                        {/* <th><p>Armée</p></th> */}
-                        {/* <th><p>Lieu de sépulture</p></th>
-                        <th><p>Biographie</p></th>
-                        <th><p>Circonstance du décès</p></th> */}
                         <th><p style={{fontSize:12, color:'gray'}}>Action</p></th>
                       </tr>
             </thead>
@@ -100,18 +99,18 @@ function ListSoldiers(){
               <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
                 
                     <td><p className={"armeeColor-"+soldier.armee} style={{margin:10, height:20, width:20, borderRadius:50, padding:5}}  >{soldier.id}</p></td>
+                    <td className={"soldier-gender-"+soldier.genre}><p style={{margin:10}} className={soldier.genre}></p></td>
+
+                    <td><p>{soldier.dateCreated}</p></td>
                     <td><img className="soldier-img" style={{maxWidth:50}} src={soldier.image}></img></td>
-                    <td className={"soldier-gender-"+soldier.genre}><p style={{margin:10}}>{soldier.genre}</p></td>
-                    <td><p style={{margin:10}}>{soldier.grade} {soldier.prenom} {soldier.nom}</p></td>
+
+                    <td><p style={{margin:5}}>{soldier.grade} {soldier.prenom} {soldier.nom}</p></td>
                     
                     <td><p style={{margin:10}}>{soldier.deces}</p></td>
                     <td><p style={{margin:10}}>{soldier.age} ans</p></td>
                     <td><p style={{margin:10}}>{soldier.theatre}</p></td>       
                     <td><p style={{margin:10}}>{soldier.unitee}</p></td>
-                    {/* <td><p style={{margin:10}}>{soldier.armee}</p></td> */}
-                    {/* <td><p style={{margin:10}}>{soldier.sepulture}</p></td>
-                    <td><p style={{margin:10}}>{soldier.biographie}</p></td>
-                    <td><p style={{margin:10}}>{soldier.circonstance}</p></td> */}
+                  
                     <td>
                       <div className="display-row">
                         <img className="icon" src={"img/update.png"} onClick={(e) => linkToUpdate(soldier.id)}></img>
