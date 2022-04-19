@@ -107,7 +107,7 @@ function UpdateSoldier(){
     e.preventDefault();
 
     // Si l'image est modifier alors on UPLOAD + UPDATE
-    if(EncodedImage.length != 0){
+    if(EncodedImage.length !== 0){
       console.log("IMAGE", 'PRESENTE')
       fetch(
         'https://api.tytnature.fr/soldats/update.php',

@@ -123,7 +123,7 @@ function ListSoldiers(){
             </tbody>
         </table>
         <Link to="/add">
-          <button style={{margin:40}} className='btn-blue'>Ajouter un soldat</button>
+          <button style={{margin:40}} className='btn-green'>Ajouter un soldat</button>
         </Link>
       </div>
     </div>

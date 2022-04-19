@@ -221,7 +221,7 @@ function createSoldier(e){
          
             <img style={{margin:20}} id="preview"  className="soldier-img" src={Image} alt="Prévisualisation de l'image…"></img>
 
-            <button className='btn-blue' onClick={createSoldier} >Ajouter</button>
+            <button className='btn-green' onClick={createSoldier} >Ajouter</button>
           </form>
         </div>
   </div>

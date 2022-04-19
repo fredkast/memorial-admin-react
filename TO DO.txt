@@ -3,12 +3,12 @@
 
 
  
+- Auth page loging ===== IL MANQUE LE CONTROLE IS CONNECTED ? pour afficher le header et les pages...
 
 - Verifier coté client les donnees du style : unitee armee conflit ....
 
 - gerer les confit les armee et les unnitee !
 
-- Auth page loging
 
 - TOKEN POUR create delete update
 

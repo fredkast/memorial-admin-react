@@ -39,7 +39,7 @@ if (!soldiersFind.length){
       <p className="italic">Exemple : 2022-02-02</p>
         <div className='first-container'>
           <input type="date"  className='search-input' onChange={(e) => setTextToFind(e.target.value)}></input>
-          <input className="btn-blue" type="submit" value="Envoyer" onClick={askApi}></input>
+          <input className="btn-green" type="submit" value="Envoyer" onClick={askApi}></input>
           <p style={{color:"red"}}>Il n'y a pas de soldat mort à cette date.</p>
         </div>
     </div>

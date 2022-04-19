@@ -25,7 +25,7 @@ function Header(){
         <div className='header'>
             <div className='header-upper_line' >
                 <div style={{width:'80%'}}>
-                    <p id="site_logo" className='h1-like'> <Link style={{fontSize:40}} to="/">Projet Memorial </Link> </p>
+                    <p id="site_logo" className='h1-like'> <Link style={{fontSize:40}} to="/dashboard">Projet Memorial </Link> </p>
                 </div>
 
                 <div><p style={{color:'white'}}>Mon compte</p>
