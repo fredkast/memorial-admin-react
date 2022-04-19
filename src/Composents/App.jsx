@@ -18,34 +18,56 @@ import Loging from '../Pages/Loging';
 
 function App(){
    
-    // const [UserIsConnected, setUserIsConnected] = useState([false]);
-    // console.log(UserIsConnected)
+    const [User, setUser] = useState();
+
+  // EN passant par l'API : erreur
+
+    // const [UserIsConnected, setUserIsConnected] = useState(false);
+    //console.log(UserIsConnected)
 
     // useEffect(() => {
-    //     fetch(`http://localhost/API/api-memorial/config/connected.php`)
+    //     fetch(`https://api.tytnature.fr/config/connected.php`)
     //     .then((response) => response.json()
     //     .then((data) =>{
     //         if(data === "user is connected"){
     //             setUserIsConnected(true)
+    //             console.log(UserIsConnected)
+    //           }else{
+    //             setUserIsConnected(false)
+    //             console.log(UserIsConnected)
+    //             console.log('user not connected')
     //           }
     //     })
     //     .catch((error) =>{ 
     //         console.log(error.message);
-    //         alert("Echec de la methode connection!"+error.message)
+    //         setUserIsConnected(false)
+    //         console.log(UserIsConnected)
+    //         alert("Echec de la methode connection! "+error.message)
  
     //       })
     //     )
-    
-    //     })
+
+    // })
+    // console.log(UserIsConnected)
+
+    // en passant par les cookies
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if (loggedInUser) {
+          const foundUser = loggedInUser;
+          setUser(foundUser);
+          console.log(User)
+        }
+      }, []);
     
 
-            return(
-       
-                <BrowserRouter>
+    if(User){
+        return(
+            <BrowserRouter>
                 <Header/>
                 <SideNav/>
                 <Routes>
-                  <Route path="/" element={<Loging/>}/>
                   <Route path="/dashboard" element={<HomePage/>}/>
                   <Route path="/ListeSoldats" element={<ListSoldiers/>}/>
                   <Route path="/search" element={<SearchSoldier/>}/>
@@ -53,12 +75,21 @@ function App(){
                   <Route path="/SearchByCurrentDate" element={<SearchByCurrentDate/>}/>
                   <Route path="/add" element={<Add/>}/>
                   <Route path='*' element={<Error404 />} />
-                 
                 </Routes>
                 <Footer/>
-              </BrowserRouter>
-              )
-
+            </BrowserRouter>
+        )
+    }else{
+        return(
+            <div>
+                <BrowserRouter>
+                    <Loging/>
+                </BrowserRouter>
+                
+            </div>
+        
+        )
+    }
     
 }
 export default App;

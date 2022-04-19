@@ -3,20 +3,20 @@
 
 
  
-- Auth page loging ===== IL MANQUE LE CONTROLE IS CONNECTED ? pour afficher le header et les pages...
+- LOGIN valider la methode par cookies avec un token ?
 
-- Verifier coté client les donnees du style : unitee armee conflit ....
+- requete SQL propre coté client les donnees du style : unitee armee conflit ....
 
-- gerer les confit les armee et les unnitee !
+- requete SQL propre gerer les confit les armee et les unnitee !
 
+- TOKEN POUR create delete update cote serveur
 
-- TOKEN POUR create delete update
-
-- Chercher par DAte => Alerte quand personne de trouve
+- Chercher par Date => Alerte quand personne de trouve
 
 ////////////////////////////
 ////////// OK /////////////
 
+- login/out
 - chercher un soldat par id
 - chercher par date
 - ajouter un soldat 

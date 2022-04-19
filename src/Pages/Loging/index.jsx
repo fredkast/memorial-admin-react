@@ -15,28 +15,33 @@ function Loging(){
   const [Username, setUsername] = useState([])
   const [Password, setPassword] = useState([])
 
+
+  // LOGIN VIA L'API + COOKIES
   function connectToAPI(e){
     e.preventDefault();
-    var bodyRequest = JSON.stringify(
+    var bodyRequest = 
       {
         "username":Username,
         "password":Password
       }
-    )
-    console.log(bodyRequest)
-      fetch('http://localhost/API/api-memorial/config/connect.php', {
+    
+      fetch('https://api.tytnature.fr/config/connect.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: 
-          bodyRequest,
+        JSON.stringify(bodyRequest),
       })
       .then((response) => response.json()
       .then((data) =>{
         // les identifiants sont bons
         if(data === "User loging : success."){
           alert("Connecté");
+          // Creation d'un cookies pour rester connecté
+          //-----------> TODO remplacer par un token !
+
+          localStorage.setItem('user', Username)
           navigate('/dashboard');
           window.location.reload(false);
+
         }else{
           // le mot de passe ou l'identifiant est incorrect
           alert(data)

@@ -2,9 +2,11 @@
 
 import '../Styles/header.css'
 import React,{ useState } from "react";
-import { Link } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 function Header(){
+      // redirection
+    let navigate = useNavigate()
     // State du curseur
     const [check, setChecked ] = useState(true)
     // si checked alors on inverse la valeur de check
@@ -21,6 +23,27 @@ function Header(){
     };
     const [color, setColor] = useState(false)
    
+    // LOG OUT
+
+    function logout(){
+        // vider les cookies pour se deconnecter
+        localStorage.clear();        
+        navigate('/');
+        window.location.reload(false);
+
+        // deconnecter dans l'api
+        fetch(`https://api.tytnature.fr/config/logout.php`)
+        .then((response) => response.json()
+        .then((data) =>{
+          console.log(data)
+          navigate('/');
+        })
+        .catch((error) => console.log(error))
+        )
+    }
+    
+
+
     return(
         <div className='header'>
             <div className='header-upper_line' >
@@ -28,7 +51,7 @@ function Header(){
                     <p id="site_logo" className='h1-like'> <Link style={{fontSize:40}} to="/dashboard">Projet Memorial </Link> </p>
                 </div>
 
-                <div><p style={{color:'white'}}>Mon compte</p>
+                <div><p style={{color:'white', cursor:'pointer'}} onClick={(e) => logout()}>Se deconnecter</p>
                 </div>
             </div>
             <div className='header-lower_line'>
