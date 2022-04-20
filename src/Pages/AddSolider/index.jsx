@@ -133,26 +133,26 @@ function createSoldier(e){
                 <label htmlFor="input_text">Grade :</label>
                 <select name="grade" id="grade" onChange={(e) => setGrade(e.target.value)}>
                     <option value="0">Grade</option>
-                    <option value="1">Soldat de 2eme classe</option>
-                    <option value="2">Soldat de 1ere classe</option>
-                    <option value="3">Caporal</option>
-                    <option value="4">Caporal-chef</option>
-                    <option value="5">Caporal-chef de 1ere classe</option>
-                    <option value="6">Sergent</option>
-                    <option value="7">Sergent-Chef</option>
-                    <option value="8">Adjudant</option>
-                    <option value="9">Adjudant-Chef</option>
-                    <option value="10">Major</option>
-                    <option value="11">Sous-Lieutenant</option>
-                    <option value="12">Lieutenant</option>
-                    <option value="13">Capitaine</option>
-                    <option value="15">Commandant</option>
-                    <option value="16">Lieutenant-Colonel</option>
-                    <option value="17">Colonel</option>
-                    <option value="18">Géneral de Brigade</option>
-                    <option value="19">Géneral de Division</option>
-                    <option value="20">Géneral de Corps d'Armée</option>
-                    <option value="21">Géneral de d'Armée</option>
+                    <option value="Soldat de 2eme classe">Soldat de 2eme classe</option>
+                    <option value="Soldat de 1ere classe">Soldat de 1ere classe</option>
+                    <option value="Caporal">Caporal</option>
+                    <option value="Caporal-chef">Caporal-chef</option>
+                    <option value="Caporal-chef de 1ere classe">Caporal-chef de 1ere classe</option>
+                    <option value="Sergent">Sergent</option>
+                    <option value="Sergent-Chef">Sergent-Chef</option>
+                    <option value="Adjudant">Adjudant</option>
+                    <option value="Adjudant-Chef">Adjudant-Chef</option>
+                    <option value="Major">Major</option>
+                    <option value="Sous-Lieutenant">Sous-Lieutenant</option>
+                    <option value="Lieutenant">Lieutenant</option>
+                    <option value="Capitaine">Capitaine</option>
+                    <option value="Commandant">Commandant</option>
+                    <option value="Lieutenant-Colonel">Lieutenant-Colonel</option>
+                    <option value="Colonel">Colonel</option>
+                    <option value="Géneral de Brigade">Géneral de Brigade</option>
+                    <option value="Géneral de Division">Géneral de Division</option>
+                    <option value="Géneral de Corps d'Armée">Géneral de Corps d'Armée</option>
+                    <option value="Géneral de d'Armée">Géneral de d'Armée</option>
 
                 </select>
               </div>

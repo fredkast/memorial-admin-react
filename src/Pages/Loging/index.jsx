@@ -4,7 +4,7 @@
 
 import React,{ useState } from "react";
 import { useNavigate  } from "react-router-dom";
-import "../../Styles/style.css";
+import "../../Styles/login.css";
 
 
 function Loging(){
@@ -34,7 +34,7 @@ function Loging(){
       .then((data) =>{
         // les identifiants sont bons
         if(data === "User loging : success."){
-          alert("Connecté");
+          alert("Vous etes Connecté");
           // Creation d'un cookies pour rester connecté
           //-----------> TODO remplacer par un token !
 
@@ -55,8 +55,9 @@ function Loging(){
       )
   }
     return(
-      <div className="container-data">
-        <h1>Memorial gestion de la base de données</h1>
+      <div  className="login-container">
+         <p className='h1-like'>Projet Memorial  </p>
+        <h1>Gestion de la base de données</h1>
         <p className="underline">Bienvenue</p>
 
         <div className='first-container'>

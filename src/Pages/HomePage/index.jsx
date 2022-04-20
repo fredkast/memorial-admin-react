@@ -4,7 +4,7 @@
 
 import React,{ useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "../../Styles/style.css";
+// import "../../Styles/style.css";
 
 
 function HomePage(){
@@ -39,7 +39,7 @@ function HomePage(){
 if (!soldiers.length){
   return(
     <div className="container-data">
-       <h1>Memorial Admin dashboard</h1>
+       <h1>Tableau de bord</h1>
        <p className="underline">Bienvenue</p>
 
       <div className='first-container'>
@@ -48,15 +48,15 @@ if (!soldiers.length){
         <p>Aucun soldat n'est mort un {currentDay + " " + currentMonth +"."}</p>
       </div>
       <div className="display_row">
-        <div className="first-container">
+        <div className="first-container-red">
           <h2 className="title">Date du jour<hr width="50"></hr></h2>
-          <p style={{fontSize:35, color:'greenyellow',textAlign:"center"}}>{currentDay} {currentMonth} {currentYear}</p>
+          <p style={{fontSize:35, color:'white',textAlign:"center"}}>{currentDay} {currentMonth} {currentYear}</p>
         </div>
-        <div className="first-container">
+        <div className="first-container-green">
           <h2 className="title">Ajouter un soldat<hr width="50"></hr></h2>
-          <button className="btn-green"><Link className="link" to="/add">Ajouter un soldat</Link></button>
+          <button className="btn-transparent"><Link className="link" to="/add">Ajouter un soldat</Link></button>
         </div>
-        <div className="first-container">
+        <div className="first-container-orange">
           <h2 className="title">Nombre de Données<hr width="50"></hr></h2>
         </div>
       </div>
@@ -66,7 +66,7 @@ if (!soldiers.length){
 // sinon on les affiche dans la liste
   return(
     <div className="container-data">
-      <h1>Memorial Admin dashboard</h1>
+      <h1>Tableau de bord</h1>
        <p className="underline">Bienvenue</p>
       <div className="first-container">
           <h2 className="title">Soldats du jour<hr width="50"></hr></h2>
@@ -84,15 +84,15 @@ if (!soldiers.length){
           </table>
       </div>
       <div className="display_row">
-        <div className="first-container">
+        <div className="first-container-red">
           <h2 className="title">Date du jour<hr width="50"></hr></h2>
           <p style={{fontSize:20}}>{currentDay} {currentMonth} {currentYear}</p>
         </div>
-        <div className="first-container">
+        <div className="first-container-orange">
           <h2 className="title">Ajouter un soldat<hr width="50"></hr></h2>
-          <button className="btn-green"><Link className="link" to="/add">Ajouter un soldat</Link></button>
+          <button className="btn-transparent"><Link className="link" to="/add">Ajouter un soldat</Link></button>
         </div>
-        <div className="first-container">
+        <div className="first-container-green">
           <h2 className="title">Nombre de Données<hr width="50"></hr></h2>
         </div>
       </div>

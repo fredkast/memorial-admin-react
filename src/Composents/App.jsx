@@ -1,5 +1,4 @@
 import React,{ useState, useEffect } from "react";
-import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // components
 import Header from './Header';
@@ -15,6 +14,18 @@ import UpdateSoldier from '../Pages/UpdateSoldier';
 import Add from '../Pages/AddSolider';
 import SearchSoldier from '../Pages/SearchSoldier';
 import Loging from '../Pages/Loging';
+// Styles
+import "../Styles/style.css";
+
+// const [themeDark, setThemeDark ] = useState()
+
+// var css_theme_prefers = sessionStorage.getItem('theme');
+
+// if(css_theme_prefers == "light"){
+//     setThemeDark("Light")
+// }
+   
+
 
 function App(){
    
@@ -84,6 +95,7 @@ function App(){
             <div>
                 <BrowserRouter>
                     <Loging/>
+                    <Footer/>
                 </BrowserRouter>
                 
             </div>

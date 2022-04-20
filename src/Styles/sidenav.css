@@ -1,12 +1,15 @@
 /* LATERAL NAV STYLE */
 .sideNav {
-    height: -webkit-fill-available; 
-    width: 200px;
-    position: absolute;
-    z-index: 1;
-    margin: 0;
-    background-color: #2b2828;
-    padding-top: 60px;
+  height: auto;
+  top: 170px;
+  left:10px;
+  border-radius: 20px;
+  width: 200px;
+  z-index: 1;
+  margin: 0;
+  position: fixed;
+  background-color: black;
+  
   }
   
   .sideNav a {
