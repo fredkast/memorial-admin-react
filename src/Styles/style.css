@@ -240,7 +240,7 @@
   /* Soldat  */
 
 
-  .soldier-list{
+  .list{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -249,7 +249,7 @@
     text-align: center;
     list-style: none;
   }
-  .soldier-card{
+  .card{
     background-color: black(255, 255, 255);
     border: solid 1px grey;
     background: rgb(0, 0, 0);
@@ -325,10 +325,10 @@
     margin-bottom: 20px;
   }
   
-  .soldier-thead{
+  .thead{
     background-color: black;
   }
-  .soldier-table{
+  .table{
     box-sizing: border-box;
     text-indent: initial;
     width: 80%;

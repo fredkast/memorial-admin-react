@@ -21,7 +21,7 @@ function ListSoldiers(){
 
   function linkToUpdate(id){
     // envois de l'id en props vers le component Update
-    navigate('/update',{state:{id:id}});
+    navigate('/modifier-soldat',{state:{id:id}});
     console.log(id)
   }
 
@@ -78,8 +78,8 @@ function ListSoldiers(){
           <p style={{color:"lightskyblue",margin:5}}>Gendarmerie</p>
           <p style={{color:"slategray",margin:5}}>Autres</p>
         </div>
-        <table className="soldier-table">
-            <thead className="soldier-thead">
+        <table className="table">
+            <thead className="thead">
                       <tr>
                         <th><p></p></th>
                         <th></th>
@@ -96,7 +96,7 @@ function ListSoldiers(){
             <tbody>
             {
             soldiers.map((soldier) =>
-              <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
+              <tr className={"card"} id={"soldier-"+soldier.id} key={soldier.id}>
                 
                     <td><p className={"armeeColor-"+soldier.armee} style={{margin:10, height:20, width:20, borderRadius:50, padding:5}}  >{soldier.id}</p></td>
                     <td className={"soldier-gender-"+soldier.genre}><p style={{margin:10}} className={soldier.genre}></p></td>

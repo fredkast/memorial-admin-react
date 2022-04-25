@@ -38,7 +38,7 @@ function Loging(){
           // Creation d'un cookies pour rester connecté
           //-----------> TODO remplacer par un token !
 
-          localStorage.setItem('user', Username)
+          sessionStorage.setItem('user', Username)
           navigate('/dashboard');
           window.location.reload(false);
 

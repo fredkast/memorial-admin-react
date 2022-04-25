@@ -1,6 +1,7 @@
 function error404(){
     return(
-        <div className="error404">
+    
+        <div className="error404" style={{height:"50vh"}}>
             <h1>Page introuvable: erreur 404</h1>
         </div>
 

@@ -69,9 +69,11 @@ function Header(){
                 <div style={{width:'100%'}}>
                     <div>
                         <Link id='nav_add_soldier_link' className="link" to="/add">Ajouter un soldat</Link>
-                        <Link className="link" to="/search">Chercher un soldat</Link>
-                        <Link className="link" to="/SearchByCurrentDate">Chercher une date</Link>
-                        <Link className="link" to="/ListeSoldats">Liste des soldats</Link>
+                        <Link className="link" to="/chercher-soldats">Chercher un soldat</Link>
+                        <Link className="link" to="/conflits">Conflits</Link>
+                        <Link className="link" to="/unitees">Unitées</Link>
+                        <Link className="link" to="/chercher-par-date">Chercher une date</Link>
+                        <Link className="link" to="/soldats">Liste des soldats</Link>
                         
                     </div>
                 </div>

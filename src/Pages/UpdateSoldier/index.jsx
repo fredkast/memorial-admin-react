@@ -34,6 +34,12 @@ function UpdateSoldier(){
   const [Image, setImage] = useState([])
   const [EncodedImage, setEncodedImage] = useState([])
 
+
+  // All Units state
+
+  const [allUnits, setAllUnits] = useState([]);
+  const [allConflicts, setAllConflicts] = useState([]);
+
   // ---------------------------------***** ETAPE 1 : afficher les données du soldat (id passé par SoldierList) depuis l'api
   const bodyRequest = 
   {
@@ -49,7 +55,6 @@ function UpdateSoldier(){
     })
     .then((response) => response.json()
     .then((data) =>{
-
       setId(data.id)
       setName(data.nom);
       setFirstname(data.prenom)
@@ -57,18 +62,43 @@ function UpdateSoldier(){
       setAge(data.age)
       setDate(data.date_deces)
       setArmy(data.armee)
-      // setUnit(data.unitee)
+      setUnit(data.unitee)
       setConflit(data.conflit)
       setBio(data.biographie)
       setCirc(data.circonstance)
       setSepult(data.sepulture)
       setGender(data.gender)
       setImage(data.image)
-
-    })
+    },
+    // Get ALL UNITS DATAS
+      fetch('https://api.tytnature.fr/unitees/readAll.php',{
+        method: 'GET',
+      })
+      .then((response) => response.json()
+      .then((d) =>{
+        
+        setAllUnits(d)
+        // Get ALL CONFLICTS DATAS
+        fetch('https://api.tytnature.fr/conflits/readAll.php',{
+          method: 'GET',
+        })
+        .then((response) => response.json()
+        .then((b) =>{
+          setAllConflicts(b)
+          }
+        )
+        .catch(
+          (error) => {
+            // UPLOAD FAIL
+            alert("Echec sauvegarde de l'image ! Une erreur est survenue.")
+          })
+        )
+      })
+      )
+    )
     .catch(() => {
       console.log("Fail API request")
-      alert("Erreur dans la reécupération de données")
+      alert("Erreur dans la reécupération de données !")
       })
     )},
   [])
@@ -163,6 +193,11 @@ function UpdateSoldier(){
           alert("Données modifiées !")
           window.location.reload(false);
         })
+        .catch(
+          (error) => {
+            // UPLOAD FAIL
+            alert("Attention, vous n'avez modifié aucun champs.")
+          })
     }
     
   };
@@ -269,11 +304,11 @@ function UpdateSoldier(){
                       <label htmlFor="input_text">Armée :</label>
                       <select name="armee" id="armee" onChange={(e) => setArmy(e.target.value)} >
                           <option value={Army} disabled selected>{Army}</option>
-                          <option value="1">Armée de Terre</option>
-                          <option value="2">Armée de l'Air</option>
-                          <option value="3">Marine National</option>
-                          <option value="4">Gendarmerie National</option>
-                          <option value="5">Autre</option>
+                          <option value="1">Armée de Terre (1)</option>
+                          <option value="2">Armée de l'Air (2)</option>
+                          <option value="3">Marine National (3)</option>
+                          <option value="4">Gendarmerie National (4)</option>
+                          <option value="5">Autre (5)</option>
                       </select>
                     </div>
                   </div>
@@ -282,17 +317,29 @@ function UpdateSoldier(){
                     <div className="input_field">
                       <label  htmlFor="input_text">Conflit :</label>
                       <select name="conflit" id="conflit" onChange={(e) => setConflit(e.target.value)} >
-                        <option value={Conflit} disabled selected >{Conflit}</option>
-                        <option value="1">Mali</option>
+                        <option value="" disabled selected >Choisissez un conflit</option>
+                        {
+                          allConflicts.map(
+                            (conflict) =>
+                          <option value={conflict.id}>{conflict.lieu}</option>
+                          )
+                        }
                       </select>
                     </div>
                   </div>
                   <div className="display_row">
                     <div className="input_field">
-                      <label style={{color:'red'}} htmlFor="input_text">Unitée* : </label>
+                      <label htmlFor="input_text">Unitée : </label>
                       <select name="unitee" id="unitee" onChange={(e) => setUnit(e.target.value)} required>
-                        <option value="1">3eme Regiment d'Infanterie de Marine</option>
-                        <option value=""  disabled selected >Choisissez une unitée</option>
+                      <option value={Unit}  disabled selected >Choisissez une unitée</option>
+
+                        {
+                          allUnits.map(
+                            (unit) =>
+                          <option value={unit.id}>{unit.nom}</option>
+                          )
+                        }
+                        
                       </select>
                     </div>
                   </div>

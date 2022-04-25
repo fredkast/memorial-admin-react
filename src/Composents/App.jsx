@@ -14,6 +14,8 @@ import UpdateSoldier from '../Pages/UpdateSoldier';
 import Add from '../Pages/AddSolider';
 import SearchSoldier from '../Pages/SearchSoldier';
 import Loging from '../Pages/Loging';
+import ListConflicts from "../Pages/ListConflict";
+import ListUnits from "../Pages/ListUnits";
 // Styles
 import "../Styles/style.css";
 
@@ -64,7 +66,7 @@ function App(){
     // en passant par les cookies
 
     useEffect(() => {
-        const loggedInUser = localStorage.getItem("user");
+        const loggedInUser = sessionStorage.getItem("user");
         if (loggedInUser) {
           const foundUser = loggedInUser;
           setUser(foundUser);
@@ -80,11 +82,13 @@ function App(){
                 <SideNav/>
                 <Routes>
                   <Route path="/dashboard" element={<HomePage/>}/>
-                  <Route path="/ListeSoldats" element={<ListSoldiers/>}/>
-                  <Route path="/search" element={<SearchSoldier/>}/>
-                  <Route path="/update" element={<UpdateSoldier/>}/>
-                  <Route path="/SearchByCurrentDate" element={<SearchByCurrentDate/>}/>
-                  <Route path="/add" element={<Add/>}/>
+                  <Route path="/soldats" element={<ListSoldiers/>}/>
+                  <Route path="/conflits" element={<ListConflicts/>}/>
+                  <Route path="/unitees" element={<ListUnits/>}/>
+                  <Route path="/chercher-soldat" element={<SearchSoldier/>}/>
+                  <Route path="/modifier-soldat" element={<UpdateSoldier/>}/>
+                  <Route path="/chercher-par-date" element={<SearchByCurrentDate/>}/>
+                  <Route path="/ajouter" element={<Add/>}/>
                   <Route path='*' element={<Error404 />} />
                 </Routes>
                 <Footer/>

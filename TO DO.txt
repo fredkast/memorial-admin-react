@@ -1,17 +1,22 @@
 /////////////////////////////////////////
 //////// A FAIRE ////////////////////////
 
+Prioritaire
 
+- Requete SQL pour les confit et les unnitee :  si elle n'existe pas creer !
  
 - LOGIN valider la methode par cookies avec un token ?
 
-- requete SQL propre coté client les donnees du style : unitee armee conflit ....
-
-- requete SQL propre gerer les confit les armee et les unnitee !
-
 - TOKEN POUR create delete update cote serveur
 
+Secondaire
+
+
+- Controler coté client les donnees envoyées: unitee conflit 
+
 - Chercher par Date => Alerte quand personne de trouve
+
+- Dark mode
 
 ////////////////////////////
 ////////// OK /////////////
