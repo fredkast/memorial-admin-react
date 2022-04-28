@@ -65,18 +65,27 @@ function Header(){
                       
                 </div>                
             </div>
-            <div className='header-lower_line'>
-                <div style={{width:'100%'}}>
-                    <div>
-                        <Link id='nav_add_soldier_link' className="link" to="/add">Ajouter un soldat</Link>
-                        <Link className="link" to="/chercher-soldats">Chercher un soldat</Link>
-                        <Link className="link" to="/conflits">Conflits</Link>
-                        <Link className="link" to="/unitees">Unitées</Link>
-                        <Link className="link" to="/chercher-par-date">Chercher une date</Link>
-                        <Link className="link" to="/soldats">Liste des soldats</Link>
-                        
-                    </div>
-                </div>
+            <div className='header-lower_line'> 
+                <label for="menu-toggle-1">Soldat</label>
+                <input type="checkbox" id="menu-toggle-1"/>
+                <ul id="menu-1">
+                    <li><Link className="link" to="/soldats">Liste des soldats</Link></li>
+                    <li><Link className="link" to="/chercher-soldat">Chercher un soldat</Link></li>
+                    <li><Link className="link" to="/chercher-par-date">Chercher par date</Link></li>
+                    <li><Link className="link" to="/ajouter">Ajouter un soldat</Link></li>
+                </ul>
+                <label for="menu-toggle-2">Unitées</label>
+                <input type="checkbox" id="menu-toggle-2"/>
+                <ul id="menu-2">
+                    <li><Link className="link" to="/unitees">Liste Unitées</Link></li>
+                    <li><Link className="link" to="/unitee-ajouter">Ajouter une unitée</Link></li>
+                </ul>
+                <label for="menu-toggle-3">Conflits</label>
+                <input type="checkbox" id="menu-toggle-3"/>
+                <ul id="menu-3">
+                    <li><Link className="link" to="/conflits">Liste conflit</Link></li>
+                    <li><Link className="link" to="/conflits-ajouter">Ajouter un conflit</Link></li>
+                 </ul>       
             </div>
         </div>
 

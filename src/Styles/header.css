@@ -27,7 +27,9 @@
     height: 50px;
     width: 100%;
     display: flex;
-    align-items: center;}
+    align-items: center;
+    justify-content: flex-end;
+  }
 #site_logo a{
   font-family: 'Bebas Neue', cursive!important;
   text-decoration: none;
@@ -39,13 +41,13 @@
   transform: scale(1.1);
 } */
 .link{
-    color: black;
+    color: white;
     margin: 20px;
     text-decoration: none;
     font-weight: 800;
 }
 .link:hover{
-  color: white!important;
+  color: gold!important;
 }
 .h1-like{
     color: white;
@@ -150,3 +152,44 @@
     height: 1.5em;
     margin: 10px;
   }
+
+  /* MENU */
+
+label {
+  height: auto;
+  width: auto;
+  padding:10px;
+  display: inline-block;
+  color: white;
+    font-family: 'Lato';
+    font-size: 40px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+#menu-toggle-1, #menu-toggle-2, #menu-toggle-3 {
+  display: none;
+}
+#menu-1, #menu-2, #menu-3 {
+  background-color: #06050582;
+  width: 200px;
+  overflow: hidden;
+  max-height: 0;
+  padding: 10px;
+  display: none;
+  -webkit-transition: all 0.3s ease;
+  border-radius: 10px;
+}
+#menu-toggle-1:checked + #menu-1 {
+  display: block;
+  max-height: 200px;
+}
+#menu-toggle-2:checked + #menu-2 {
+  display: block;
+  max-height: 200px;
+}
+#menu-toggle-3:checked + #menu-3 {
+  display: block;
+  max-height: 200px;
+}

@@ -4,7 +4,15 @@
 Prioritaire
 
 - Requete SQL pour les confit et les unnitee :  si elle n'existe pas creer !
+
+
+=>> Il faut faire une liaison sql pour afficher le regiment et le conflit et pas les id dans la page LISTsoldiers
+et a l'inverse sur la page UPDATE il faut pas faire de liaison pour pas afficher dans la requete le nom plutot que l'id
  
+
+=> modifier le formulaire de update
+
+
 - LOGIN valider la methode par cookies avec un token ?
 
 - TOKEN POUR create delete update cote serveur
