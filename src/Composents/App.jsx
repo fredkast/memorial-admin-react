@@ -2,7 +2,6 @@ import React,{ useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // components
 import Header from './Header';
-import SideNav from './SideNav';
 import Error404 from './404';
 import Footer from './Footer';
 
@@ -79,7 +78,6 @@ function App(){
         return(
             <BrowserRouter>
                 <Header/>
-                <SideNav/>
                 <Routes>
                   <Route path="/dashboard" element={<HomePage/>}/>
                   <Route path="/soldats" element={<ListSoldiers/>}/>

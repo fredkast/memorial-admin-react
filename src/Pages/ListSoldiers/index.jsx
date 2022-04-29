@@ -71,7 +71,7 @@ function ListSoldiers(){
       <div className='list-container'>
         <h1 className="title">Nos soldats morts pour la France</h1>
            <p className="underline">Toutes les données de la base de donnée</p>
-        <div className="display-row">
+        <div id="army-type">
           <p style={{color:"olive", margin:5}}>Armée de Terre</p>
           <p style={{color:"deepskyblue",margin:5}}>Armée de l'air</p>
           <p style={{color:"#1e1ee1",margin:5}}>Marine Nationale</p>

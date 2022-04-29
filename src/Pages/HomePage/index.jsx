@@ -54,7 +54,7 @@ if (!soldiers.length){
         </div>
         <div className="first-container-green">
           <h2 className="title">Ajouter un soldat<hr width="50"></hr></h2>
-          <button className="btn-transparent"><Link className="link" to="/add">Ajouter un soldat</Link></button>
+          <button className="btn-transparent"><Link className="link" to="/ajouter">Ajouter un soldat</Link></button>
         </div>
         <div className="first-container-orange">
           <h2 className="title">Nombre de Données<hr width="50"></hr></h2>
@@ -90,7 +90,7 @@ if (!soldiers.length){
         </div>
         <div className="first-container-orange">
           <h2 className="title">Ajouter un soldat<hr width="50"></hr></h2>
-          <button className="btn-transparent"><Link className="link" to="/add">Ajouter un soldat</Link></button>
+          <button className="btn-transparent"><Link className="link" to="/ajouter">Ajouter un soldat</Link></button>
         </div>
         <div className="first-container-green">
           <h2 className="title">Nombre de Données<hr width="50"></hr></h2>

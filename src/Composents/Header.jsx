@@ -30,7 +30,7 @@ function Header(){
 
     function logout(){
         // vider les cookies pour se deconnecter
-        localStorage.clear();        
+        sessionStorage.clear();        
         navigate('/');
         window.location.reload(false);
 
@@ -45,6 +45,7 @@ function Header(){
         )
     }
     
+    
 
 
     return(
@@ -53,8 +54,11 @@ function Header(){
                 <div style={{width:'80%'}}>
                     <p id="site_logo" className='h1-like'> <Link style={{fontSize:40}} to="/dashboard">Projet Memorial </Link> </p>
                 </div>
-
-                <div><p style={{color:'white', cursor:'pointer', paddingRight:20}} onClick={(e) => logout()}>Se deconnecter</p>
+                <a className="link-sidenav" href="https://www.defense.gouv.fr/" target="_blank">Site vitrine Memorial.fr</a>
+                <a className="link-sidenav" href="https://www.defense.gouv.fr/" target="_blank">Ministère des armées</a>
+                <a className="link-sidenav" href="https://www.defense.gouv.fr/" target="_blank">Instagram Memorial</a>
+                <div>
+                    <p style={{color:'white', cursor:'pointer', paddingRight:20}} onClick={(e) => logout()}>Se deconnecter</p>
                 </div>
                 <div className='display-row'>
                     <p className={color} style={{padding:20}}>Light Mode</p>
@@ -66,26 +70,33 @@ function Header(){
                 </div>                
             </div>
             <div className='header-lower_line'> 
-                <label for="menu-toggle-1">Soldat</label>
-                <input type="checkbox" id="menu-toggle-1"/>
-                <ul id="menu-1">
-                    <li><Link className="link" to="/soldats">Liste des soldats</Link></li>
-                    <li><Link className="link" to="/chercher-soldat">Chercher un soldat</Link></li>
-                    <li><Link className="link" to="/chercher-par-date">Chercher par date</Link></li>
-                    <li><Link className="link" to="/ajouter">Ajouter un soldat</Link></li>
-                </ul>
-                <label for="menu-toggle-2">Unitées</label>
-                <input type="checkbox" id="menu-toggle-2"/>
-                <ul id="menu-2">
-                    <li><Link className="link" to="/unitees">Liste Unitées</Link></li>
-                    <li><Link className="link" to="/unitee-ajouter">Ajouter une unitée</Link></li>
-                </ul>
-                <label for="menu-toggle-3">Conflits</label>
-                <input type="checkbox" id="menu-toggle-3"/>
-                <ul id="menu-3">
-                    <li><Link className="link" to="/conflits">Liste conflit</Link></li>
-                    <li><Link className="link" to="/conflits-ajouter">Ajouter un conflit</Link></li>
-                 </ul>       
+                <div class="navigation">
+                <a href="#">Soldats</a>
+                <div class="navigation-content">
+                    <Link className="link" to="/soldats">Liste des soldats</Link>
+                    <Link className="link" to="/chercher-soldat">Chercher un soldat</Link>
+                    <Link className="link" to="/chercher-par-date">Chercher par date</Link>
+                    <Link className="link" to="/ajouter">Ajouter un soldat</Link>
+                </div>
+                </div>
+                <div class="navigation">
+                <a href="#">Unitées</a>
+                <div class="navigation-content">
+                    <Link className="link" to="/unitees">Liste Unitées</Link>
+                    <Link className="link" to="/unitee-ajouter">Ajouter une unitée</Link>
+                
+                </div>
+                </div>
+                <div class="navigation">
+                <a href="#">Conflits</a>
+                <div class="navigation-content">
+                    <Link className="link" to="/conflits">Liste conflit</Link>
+                    <Link className="link" to="/conflits-ajouter">Ajouter un conflit</Link>
+                </div>
+                </div>
+                <div class="navigation">
+                    <Link className="link" to="/dashboard">Tableau de bord</Link>
+                </div>
             </div>
         </div>
 

@@ -66,7 +66,7 @@ function Loging(){
             <label  htmlFor="input_text">Nom d'utilisateur :</label>
                         <input id="username" type="text" onChange={e => setUsername(e.target.value.trim())} />
             <label  htmlFor="input_text">Mot de passe :</label>
-                        <input id="username" type="text" onChange={e => setPassword(e.target.value.trim())} />
+                        <input id="username" type="password" onChange={e => setPassword(e.target.value.trim())} />
           
             <button className='btn-green'  onClick={connectToAPI} >
                       Connecter

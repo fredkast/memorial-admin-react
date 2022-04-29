@@ -9,14 +9,16 @@
     align-items: center;}
 .header-upper_line{
     height: 100px;
-    width: 100%;
+    width: 90%;
     background-color: rgb(11, 11, 11);
     text-align: left;
     margin: 0;
     z-index: 5;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    
+
 }
 .header-lower_line{
     background: #385a0c;
@@ -25,10 +27,11 @@
     box-shadow: 0px 5px 15px 1px #8f77778a;
     z-index: 5;
     height: 50px;
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: right;
+    padding-right: 10%;
   }
 #site_logo a{
   font-family: 'Bebas Neue', cursive!important;
@@ -69,8 +72,13 @@
 #nav_add_soldier_link:hover{
   color:Black!important;
 }
-
-
+.link-sidenav{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.link-sidenav:hover{
+  color:gold;
+}
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -155,41 +163,33 @@
 
   /* MENU */
 
-label {
-  height: auto;
-  width: auto;
-  padding:10px;
+.navigation {
+  position: relative;
   display: inline-block;
+}
+.navigation-content {
+  display: none;
+  position: absolute;
+  background-color: black;
   color: white;
-    font-family: 'Lato';
-    font-size: 40px;
-    font-weight: bolder;
-    text-transform: uppercase;
-    margin: 0;
+  min-width: 160px;
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
-
-#menu-toggle-1, #menu-toggle-2, #menu-toggle-3 {
-  display: none;
-}
-#menu-1, #menu-2, #menu-3 {
-  background-color: #06050582;
-  width: 200px;
-  overflow: hidden;
-  max-height: 0;
-  padding: 10px;
-  display: none;
-  -webkit-transition: all 0.3s ease;
-  border-radius: 10px;
-}
-#menu-toggle-1:checked + #menu-1 {
+.navigation a {
+  color: white;
+  padding: 12px;
+  margin: 0;
+  text-decoration: none;
   display: block;
-  max-height: 200px;
 }
-#menu-toggle-2:checked + #menu-2 {
-  display: block;
-  max-height: 200px;
+.navigation a:hover {
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );  
+  border-radius: 4px;
+  color:white!important;
+  transform: scale(1.1);
 }
-#menu-toggle-3:checked + #menu-3 {
+.navigation:hover .navigation-content {
   display: block;
-  max-height: 200px;
 }
