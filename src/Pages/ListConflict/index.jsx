@@ -21,14 +21,14 @@ function ListConflicts(){
 
   function linkToUpdate(id){
     // envois de l'id en props vers le component Update
-    navigate('/update',{state:{id:id}});
+    navigate('/modifier-conflit',{state:{id:id}});
     console.log(id)
   }
 
   function idToDelete(id){
     var result = window.confirm("Êtes-vous sûr de vouloir supprimer de la base de donnée l'identifiant "+id);
     if (result) {
-      fetch('https://api.tytnature.fr/soldats/delete', {
+      fetch('https://api.tytnature.fr/conflits/delete.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(

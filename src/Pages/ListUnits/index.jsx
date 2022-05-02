@@ -21,14 +21,14 @@ function ListUnits(){
 
   function linkToUpdate(id){
     // envois de l'id en props vers le component Update
-    navigate('/update',{state:{id:id}});
-    console.log(id)
+    navigate('/modifier-unitee',{state:{id:id}});
+    console.log("ID send: "+id)
   }
 
   function idToDelete(id){
     var result = window.confirm("Êtes-vous sûr de vouloir supprimer de la base de donnée l'identifiant "+id);
     if (result) {
-      fetch('https://api.tytnature.fr/soldats/delete', {
+      fetch('https://api.tytnature.fr/unitees/delete.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(

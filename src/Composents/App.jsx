@@ -15,10 +15,11 @@ import SearchSoldier from '../Pages/SearchSoldier';
 import Loging from '../Pages/Loging';
 import ListConflicts from "../Pages/ListConflict";
 import ListUnits from "../Pages/ListUnits";
+import UpdateUnit from "../Pages/UpdateUnit";
+import UpdateConflict from "../Pages/UpdateConflict";
 // Styles
 import "../Styles/style.css";
 
-// const [themeDark, setThemeDark ] = useState()
 
 // var css_theme_prefers = sessionStorage.getItem('theme');
 
@@ -31,6 +32,7 @@ import "../Styles/style.css";
 function App(){
    
     const [User, setUser] = useState();
+
 
   // EN passant par l'API : erreur
 
@@ -71,18 +73,27 @@ function App(){
           setUser(foundUser);
           console.log(User)
         }
+        var theme = sessionStorage.getItem('theme');
+        if (theme == "light"){
+            document.getElementsByTagName('Body')[0].classList.add('light');
+        }
       }, []);
     
 
     if(User){
         return(
-            <BrowserRouter>
+                <BrowserRouter>
                 <Header/>
                 <Routes>
-                  <Route path="/dashboard" element={<HomePage/>}/>
-                  <Route path="/soldats" element={<ListSoldiers/>}/>
+                  <Route path="/" element={<HomePage/>}/>
+                 
                   <Route path="/conflits" element={<ListConflicts/>}/>
+                  <Route path="/modifier-conflit" element={<UpdateConflict/>}/>
+
                   <Route path="/unitees" element={<ListUnits/>}/>
+                  <Route path="/modifier-unitee" element={<UpdateUnit/>}/>
+
+                  <Route path="/soldats" element={<ListSoldiers/>}/>
                   <Route path="/chercher-soldat" element={<SearchSoldier/>}/>
                   <Route path="/modifier-soldat" element={<UpdateSoldier/>}/>
                   <Route path="/chercher-par-date" element={<SearchByCurrentDate/>}/>
@@ -91,16 +102,14 @@ function App(){
                 </Routes>
                 <Footer/>
             </BrowserRouter>
+            
         )
     }else{
         return(
-            <div>
                 <BrowserRouter>
                     <Loging/>
                     <Footer/>
                 </BrowserRouter>
-                
-            </div>
         
         )
     }

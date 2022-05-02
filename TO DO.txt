@@ -3,22 +3,17 @@
 
 Prioritaire
 
-- Requete SQL pour les confit et les unnitee :  si elle n'existe pas creer !
+=> rappel de creer le conflit et unite avant de rajouter soldat
 
-
-=>> Il faut faire une liaison sql pour afficher le regiment et le conflit et pas les id dans la page LISTsoldiers
-et a l'inverse sur la page UPDATE il faut pas faire de liaison pour pas afficher dans la requete le nom plutot que l'id
- 
+=> ajouter page DELETE UPDATE pour conflit et unitee 
 
 => modifier le formulaire de update
 
+- LOGIN valider la methode par cookies avec un token ?????
 
-- LOGIN valider la methode par cookies avec un token ?
-
-- TOKEN POUR create delete update cote serveur
+- TOKEN POUR create delete update cote serveur !!!!
 
 Secondaire
-
 
 - Controler coté client les donnees envoyées: unitee conflit 
 
@@ -27,11 +22,3 @@ Secondaire
 - Dark mode
 
 ////////////////////////////
-////////// OK /////////////
-
-- login/out
-- chercher un soldat par id
-- chercher par date
-- ajouter un soldat 
-- supprimer un soldat 
-- Gerer l'import d'image via fonction PHP

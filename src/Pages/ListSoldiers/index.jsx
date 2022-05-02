@@ -81,8 +81,8 @@ function ListSoldiers(){
         <table className="table">
             <thead className="thead">
                       <tr>
-                        <th><p></p></th>
-                        <th></th>
+                        <th><p>Armée</p></th>
+                        <th><p>H/F</p></th>
                         <th><p>Date d'ajout</p></th>
                         <th></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Grade</p></th>

@@ -1,15 +1,8 @@
 // Component Update Soldier
 
-
-
-// probleme avec UNite et photo
-//IL FAUT ESSAYER DE METTRE LA FONCTION UPLOAD APRES LE UPDATE ???
-
-
 import React,{  useState, useEffect } from "react";
 import { useLocation, Link } from 'react-router-dom';
 
-// TODO : Changer de photo
 
 function UpdateSoldier(){
 
@@ -40,7 +33,7 @@ function UpdateSoldier(){
   const [allUnits, setAllUnits] = useState([]);
   const [allConflicts, setAllConflicts] = useState([]);
 
-  // ---------------------------------***** ETAPE 1 : afficher les données du soldat (id passé par SoldierList) depuis l'api
+  // ---------------------------------***** ETAPE 1 : afficher les données du conflit (id passé par conflitList) depuis l'api
   const bodyRequest = 
   {
     "id":state.id
