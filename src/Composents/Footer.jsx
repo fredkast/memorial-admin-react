@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 function Footer(){
     return(
         <div>
-            <div className='container-data-background'>
+            <div className='main-container-background'>
                 <p className='citation'>Parce qu'il est seul à pouvoir regarder la mort dans les yeux, seul le soldat est un homme libre !</p>
-                <p >Richard Hoffmann</p>
+                <p style={{color:'gold'}}>Richard Hoffmann</p>
             </div>
             <div className='footer'>
                 

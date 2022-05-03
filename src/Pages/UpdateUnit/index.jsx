@@ -73,7 +73,7 @@ function UpdateUnit(){
   
 
   return(     
-        <div className="container-data">
+        <div className="main-container">
           <h1 className="title">Modifier l'unitée n°{state.id}</h1>
           <p className="underline">Modifier les champs </p>
 
@@ -106,7 +106,7 @@ function UpdateUnit(){
 
                 {/* SUBMIT */}
                   <div className="display_row">
-                    <Link className="btn-red" style={{textAlign:"center",fontSize:"auto"}}  to="/">
+                    <Link className="btn-red" style={{textAlign:"center",fontSize:"auto"}}  to="/unitees">
                       Annuler
                     </Link>
                     <button className='btn-green'  onClick={updateAPI} >

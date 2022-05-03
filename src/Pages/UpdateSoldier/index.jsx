@@ -1,12 +1,13 @@
 // Component Update Soldier
 
 import React,{  useState, useEffect } from "react";
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 
 
 function UpdateSoldier(){
 
   // const [soldiersFind, setSoldiersToFind] = useState([{}])
+  let navigate = useNavigate()
 
   const {state} = useLocation();
 
@@ -156,7 +157,7 @@ function UpdateSoldier(){
                   console.log(data.result)
                   console.log("UPLOAD","Image sauvegardée !")
                   alert("Données modifiées !")
-                  window.location.reload(false);
+                  navigate("/soldats",{ replace: true })
                 })
                 .catch(
                   (error) => {
@@ -184,11 +185,11 @@ function UpdateSoldier(){
         .then((result) => {
           console.log(result.message) 
           alert("Données modifiées !")
-          window.location.reload(false);
+          navigate("/soldats",{ replace: true })
         })
-        .catch(
-          (error) => {
+        .catch((error) => {
             // UPLOAD FAIL
+            console.log(error)
             alert("Attention, vous n'avez modifié aucun champs.")
           })
     }
@@ -209,7 +210,7 @@ function UpdateSoldier(){
   };
 
   return(     
-        <div className="container-data">
+        <div className="main-container">
           <h1 className="title">Modifier le soldat n°{state.id}</h1>
           <p className="underline">Modifier les champs </p>
 
@@ -252,17 +253,7 @@ function UpdateSoldier(){
                     </div>
                   </div>
 
-                  {/* <REQUIRED></REQUIRED> */}
-
-                  <div className="display_row">
-                    <label style={{color:'red'}} >Genre* : </label>
-                    <div className="display_row">
-                      <label  for="female" >Femme :</label>
-                        <input type="radio" name="gender" id="FEMALE" value="FEMALE" onChange={(e) => setGender(e.target.value)}/>
-                      <label for="female" >Homme :</label>
-                        <input type="radio" name="gender" id="MALE" value="MALE" onChange={(e) => setGender(e.target.value)}/>
-                    </div>
-                  </div>
+                 
 
                   <div className="display_row">
                     <div className="input_field">
@@ -291,25 +282,40 @@ function UpdateSoldier(){
                           <option value="Géneral de d'Armée">Géneral de d'Armée</option>
                         </select>
                       </div>
+               
+                      <div className="input_field">
+                        <label htmlFor="input_text">Armée :</label>
+                        <select name="armee" id="armee" onChange={(e) => setArmy(e.target.value)} >
+                            <option value={Army} disabled selected>Choisissez une Armée</option>
+                            <option value="1">Armée de Terre (1)</option>
+                            <option value="2">Armée de l'Air (2)</option>
+                            <option value="3">Marine National (3)</option>
+                            <option value="4">Gendarmerie National (4)</option>
+                            <option value="5">Autre (5)</option>
+                        </select>
+                      </div>
                   </div>
-                  <div className="display_row">
-                    <div className="input_field">
-                      <label htmlFor="input_text">Armée :</label>
-                      <select name="armee" id="armee" onChange={(e) => setArmy(e.target.value)} >
-                          <option value={Army} disabled selected>{Army}</option>
-                          <option value="1">Armée de Terre (1)</option>
-                          <option value="2">Armée de l'Air (2)</option>
-                          <option value="3">Marine National (3)</option>
-                          <option value="4">Gendarmerie National (4)</option>
-                          <option value="5">Autre (5)</option>
-                      </select>
-                    </div>
-                  </div>
+                  
   
+                  {/* <REQUIRED></REQUIRED> */}
+                  <h2 style={{color:"red"}}>Pensez à créer l'unitée et le conflit avant si ils ne pas dans la liste.</h2>
+                  
+                  <div className="display_row">
+
+                    <label style={{color:'red'}} >Genre* : </label>
+                    <p  style={{fontStyle:'italic', color:'grey'}}>{Gender}</p>
+                   
+                      <label  for="female" >Femme :</label>
+                        <input type="radio" name="gender" id="FEMALE" value="FEMALE" onChange={(e) => setGender(e.target.value)}/>
+                      <label for="female" >Homme :</label>
+                        <input type="radio" name="gender" id="MALE" value="MALE" onChange={(e) => setGender(e.target.value)}/>
+                    
+
+                  </div>
                   <div className="display_row">
                     <div className="input_field">
-                      <label  htmlFor="input_text">Conflit :</label>
-                      <select name="conflit" id="conflit" onChange={(e) => setConflit(e.target.value)} >
+                      <label style={{color:'red'}} htmlFor="input_text">Conflit* :</label>
+                      <select style={{color:'red'}} name="conflit" id="conflit" onChange={(e) => setConflit(e.target.value)} >
                         <option value="" disabled selected >Choisissez un conflit</option>
                         {
                           allConflicts.map(
@@ -322,9 +328,9 @@ function UpdateSoldier(){
                   </div>
                   <div className="display_row">
                     <div className="input_field">
-                      <label htmlFor="input_text">Unitée : </label>
-                      <select name="unitee" id="unitee" onChange={(e) => setUnit(e.target.value)} required>
-                      <option value={Unit}  disabled selected >Choisissez une unitée</option>
+                      <label style={{color:'red'}} htmlFor="input_text">Unitée* : </label>
+                      <select style={{color:'red'}} name="unitee" id="unitee" onChange={(e) => setUnit(e.target.value)} required>
+                      <option  value="" disabled selected >Choisissez une unitée</option>
 
                         {
                           allUnits.map(
@@ -357,7 +363,7 @@ function UpdateSoldier(){
 
                 {/* SUBMIT */}
                   <div className="display_row">
-                    <Link className="btn-red" style={{textAlign:"center",fontSize:"auto"}}  to="/">
+                    <Link className="btn-red" style={{textAlign:"center",fontSize:"auto"}}  to="/soldats">
                       Annuler
                     </Link>
                     <button className='btn-green'  onClick={updateAPI} >

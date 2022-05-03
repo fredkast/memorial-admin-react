@@ -51,6 +51,7 @@
 }
 .link:hover{
   color: gold!important;
+  
 }
 .h1-like{
     color: white;
@@ -78,6 +79,7 @@
 }
 .link-sidenav:hover{
   color:gold;
+  font-weight: 800;
 }
 /* The switch - the box around the slider */
 .switch {

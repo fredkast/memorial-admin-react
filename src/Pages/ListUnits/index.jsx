@@ -67,7 +67,7 @@ function ListUnits(){
 
   return(
           
-    <div className="container-data">
+    <div className="main-container">
       <div className='list-container'>
         <h1 className="title">Toutes les unitée</h1>
            <p className="underline">Toutes les données de la base de donnée</p>
@@ -103,7 +103,7 @@ function ListUnits(){
             }
             </tbody>
         </table>
-        <Link to="/add">
+        <Link to="/ajouter-unitee">
           <button style={{margin:40}} className='btn-green'>Ajouter une unitée</button>
         </Link>
       </div>

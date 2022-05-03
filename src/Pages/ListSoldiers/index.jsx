@@ -67,7 +67,7 @@ function ListSoldiers(){
 
   return(
           
-    <div className="container-data">
+    <div className="main-container">
       <div className='list-container'>
         <h1 className="title">Nos soldats morts pour la France</h1>
            <p className="underline">Toutes les données de la base de donnée</p>
@@ -122,7 +122,7 @@ function ListSoldiers(){
             }
             </tbody>
         </table>
-        <Link to="/add">
+        <Link to="/ajouter">
           <button style={{margin:40}} className='btn-green'>Ajouter un soldat</button>
         </Link>
       </div>

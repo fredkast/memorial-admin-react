@@ -33,7 +33,7 @@ function askApi(e){
 // Si il n'y a pas de soldat dans le state
 if (!soldiersFind.length){
   return(
-    <div className="container-data">
+    <div className="main-container">
     <h1 className="title">Chercher par date</h1>
     <p className="underline">Chercher les soldats morts à une date précise</p>
       <p className="italic">Exemple : 2022-02-02</p>
@@ -47,7 +47,7 @@ if (!soldiersFind.length){
 }
 // sinon on affiche le résultat
  return(
-  <div className="container-data">
+  <div className="main-container">
     <h1 className="title">Résultas</h1>
     <div className='first-container'>
       <input type="date" className='search-input' onChange={(e) => setTextToFind(e.target.value)}></input>

@@ -3,9 +3,6 @@
 
 Prioritaire
 
-=> rappel de creer le conflit et unite avant de rajouter soldat
-
-=> ajouter page DELETE UPDATE pour conflit et unitee 
 
 => modifier le formulaire de update
 
@@ -13,12 +10,9 @@ Prioritaire
 
 - TOKEN POUR create delete update cote serveur !!!!
 
-Secondaire
-
 - Controler coté client les donnees envoyées: unitee conflit 
 
 - Chercher par Date => Alerte quand personne de trouve
 
-- Dark mode
 
 ////////////////////////////

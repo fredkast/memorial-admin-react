@@ -71,7 +71,7 @@ function SearchSoldier(){
     // si le soldat existe (soldiersFind != est vide)
     if (!(soldiersFind.id == "X") ){
       return(     
-        <div className="container-data">
+        <div className="main-container">
           <h1 className="title">Chercher un soldat</h1>
           <p className="underline">Chercher par ID</p>
            {/* recherche du soldat avec cet ID */}
@@ -105,7 +105,7 @@ function SearchSoldier(){
     }
     
     return(
-      <div className="container-data">
+      <div className="main-container">
       <h1 className="title">Modifier un soldat</h1>
       <div >
               {/* recherche du soldat avec cet ID */}

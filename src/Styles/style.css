@@ -17,8 +17,9 @@
   }
   .underline{
     color: green;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     text-align: left;
+    font-size: 18px;
   }
   h2{
     font-size: 18px;
@@ -78,13 +79,14 @@
     border:none;
     border-radius: 10px;
     width: 100%;
-    height: 2em;
+    height: 30px;
     min-width: 200px;
     max-width: 400px;
     text-align: center;
     background:rgb(0, 0, 0);
     box-shadow: #0F2027;
-    color:white
+    color:white;
+    color-scheme: dark;
   }
 
   input[type=radio]{
@@ -92,6 +94,25 @@
     height: 1em;
     min-width:  auto;
     max-width: auto;
+  }
+
+  input[type=radio]:checked:after{
+    width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: green;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+  }
+
+  #deces, #age{
+    width: auto;
+    padding: 0 10px 0 0;
   }
   
   #add_img_soldier{
@@ -114,7 +135,8 @@
     background: black;
     border:none;
     border-radius: 10px;
-    color:white
+    color:white;
+    height: 30px;
   }
 
   form{
@@ -148,8 +170,8 @@
 
   /* Container */
 
-  .container-data{
-    /* padding-left: 130px; */
+  .main-container{
+    width: 100%;
     background-color: rgb(30, 28, 28);
     display: flex;
     flex-direction: column;
@@ -163,7 +185,8 @@
   }
  
   .first-container{
-    width:70%;
+    width:80%;
+    max-width: 1200px;
     background-color: #373c43;
     padding: 30px;
     border-radius: 10px;
@@ -176,10 +199,8 @@
     width:70%;
     background-color: #FBDA61;
     background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
-
     padding: 30px;
     border-radius: 10px;
-
     margin: 20px;
     display: grid;
     justify-items: center;
@@ -195,13 +216,10 @@
   }
   .first-container-green{
     width:70%;
-    
     padding: 30px;
     border-radius: 10px;
     background-color: #820b4b;
     background-image: linear-gradient(225deg, #820b4b 0%, #784BA0 50%, #2B86C5 100%);
-    
-
     color:black!important;
     margin: 20px;
     display: grid;
@@ -209,16 +227,15 @@
   }
   .second-container{
     width: 80%;
+    max-width: 1200px;
     background-color: #131417;
     padding: 20px;
     border-radius: 20px;
-    /* box-shadow: 0px 6px 30px 1px #f1eeee4a; */
-    margin-bottom: 20px;
-    display: grid;
+    box-shadow: 0px 2px 10px 2px #54a0356b;
+    margin: 20px;
+    display: flex;
     justify-items: center;
   }
-
-  
   .list-container{
     width: 100%;
     display: flex;
@@ -226,7 +243,7 @@
     align-items: center;
   }
   
-  .container-data-background{
+  .main-container-background{
     background-image:url(https://www.urbalab.fr/wp-content/uploads/2020/07/EJGwYwiXYAAsacI-1200x745.jpg);
     background-size: cover;
     filter: grayscale(1);
@@ -243,6 +260,8 @@
   .display_row{
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     margin: 10px;
   }
   .textarea-container{
@@ -403,8 +422,11 @@
  
   .btn-green{
     font-size: 16px;
+    font-family: 'Lato';
     width: 200px;
     margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
@@ -416,6 +438,26 @@
     display: block;
     background-color: #FBDA61;
     background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);   
+    color: black;
+  }
+  .btn-red{
+    font-size: 16px;
+    font-family: 'Lato';
+    width: 200px;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+    display: block;
+    background-color: #820b4b;
+    background-image: linear-gradient(225deg, #820b4b 0%, #784BA0 50%, #2B86C5 100%);
     color: black;
   }
   
@@ -516,7 +558,7 @@
   body.light{
       background: white!important;  /* fallback for old browsers */
   }
-  .light .container-data{
+  .light .main-container{
     background-color: rgb(255, 255, 255);
   }
 
@@ -537,6 +579,7 @@
     background:rgb(255, 255, 255);
     box-shadow: #0F2027;
     color:rgb(0, 0, 0);
+    color-scheme: light;
   }
   .light input[type=radio]{
     width: auto;
@@ -544,9 +587,9 @@
     min-width:  auto;
     max-width: auto;
   }
-.light select{
-  background-color: rgb(255, 255, 255);
-}
+  .light select{
+    background-color: rgb(255, 255, 255);
+  }
   .light  #add_img_soldier{
     background-color: rgba(255, 0, 0, 0);
   }
@@ -562,3 +605,4 @@
     background: rgb(255, 255, 255);
     color:black;
   }
+ 

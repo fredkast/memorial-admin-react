@@ -34,12 +34,12 @@ function Loging(){
       .then((data) =>{
         // les identifiants sont bons
         if(data === "User loging : success."){
-          alert("Vous etes Connecté");
+          alert("Vous etes connecté !");
           // Creation d'un cookies pour rester connecté
           //-----------> TODO remplacer par un token !
 
           sessionStorage.setItem('user', Username)
-          navigate('/dashboard');
+          navigate('/');
           window.location.reload(false);
 
         }else{

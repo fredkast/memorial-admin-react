@@ -55,7 +55,7 @@ function UpdateConflict(){
  
   function updateAPI(e){
     e.preventDefault();
-        fetch(`https://api.tytnature.fr/unitees/update.php`, {
+        fetch(`https://api.tytnature.fr/conflits/update.php`, {
           method: 'POST',
           body: JSON.stringify(bodyRequestForUpdate),
         })
@@ -63,7 +63,7 @@ function UpdateConflict(){
         .then(() =>{
             console.log('UPDATE',"Données sauvegardées !")
             alert("Données modifiées !");
-            navigate("/unitees",{ replace: true })
+            navigate("/conflits",{ replace: true })
         })
         .catch((error) => {
           console.log(error)
@@ -75,7 +75,7 @@ function UpdateConflict(){
   
 
   return(     
-        <div className="container-data">
+        <div className="main-container">
           <h1 className="title">Modifier le conflit n°{state.id}</h1>
           <p className="underline">Modifier les champs </p>
 
@@ -108,7 +108,7 @@ function UpdateConflict(){
 
                 {/* SUBMIT */}
                   <div className="display_row">
-                    <Link className="btn-red" style={{textAlign:"center",fontSize:"auto"}}  to="/">
+                    <Link className="btn-red" style={{textAlign:"center",fontSize:"auto"}}  to="/conflits">
                       Annuler
                     </Link>
                     <button className='btn-green'  onClick={updateAPI} >

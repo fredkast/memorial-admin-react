@@ -67,7 +67,7 @@ function ListConflicts(){
 
   return(
           
-    <div className="container-data">
+    <div className="main-container">
       <div className='list-container'>
         <h1 className="title">Tous les conflits</h1>
            <p className="underline">Toutes les données de la base de donnée</p>
@@ -104,7 +104,7 @@ function ListConflicts(){
             }
             </tbody>
         </table>
-        <Link to="/add">
+        <Link to="/ajouter-conflit">
           <button style={{margin:40}} className='btn-green'>Ajouter un conflit</button>
         </Link>
       </div>

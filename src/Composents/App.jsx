@@ -11,6 +11,9 @@ import ListSoldiers from '../Pages/ListSoldiers';
 import SearchByCurrentDate from '../Pages/SearchByDate';
 import UpdateSoldier from '../Pages/UpdateSoldier';
 import Add from '../Pages/AddSolider';
+import AddUnit from "../Pages/AddUnit";
+import AddConflict from "../Pages/AddConflict";
+
 import SearchSoldier from '../Pages/SearchSoldier';
 import Loging from '../Pages/Loging';
 import ListConflicts from "../Pages/ListConflict";
@@ -89,9 +92,11 @@ function App(){
                  
                   <Route path="/conflits" element={<ListConflicts/>}/>
                   <Route path="/modifier-conflit" element={<UpdateConflict/>}/>
+                  <Route path="/ajouter-conflit" element={<AddConflict/>}/>
 
                   <Route path="/unitees" element={<ListUnits/>}/>
                   <Route path="/modifier-unitee" element={<UpdateUnit/>}/>
+                  <Route path="/ajouter-unitee" element={<AddUnit/>}/>
 
                   <Route path="/soldats" element={<ListSoldiers/>}/>
                   <Route path="/chercher-soldat" element={<SearchSoldier/>}/>

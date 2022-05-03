@@ -1,11 +1,11 @@
-// Component Create
+// Component Create Soldier
 
-// TODO : Import de photo !! 
-// ameliorer les champs => conflit,unite,...
-
+import { useNavigate } from 'react-router-dom';
 import React,{  useState } from "react";
 
 function Add() {
+
+    let navigate = useNavigate()
 
     const [Name, setName] = useState([])
     const [Firstname, setFirstname] = useState([])
@@ -85,6 +85,8 @@ function createSoldier(e){
           console.log(data.message);
           if(data.message === "Add succesful"){
           alert("Données sauvegardées !")
+          navigate("/soldats",{ replace: true })
+
           }
         })
         .catch((error) =>{ console.log(error)
@@ -98,7 +100,7 @@ function createSoldier(e){
     }
 
   return (
-    <div className="container-data">
+    <div className="main-container">
     <h1 className="title">Ajouter un soldat</h1>
     <p className="underline">Ajouter un soldat dans la base de données de Memorial</p>
 
@@ -117,9 +119,9 @@ function createSoldier(e){
             <div className="display_row">
               <label>Genre:</label>
               <div className="display_row">
-                <label for="male">Homme :</label>
+                <label for="male">&#9894;  Homme :</label>
                   <input type="radio" name="gender" id="male" value="MALE" onChange={(e) => setGender(e.target.value)}/>
-                  <label for="female" >Femme :</label>
+                  <label for="female" >&#9896;  Femme :</label>
                   <input type="radio" name="gender" id="female" value="FEMALE" onChange={(e) => setGender(e.target.value)}/>
               </div>
             </div>
@@ -176,6 +178,9 @@ function createSoldier(e){
                 </select>
               </div>
             </div>
+
+            <h2 style={{color:"red"}}>Pensez à créer l'unitée et le conflit avant si ils ne pas dans la liste.</h2>
+
 
             <div className="input_field">
                 <label htmlFor="input_text">Conflit :</label>
