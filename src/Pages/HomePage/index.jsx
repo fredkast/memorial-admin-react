@@ -55,9 +55,11 @@ if (!Soldiers.length){
        <p className="underline">Bienvenue</p>
 
       <div className='first-container'>
-      <h2 className="title">Soldat du jour<hr width="50"></hr></h2>
-     
+        <h2 className="title">Soldat du jour<hr width="50"></hr></h2>
         <p>Aucun soldat n'est mort un {currentDay + " " + currentMonth +"."}</p>
+      </div>
+      <div style={{textAlign:"left",width:"80%", maxWidth:1200}}>
+        <h3>Actualités</h3>
       </div>
       <div className="second-container">
         <div className="first-container-red">
