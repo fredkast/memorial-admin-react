@@ -81,15 +81,6 @@ function UpdateConflict(){
 
           <div className='first-container'>
                 <form className="form" >
-
-                  <div className="display_row">
-                      <div className="input_field">
-                        <label htmlFor="input_text">Dates : </label>
-                        <input className="full-width-input" type="text"  value={Date} onChange={e => setDate(e.target.value)} />
-                      </div>
-                    
-                  </div>
-
                   <div className="display_row">
                    
                     <div className="input_field">
@@ -97,15 +88,19 @@ function UpdateConflict(){
                       <input className="full-width-input" type="text" data-length="4" value={Lieu} onChange={(e) => setLieu(e.target.value)} />
                     </div>
                   </div>
+                  <div className="display_row">
+                      <div className="input_field">
+                        <label htmlFor="input_text">Dates : </label>
+                        <input className="full-width-input" type="text"  value={Date} onChange={e => setDate(e.target.value)} />
+                      </div>
+                    
+                  </div>
                   <div className="textarea-container">
                     
                       <label htmlFor="input_text">Description du conflit :</label>
                       <textarea style={{padding:10}} type="text" data-length="4" value={Description} onChange={(e) => setDescription(e.target.value)} />
                     
                   </div>
-                 
-                  
-
                 {/* SUBMIT */}
                   <div className="display_row">
                     <Link className="btn-red" style={{textAlign:"center",fontSize:"auto"}}  to="/conflits">

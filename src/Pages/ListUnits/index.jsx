@@ -76,8 +76,8 @@ function ListUnits(){
             <thead className="thead">
                       <tr>
                         <th><p style={{fontSize:12, color:'gray'}}>id</p></th>
-                        <th><p style={{fontSize:12, color:'gray'}}>Lieux</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Nom</p></th>
+                        <th><p style={{fontSize:12, color:'gray'}}>Lieu</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Descriptions</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Actions</p></th>
                       </tr>
@@ -88,8 +88,8 @@ function ListUnits(){
               <tr className={"card"} id={"unity-"+unity.id} key={unity.id}>
             
                     <td><p style={{margin:10}}>{unity.id}</p></td>
-                    <td><p style={{margin:10}}>{unity.lieu} </p></td>
-                    <td><p style={{margin:10}}>{unity.nom}</p></td>       
+                    <td><p style={{margin:10}}>{unity.nom} </p></td>
+                    <td><p style={{margin:10}}>{unity.lieu}</p></td>       
                     <td><p style={{margin:10}}>{unity.description}</p></td>
                   
                     <td>

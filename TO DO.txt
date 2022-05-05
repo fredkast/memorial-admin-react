@@ -14,5 +14,14 @@ Prioritaire
 
 - Chercher par Date => Alerte quand personne de trouve
 
+- Ajouter les grade depuis la bdd
+
+- ameliorer le curseur du theme dark
+
+- MAJ des liens sortant header
+
+- ajouter les photos
+
+- modifier les unitees
 
 ////////////////////////////

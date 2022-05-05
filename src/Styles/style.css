@@ -201,6 +201,7 @@
   }
   .first-container-red{
     width:70%;
+    height: 200px;
     background-color: #FBDA61;
     background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
     padding: 30px;
@@ -211,6 +212,7 @@
   }
   .first-container-orange{
     width:70%;
+    height:200px;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );  
     padding: 30px;
     border-radius: 10px;
@@ -220,6 +222,7 @@
   }
   .first-container-green{
     width:70%;
+    height: 200px;
     padding: 30px;
     border-radius: 10px;
     background-color: #820b4b;
@@ -305,10 +308,12 @@
     max-width: 300px;
   }
   .soldier-img-container{
-    position: relative;
-    background-color: #4e5257;
+    height: 200px;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
-
+/* 
   .ribbon {
     width: 150px;
     height: 150px;
@@ -333,8 +338,8 @@
     text-transform: uppercase;
     text-align: center;
   }
-  
-  /* top left*/
+   */
+  /* top left
   
   .ribbon-top-left::before,
   .ribbon-top-left::after {
@@ -348,16 +353,24 @@
   .ribbon-top-left::after {
     bottom: 0;
     left: 0;
-  }
+  } */
   .ribbon-top-left span {
     right: 8px;
     top: 4px;
     transform: rotate(-45deg);
   }
-  
+  .soldier-table{
+    width: 80%;
+  }
+  .soldier-card{
+    display: flex;
+    justify-content: space-evenly;
+  }
   .soldier-img_small{
     max-height: auto;
     max-width: 75px;
+    min-width: 100px;
+    min-height: 150px;
   }
   .soldier-name{  
     color: white;
@@ -506,7 +519,7 @@
     color: white;
   }
   .btn-transparent:hover{
-    border: solid 3px black;
+    border: none;
   }
 
   .btn-green:hover, .btn-submit:hover{

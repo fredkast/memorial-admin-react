@@ -147,6 +147,8 @@
   .display-row{
     display: flex;
     align-items: center;
+    justify-content: center;
+
   }
   .icon-theme{
     width: 1.5em;

@@ -15,6 +15,9 @@ function HomePage(){
   
   const [Soldiers, setTodaySoldiers] = useState([])
   const [SoldiersNumber, setAllSoldiers] = useState([])
+  const [UnitNumber, setAllUnits] = useState([])
+  const [ConflictNumber, setAllConflicts] = useState([])
+
 
   const [isLoaded, setIsLoaded] = useState([])
 
@@ -42,8 +45,27 @@ function HomePage(){
         })
         .catch((error)=>
           console.log("erreur" + error)
-        ),
-        )},
+        ))
+    fetch('https://api.tytnature.fr/unitees/readAll.php')
+        .then((response)=> response.json()
+        .then((data)=>{
+          setAllUnits(data.length);
+          console.log(data.length)
+        })
+        .catch((error)=>
+          console.log("erreur" + error)
+        ))
+    fetch('https://api.tytnature.fr/conflits/readAll.php')
+        .then((response)=> response.json()
+        .then((data)=>{
+          setAllConflicts(data.length);
+          console.log(data.length)
+        })
+        .catch((error)=>
+          console.log("erreur" + error)
+        ))
+      },
+        
   [])
 
 
@@ -51,17 +73,17 @@ function HomePage(){
 if (!Soldiers.length){
   return(
     <div className="main-container">
-       <h1>Tableau de bord</h1>
+       <h1>Tableau de bord &#9881;</h1>
        <p className="underline">Bienvenue</p>
 
       <div className='first-container'>
-        <h2 className="title">Soldat du jour<hr width="50"></hr></h2>
+        <h2 className="title">Soldat du jour &#10013;<hr width="50"></hr></h2>
         <p>Aucun soldat n'est mort un {currentDay + " " + currentMonth +"."}</p>
       </div>
       <div style={{textAlign:"left",width:"80%", maxWidth:1200}}>
         <h3>Actualités</h3>
       </div>
-      <div className="second-container">
+      <div className="second-container" style={{width:'80%'}}>
         <div className="first-container-red">
           <h2 className="title">Date du jour<hr width="50"></hr></h2>
           <p style={{fontSize:35, color:'white',textAlign:"center"}}>{currentDay} {currentMonth} {currentYear}</p>
@@ -72,7 +94,9 @@ if (!Soldiers.length){
         </div>
         <div className="first-container-orange">
           <h2 className="title">Nombre de Données<hr width="50"></hr></h2>
-          <p style={{fontSize:35, color:'white',textAlign:"center"}}>{SoldiersNumber} soldats</p>
+          <p style={{color:'white',textAlign:"center", fontSize:20, margin:0}}>{SoldiersNumber} soldats &#10013;</p>
+          <p style={{color:'white',textAlign:"center", fontSize:20, margin:0}}>{UnitNumber} unitées &#9876;</p>
+          <p style={{color:'white',textAlign:"center", fontSize:20, margin:0}}>{ConflictNumber} conflits &#10041;</p>
 
         </div>
       </div>
@@ -82,27 +106,33 @@ if (!Soldiers.length){
 // Si il y a des soldats mort en ce jour on les affiche dans la liste
   return(
     <div className="main-container">
-      <h1>Tableau de bord</h1>
+      <h1>Tableau de bord &#9881;</h1>
        <p className="underline">Bienvenue</p>
       <div className="first-container">
-          <h2 className="title">Soldats du jour<hr width="50"></hr></h2>
+          <h2 className="title">Soldats du jour &#10013;<hr width="50"></hr></h2>
           <table className="soldier-table">
+            <h3>Aujourd'hui nous honorons:</h3>
               <tbody>
               {
               Soldiers.map((soldier) =>
-                <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
-                      <td className="soldier-img-container"><div className="ribbon ribbon-top-left"><span>RIP</span></div><img className="soldier-img_small"  src={soldier.image}></img></td>
-                      <td><p className="title">{soldier.grade} {soldier.nom} {soldier.prenom} <br></br>Mort le : <br></br>{soldier.deces}</p></td>                      
-                </tr> 
+                <div>
+                  <tr className={"soldier-card"} id={"soldier-"+soldier.id} key={soldier.id}>
+                        <td className="soldier-img-container"  style={{ backgroundImage: `url(${soldier.image})` }} >
+                          
+                        </td>
+                        <td><p className="title" style={{color:"white"}}>{soldier.grade} {soldier.nom} {soldier.prenom} <br></br>{soldier.circonstance}<br></br>le {soldier.deces}. </p></td>
+                  </tr> 
+                  <hr width="50"></hr>
+                </div>
                 )
               }
               </tbody>
           </table>
       </div>
-      <div className="display_row">
+      <div className="display_row" style={{width:'80%'}}>
         <div className="first-container-red">
           <h2 className="title">Date du jour<hr width="50"></hr></h2>
-          <p style={{fontSize:20}}>{currentDay} {currentMonth} {currentYear}</p>
+          <p style={{fontSize:20,color:"black"}}>{currentDay} {currentMonth} {currentYear}</p>
         </div>
         <div className="first-container-orange">
           <h2 className="title">Ajouter un soldat<hr width="50"></hr></h2>
@@ -110,7 +140,9 @@ if (!Soldiers.length){
         </div>
         <div className="first-container-green">
           <h2 className="title">Nombre de Données<hr width="50"></hr></h2>
-          <p style={{fontSize:35, color:'white',textAlign:"center"}}>{SoldiersNumber} soldats</p>
+          <p style={{color:'white',textAlign:"center", fontSize:20, margin:0}}>{SoldiersNumber} soldats &#10013;</p>
+          <p style={{color:'white',textAlign:"center", fontSize:20, margin:0}}>{UnitNumber} unitées  &#9876;</p>
+          <p style={{color:'white',textAlign:"center", fontSize:20, margin:0}}>{ConflictNumber} conflits &#10041;</p>
         </div>
       </div>
     </div>
