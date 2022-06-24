@@ -50,7 +50,7 @@ function SearchSoldier(){
 
     function searchThisId(e){
       e.preventDefault();
-      fetch('https://api.tytnature.fr/soldats/read.php', {
+      fetch('https://api.projet-memorial.fr/soldats/read.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // le text format JSON
@@ -82,7 +82,7 @@ function SearchSoldier(){
           </div>
           <div className="first-container ">
 
-            <div className="display_row">
+            <div style={{display:'flex'}}>
                 <h2> <span style={{margin:5, color:"white", fontSize:30}}>{soldiersFind.grade}</span></h2>
                 <h2> <span style={{margin:5, color:"white", fontSize:30}}>{soldiersFind.nom}</span></h2>
                 <h2> <span style={{margin:5, color:"white", fontSize:30}}>{soldiersFind.prenom}</span></h2>
@@ -93,8 +93,8 @@ function SearchSoldier(){
               <img className="soldier-img" src={soldiersFind.image} ></img>
             </div>
             <div className="soldier_text">
-                <p>Mort pour la France en/au : <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.conflit}</span> {soldiersFind.date_deces} le <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.date_deces}</span> à l'age de <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.age} ans.</span></p>
-                <p><span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.grade} {soldiersFind.nom} </span>apartenait à la/l'<span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.armee}</span>, au sein du <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.unitee}</span>.</p>
+                <p>Mort pour la France en/au : <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.conflit}</span> le <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.date_deces}</span> à l'age de <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.age} ans.</span></p>
+                <p>Le <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.grade} {soldiersFind.nom} </span>apartenait à l'/la <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.armee}</span>, au sein du <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.unitee}</span>.</p>
                 <p><span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.biographie}</span></p>
                 <p><span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.circonstance}</span></p>
                 <p><span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.prenom}</span> repose à/au <span style={{color:'white',fontWeight:'bold'}}>{soldiersFind.sepulture}</span></p>

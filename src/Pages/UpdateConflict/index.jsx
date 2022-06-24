@@ -20,7 +20,7 @@ function UpdateConflict(){
   
   // GET conflict's data request
   useEffect(() => {
-    fetch('https://api.tytnature.fr/conflits/read.php', {
+    fetch('https://api.projet-memorial.fr/conflits/read.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -55,7 +55,7 @@ function UpdateConflict(){
  
   function updateAPI(e){
     e.preventDefault();
-        fetch(`https://api.tytnature.fr/conflits/update.php`, {
+        fetch(`https://api.projet-memorial.fr/conflits/update.php`, {
           method: 'POST',
           body: JSON.stringify(bodyRequestForUpdate),
         })

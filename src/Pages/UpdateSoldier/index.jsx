@@ -41,7 +41,7 @@ function UpdateSoldier(){
   }
   // GET soldiers's data request
   useEffect(() => {
-    fetch('https://api.tytnature.fr/soldats/read.php', {
+    fetch('https://api.projet-memorial.fr/soldats/read.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // le text format JSON
@@ -65,7 +65,7 @@ function UpdateSoldier(){
       setImage(data.image)
     },
     // Get ALL UNITS DATAS
-      fetch('https://api.tytnature.fr/unitees/readAll.php',{
+      fetch('https://api.projet-memorial.fr/unitees/readAll.php',{
         method: 'GET',
       })
       .then((response) => response.json()
@@ -73,7 +73,7 @@ function UpdateSoldier(){
         
         setAllUnits(d)
         // Get ALL CONFLICTS DATAS
-        fetch('https://api.tytnature.fr/conflits/readAll.php',{
+        fetch('https://api.projet-memorial.fr/conflits/readAll.php',{
           method: 'GET',
         })
         .then((response) => response.json()
@@ -121,7 +121,7 @@ function UpdateSoldier(){
       "circonstance": Circ,
       "sepulture": Sepult,
       "gender": Gender,
-      "image": 'https://api.tytnature.fr/img/soldiers/'+Id+'.jpg',
+      "image": 'https://api.projet-memorial.fr/img/soldiers/'+Id+'.jpg',
     }
   console.log(bodyRequestForUpdate)
 
@@ -134,7 +134,7 @@ function UpdateSoldier(){
     if(EncodedImage.length !== 0){
       console.log("IMAGE", 'PRESENTE')
       fetch(
-        'https://api.tytnature.fr/soldats/update.php',
+        'https://api.projet-memorial.fr/soldats/update.php',
           {
             method: 'POST',
             body: JSON.stringify(bodyRequestForUpdate)
@@ -146,7 +146,7 @@ function UpdateSoldier(){
           if(result.message === "Udapte succesful"){
                 console.log('UPDATE',"Données sauvegardées !")
 
-                fetch('https://api.tytnature.fr/soldats/upload.php', 
+                fetch('https://api.projet-memorial.fr/soldats/upload.php', 
                 {
                   method: 'POST',
                   body: bodyRequestForUpload
@@ -175,7 +175,7 @@ function UpdateSoldier(){
       console.log("IMAGE", "Pas d'image")
       // Si l'image n'est pas a modifier alors on update suelement les champs remplis
       fetch(
-        'https://api.tytnature.fr/soldats/update.php',
+        'https://api.projet-memorial.fr/soldats/update.php',
           {
             method: 'POST',
             body: JSON.stringify(bodyRequestForUpdate)

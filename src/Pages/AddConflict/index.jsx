@@ -24,7 +24,7 @@ function create(e){
   e.preventDefault();
 
   // 2  Sauvegarde des informations vers l'API de MEMORIAL
-        fetch('https://api.tytnature.fr/conflits/create.php', {
+        fetch('https://api.projet-memorial.fr/conflits/create.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(bodyRequest)

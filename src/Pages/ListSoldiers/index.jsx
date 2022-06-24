@@ -28,7 +28,7 @@ function ListSoldiers(){
   function idToDelete(id){
     var result = window.confirm("Êtes-vous sûr de vouloir supprimer de la base de donnée l'identifiant "+id);
     if (result) {
-      fetch('https://api.tytnature.fr/soldats/delete', {
+      fetch('https://api.projet-memorial.fr/soldats/delete', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(
@@ -54,7 +54,7 @@ function ListSoldiers(){
 
 
   useEffect(() => {
-    fetch(`https://api.tytnature.fr/soldats/readAll.php`)
+    fetch(`https://api.projet-memorial.fr/soldats/readAll.php`)
         .then((response) => response.json()
         .then((data) =>{
           console.log(data)
@@ -82,11 +82,12 @@ function ListSoldiers(){
             <thead className="thead">
                       <tr>
                         <th><p>Armée</p></th>
-                        <th><p>H/F</p></th>
+                        <th><p style={{fontSize:12, color:'gray', width:'auto'}}>H/F</p></th>
+                        <th><p style={{fontSize:12, color:'gray', width:'100px'}}>Date de décès</p></th>
                         <th><p>Date d'ajout</p></th>
                         <th><p>Image</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Grade</p></th>
-                        <th><p style={{fontSize:12, color:'gray'}}>Date de décès</p></th>
+                        
                         <th><p style={{fontSize:12, color:'gray'}}>Age</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Conflit</p></th>
                         <th><p style={{fontSize:12, color:'gray'}}>Unitée</p></th>
@@ -99,14 +100,14 @@ function ListSoldiers(){
               <tr className={"card"} id={"soldier-"+soldier.id} key={soldier.id}>
                 
                     <td><p className={"armeeColor-"+soldier.armee} style={{margin:10, height:20, width:20, borderRadius:50, padding:5}}  >{soldier.id}</p></td>
-                    <td className={"soldier-gender-"+soldier.genre}><p style={{margin:10}} className={soldier.genre}></p></td>
-
-                    <td><p>{soldier.dateCreated}</p></td>
-                    <td><img className="soldier-img" style={{maxWidth:50}} src={soldier.image}></img></td>
-
-                    <td><p style={{margin:5}}>{soldier.grade} {soldier.prenom} {soldier.nom}</p></td>
-                    
+                    <td className={"soldier-gender-"+soldier.genre}></td>
                     <td><p style={{margin:10}}>{soldier.deces}</p></td>
+                    <td><p>{soldier.dateCreated}</p></td>
+                    <td><img className="soldier-img" style={{maxWidth:200}} src={soldier.image}></img></td>
+
+                    <td><p>{soldier.grade}</p><p> {soldier.prenom}</p><p style={{ fontWeight:'bolder'}}> {soldier.nom}</p></td>
+                    
+                    
                     <td><p style={{margin:10}}>{soldier.age} ans</p></td>
                     <td><p style={{margin:10}}>{soldier.theatre}</p></td>       
                     <td><p style={{margin:10}}>{soldier.unitee}</p></td>

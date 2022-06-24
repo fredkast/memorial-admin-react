@@ -396,7 +396,7 @@
   }
   
   tbody:hover tr td {
-    opacity:0.3;  filter:alpha(opacity=30);
+    opacity:0.6;  filter:alpha(opacity=30);
    }
  
   tbody tr:hover td  {
@@ -404,6 +404,7 @@
    }
   .soldier_text p{
     color: rgb(195, 197, 199);
+    text-align: center;
   }
 
   /* Couleur des armées */
@@ -430,12 +431,12 @@
   }
 
   /* Soldier GENDER */
-  .soldier-gender-MALE p{
+  .soldier-gender-MALE {
     color: rgb(64, 64, 233);
-  
+    padding:5px;
 
   }
-  .soldier-gender-FEMALE p{
+  .soldier-gender-FEMALE{
     color: rgb(220, 76, 233);
    
   }
@@ -558,24 +559,16 @@
     text-transform: uppercase!important;
   }
 
-  /* .soldier-gender-MALE::after{
-    content: "\2642";
-    color:white;
+  .soldier-gender-MALE::after{
+    content: "\2666";
+    size: 30px;
+    color:rgb(61, 61, 204);
   }
   .soldier-gender-FEMALE::after{
-    content: "\2640";
-    color:white;
-  } */
-  .soldier-gender-MALE{
- 
-    background-color: rgb(61, 61, 204);
-    
+    content: "\2666";
+    color:#DD5E89;
   }
-  .soldier-gender-FEMALE{
-
-    background-color:#DD5E89;
-    
-    }
+  
   
 
 /* theme LIGHT / DARK */

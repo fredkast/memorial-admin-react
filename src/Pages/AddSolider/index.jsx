@@ -56,7 +56,7 @@ function Add() {
         "circonstance": Circ,
         "sepulture": Sepult,
         "gender": Gender,
-        "image": 'https://api.tytnature.fr/img/soldiers/'+Firstname+Name+'.jpg',
+        "image": 'https://api.projet-memorial.fr/img/soldiers/'+Firstname+Name+'.jpg',
      }
 
 function createSoldier(e){
@@ -64,7 +64,7 @@ function createSoldier(e){
 
     // #1 upload image to server
     fetch(
-			'https://api.tytnature.fr/soldats/upload.php',
+			'https://api.projet-memorial.fr/soldats/upload.php',
         {
           method: 'POST',
           body: JSON.stringify(uploadBodyRequest)
@@ -75,7 +75,7 @@ function createSoldier(e){
 				console.log('Success:', result);
 
   // 2  Sauvegarde des informations vers l'API de MEMORIAL
-        fetch('https://api.tytnature.fr/soldats/create', {
+        fetch('https://api.projet-memorial.fr/soldats/create', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(bodyRequest)

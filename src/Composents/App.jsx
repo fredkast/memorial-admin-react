@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from './Header';
 import Error404 from './404';
 import Footer from './Footer';
-
+import SideNav from "./SideNav";
 // pages
 import HomePage from '../Pages/HomePage';
 import ListSoldiers from '../Pages/ListSoldiers';
@@ -22,6 +22,7 @@ import UpdateUnit from "../Pages/UpdateUnit";
 import UpdateConflict from "../Pages/UpdateConflict";
 // Styles
 import "../Styles/style.css";
+
 
 
 // var css_theme_prefers = sessionStorage.getItem('theme');
@@ -43,7 +44,7 @@ function App(){
     //console.log(UserIsConnected)
 
     // useEffect(() => {
-    //     fetch(`https://api.tytnature.fr/config/connected.php`)
+    //     fetch(`https://api.projet-memorial.fr/config/connected.php`)
     //     .then((response) => response.json()
     //     .then((data) =>{
     //         if(data === "user is connected"){
@@ -87,6 +88,7 @@ function App(){
         return(
                 <BrowserRouter>
                 <Header/>
+                {/* <SideNav></SideNav> */}
                 <Routes>
                   <Route path="/" element={<HomePage/>}/>
                  

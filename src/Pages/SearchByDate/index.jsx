@@ -18,7 +18,7 @@ function askApi(e){
   // empecher de re render le component au click
   e.preventDefault();
   console.log(bodyRequest)
-  fetch('https://api.tytnature.fr/soldats/readOnDate', {
+  fetch('https://api.projet-memorial.fr/soldats/readOnDate', {
      method: 'POST',
      headers: { 'Content-Type': 'application/json' },
      body: JSON.stringify(bodyRequest),

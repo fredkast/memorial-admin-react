@@ -19,7 +19,7 @@ function UpdateUnit(){
   
   // GET unit's data request
   useEffect(() => {
-    fetch('https://api.tytnature.fr/unitees/read.php', {
+    fetch('https://api.projet-memorial.fr/unitees/read.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -53,7 +53,7 @@ function UpdateUnit(){
  
   function updateAPI(e){
     e.preventDefault();
-        fetch(`https://api.tytnature.fr/unitees/update.php`, {
+        fetch(`https://api.projet-memorial.fr/unitees/update.php`, {
           method: 'POST',
           body: JSON.stringify(bodyRequestForUpdate),
         })

@@ -25,7 +25,7 @@ function Loging(){
         "password":Password
       }
     
-      fetch('https://api.tytnature.fr/config/connect.php', {
+      fetch('https://api.projet-memorial.fr/config/connect.php', {
         method: 'POST',
         body: 
         JSON.stringify(bodyRequest),
@@ -55,7 +55,7 @@ function Loging(){
       )
   }
     return(
-      <div  className="login-container">
+      <div className="login-container">
          <p className='h1-like'>Projet Memorial  </p>
         <h1>Gestion de la base de données</h1>
         <p className="underline">Bienvenue</p>

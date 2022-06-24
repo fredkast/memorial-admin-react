@@ -29,7 +29,7 @@ function HomePage(){
   const currentYear = d.getFullYear();
 
   useEffect(() => {
-    fetch(`https://api.tytnature.fr/soldats/readOfDay.php`)
+    fetch(`https://api.projet-memorial.fr/soldats/readOfDay.php`)
         .then((response) => response.json()
         .then((data) =>{
           setTodaySoldiers(data);
@@ -37,7 +37,7 @@ function HomePage(){
         .catch((error) => 
           console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message)),
         )
-    fetch('https://api.tytnature.fr/soldats/readAll.php')
+    fetch('https://api.projet-memorial.fr/soldats/readAll.php')
         .then((response)=> response.json()
         .then((data)=>{
           setAllSoldiers(data.length);
@@ -46,7 +46,7 @@ function HomePage(){
         .catch((error)=>
           console.log("erreur" + error)
         ))
-    fetch('https://api.tytnature.fr/unitees/readAll.php')
+    fetch('https://api.projet-memorial.fr/unitees/readAll.php')
         .then((response)=> response.json()
         .then((data)=>{
           setAllUnits(data.length);
@@ -55,7 +55,7 @@ function HomePage(){
         .catch((error)=>
           console.log("erreur" + error)
         ))
-    fetch('https://api.tytnature.fr/conflits/readAll.php')
+    fetch('https://api.projet-memorial.fr/conflits/readAll.php')
         .then((response)=> response.json()
         .then((data)=>{
           setAllConflicts(data.length);
