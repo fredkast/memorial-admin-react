@@ -62,19 +62,19 @@ function Header(){
         <div className='header'>
             <div className='header-upper_line' >
                 <div style={{width:'80%'}}>
-                    <p id="site_logo" className='h1-like'> <Link style={{fontSize:40}} to="/">Projet Memorial </Link> </p>
+                    <a href="/"> <img id="site_logo" src="../img/projet-mémorial-logo-white.png"></img></a>
                 </div>
-                <a className="link-sidenav" href="https://www.defense.gouv.fr/" target="_blank">Site vitrine Memorial.fr</a>
+                <a className="link-sidenav" href="https://www.projet-memorial.fr/" target="_blank">Lien vers projet-memorial.fr</a>
                 <a className="link-sidenav" href="https://www.defense.gouv.fr/" target="_blank">Site Ministère des armées</a>
-                <a className="link-sidenav" href="https://www.memoiredeshommes.sga.defense.gouv.fr/fr/" target="_blank">Site Memoire des Hommes</a>
+                <a className="link-sidenav" href="https://www.memoiredeshommes.sga.defense.gouv.fr/fr/" target="_blank">Lien vers Memoire des Hommes</a>
                 <p  className="link-sidenav" style={{ cursor:'pointer', paddingRight:20, color:'red'}} onClick={(e) => logout()}>Se deconnecter</p>
                 <div className='display-row' >
-                    <p id="color_icon_light" style={{padding:20}}>Light Mode &#9788;</p>
+                    <p id="color_icon_light" style={{padding:20}}>&#9788;</p>
                     <label className="switch">
                         <input type="checkbox" id="dark-mode" onChange={handleCheck} ></input>
                         <span className="slider round"></span>
                     </label>
-                    <p id="color_icon_dark" style={{padding:20}}>Dark Mode &#9789;</p>
+                    <p id="color_icon_dark" style={{padding:20}}>&#9789;</p>
                 </div>                
             </div>
             <div className='header-lower_line'> 

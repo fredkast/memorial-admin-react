@@ -1,7 +1,7 @@
 .header{
     height: auto;
     width: 100%;
-    background-color: #000000;
+    background-color: rgb(11, 11, 11);
     margin-bottom: 40px;
     margin: 0;
     display: flex;
@@ -10,6 +10,7 @@
 .header-upper_line{
     height: 100px;
     width: 90%;
+    max-width: 1080px;
     background-color: rgb(11, 11, 11);
     text-align: left;
     margin: 0;
@@ -17,8 +18,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
-
+}
+@media screen and (max-width: 640px) {
+  .header-upper_line {
+    flex-direction: column;
+    height: auto;
+  }
 }
 .header-lower_line{
     background: #385a0c;
@@ -33,11 +38,11 @@
     justify-content: right;
     padding-right: 10%;
   }
-#site_logo a{
-  font-family: 'Bebas Neue', cursive!important;
-  text-decoration: none;
-  width: 80%;
-  padding-left: 20px;
+#site_logo {
+  max-width: 300px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 /* #site_logo:hover{
   transition: all .5s ease-in-out;

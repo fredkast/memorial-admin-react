@@ -56,8 +56,8 @@ function Loging(){
   }
     return(
       <div className="login-container">
-         <p className='h1-like'>Projet Memorial  </p>
-        <h1>Gestion de la base de données</h1>
+                     <img id="site_logo" src="../img/projet-mémorial-logo-white.png"></img>
+        <h1>Dashboard</h1>
         <p className="underline">Bienvenue</p>
 
         <div className='first-container'>

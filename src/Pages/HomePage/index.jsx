@@ -129,7 +129,7 @@ if (!Soldiers.length){
               </tbody>
           </table>
       </div>
-      <div className="display_row" style={{width:'80%'}}>
+      <div className="display_row home_card-row" style={{width:'80%'}}>
         <div className="first-container-red">
           <h2 className="title">Date du jour<hr width="50"></hr></h2>
           <p style={{fontSize:20,color:"black"}}>{currentDay} {currentMonth} {currentYear}</p>
