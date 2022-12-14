@@ -17,9 +17,9 @@ function HomePage(){
   const [SoldiersNumber, setAllSoldiers] = useState([])
   const [UnitNumber, setAllUnits] = useState([])
   const [ConflictNumber, setAllConflicts] = useState([])
+  const [Count, setCount] = useState([])
 
-
-  const [isLoaded, setIsLoaded] = useState([])
+  var lastDateCount = Count.slice(-1).pop();
 
   // affichage de la date actuelle
   const d = new Date();
@@ -60,6 +60,14 @@ function HomePage(){
         .then((data)=>{
           setAllConflicts(data.length);
           console.log(data.length)
+        })
+        .catch((error)=>
+          console.log("erreur" + error)
+        ))
+      fetch('https://api.projet-memorial.fr/compteur/readAll.php')
+        .then((response)=> response.json()
+        .then((data)=>{
+          setCount(data);
         })
         .catch((error)=>
           console.log("erreur" + error)
@@ -131,8 +139,8 @@ if (!Soldiers.length){
       </div>
       <div className="display_row home_card-row" style={{width:'80%'}}>
         <div className="first-container-red">
-          <h2 className="title">Date du jour<hr width="50"></hr></h2>
-          <p style={{fontSize:20,color:"black"}}>{currentDay} {currentMonth} {currentYear}</p>
+          <h2 className="title">Utilisation du jour<hr width="50"></hr></h2>
+          <p style={{color:'white',textAlign:"center", fontSize:30, margin:0, fontWeight:'bold'}}>{lastDateCount.count}</p>
         </div>
         <div className="first-container-orange">
           <h2 className="title">Ajouter un soldat<hr width="50"></hr></h2>

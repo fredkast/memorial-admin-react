@@ -61,50 +61,65 @@ function Header(){
     return(
         <div className='header'>
             <div className='header-upper_line' >
-                <div style={{width:'80%'}}>
-                    <a href="/"> <img id="site_logo" src="../img/projet-mémorial-logo-white.png"></img></a>
-                </div>
-                <a className="link-sidenav" href="https://www.projet-memorial.fr/" target="_blank">Lien vers projet-memorial.fr</a>
-                <a className="link-sidenav" href="https://www.defense.gouv.fr/" target="_blank">Site Ministère des armées</a>
-                <a className="link-sidenav" href="https://www.memoiredeshommes.sga.defense.gouv.fr/fr/" target="_blank">Lien vers Memoire des Hommes</a>
-                <p  className="link-sidenav" style={{ cursor:'pointer', paddingRight:20, color:'red'}} onClick={(e) => logout()}>Se deconnecter</p>
-                <div className='display-row' >
-                    <p id="color_icon_light" style={{padding:20}}>&#9788;</p>
-                    <label className="switch">
-                        <input type="checkbox" id="dark-mode" onChange={handleCheck} ></input>
-                        <span className="slider round"></span>
-                    </label>
-                    <p id="color_icon_dark" style={{padding:20}}>&#9789;</p>
-                </div>                
+
+                    <div style={{width:'80%'}}>
+                        <a href="/"> <img id="site_logo" src="../img/projet-mémorial-logo-white.png"></img></a>
+                    </div>
+                    <a className="link-sidenav" href="https://www.instagram.com/memoire_de_nos_freres/" target="_blank">Instagram</a>
+
+                    <a className="link-sidenav" href="https://www.projet-memorial.fr/" target="_blank">Lien vers projet-memorial.fr</a>
+
+                    <a className="link-sidenav" href="https://www.defense.gouv.fr/" target="_blank">Site Ministère des armées</a>
+                    <a className="link-sidenav" href="https://www.memoiredeshommes.sga.defense.gouv.fr/fr/" target="_blank">Lien vers Memoire des Hommes</a>
+                    <p  className="link-sidenav" style={{ cursor:'pointer', paddingRight:20, color:'red'}} onClick={(e) => logout()}>Se deconnecter</p>
+                    <div className='display-row' >
+                        <p id="color_icon_light" style={{padding:20}}>&#9788;</p>
+                        <label className="switch">
+                            <input type="checkbox" id="dark-mode" onChange={handleCheck} ></input>
+                            <span className="slider round"></span>
+                        </label>
+                        <p id="color_icon_dark" style={{padding:20}}>&#9789;</p>
+                    </div> 
             </div>
-            <div className='header-lower_line'> 
-                <div class="navigation">
-                <a style={{fontWeight:800}}>Soldats</a>
-                <div class="navigation-content">
-                    <Link className="link" to="/soldats">Liste des soldats</Link>
-                    <Link className="link" to="/chercher-soldat">Chercher un soldat</Link>
-                    <Link className="link" to="/chercher-par-date">Chercher par date</Link>
-                    <Link className="link" to="/ajouter">Ajouter un soldat</Link>
-                </div>
-                </div>
-                <div class="navigation">
-                <a>Unitées</a>
-                <div class="navigation-content">
-                    <Link className="link" to="/unitees">Liste Unitées</Link>
-                    <Link className="link" to="/ajouter-unitee">Ajouter une unitée</Link>
-                
-                </div>
-                </div>
-                <div class="navigation">
-                <a>Conflits</a>
-                <div class="navigation-content">
-                    <Link className="link" to="/conflits">Liste conflit</Link>
-                    <Link className="link" to="/ajouter-conflit">Ajouter un conflit</Link>
-                </div>
-                </div>
-                <div class="navigation">
-                    <Link className="link" to="/">Tableau de bord</Link>
-                </div>
+            <div className='header-lower_line'>
+                    <div class="navigation">
+                    <a style={{fontWeight:800}}>Soldats</a>
+                    <div class="navigation-content">
+                        <Link className="link" to="/soldats">Liste des soldats</Link>
+                        <Link className="link" to="/chercher-soldat">Chercher un soldat</Link>
+                        <Link className="link" to="/chercher-par-date">Chercher par date</Link>
+                        <Link className="link" to="/ajouter">Ajouter un soldat</Link>
+                    </div>
+                    </div>
+                    <div class="navigation">
+                    <a>Unitées</a>
+                    <div class="navigation-content">
+                        <Link className="link" to="/unitees">Liste Unitées</Link>
+                        <Link className="link" to="/ajouter-unitee">Ajouter une unitée</Link>
+                    
+                    </div>
+                    </div>
+                    <div class="navigation">
+                    <a>Conflits</a>
+                    <div class="navigation-content">
+                        <Link className="link" to="/conflits">Liste conflit</Link>
+                        <Link className="link" to="/ajouter-conflit">Ajouter un conflit</Link>
+                    </div>
+                    </div>
+                    <div class="navigation">
+                    <a>Statistiques</a>
+                    <div class="navigation-content">
+                        <Link className="link" to="/stats">Utilisateur par jours</Link>
+                    </div>
+                    </div>
+                    <div class="navigation">
+                    <a>Actualités</a>
+                    <div class="navigation-content">
+                        <Link className="link" to="/conflits">Liste des actualités</Link>
+                        <Link className="link" to="/ajouter-conflit">Ajouter une actualités</Link>
+                    </div>
+                    </div>
+
             </div>
         </div>
 

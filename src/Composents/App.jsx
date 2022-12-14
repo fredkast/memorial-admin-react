@@ -13,7 +13,7 @@ import UpdateSoldier from '../Pages/UpdateSoldier';
 import Add from '../Pages/AddSolider';
 import AddUnit from "../Pages/AddUnit";
 import AddConflict from "../Pages/AddConflict";
-
+import Stats from "../Pages/Stats"
 import SearchSoldier from '../Pages/SearchSoldier';
 import Loging from '../Pages/Loging';
 import ListConflicts from "../Pages/ListConflict";
@@ -23,51 +23,9 @@ import UpdateConflict from "../Pages/UpdateConflict";
 // Styles
 import "../Styles/style.css";
 
-
-
-// var css_theme_prefers = sessionStorage.getItem('theme');
-
-// if(css_theme_prefers == "light"){
-//     setThemeDark("Light")
-// }
-   
-
-
 function App(){
    
     const [User, setUser] = useState();
-
-
-  // EN passant par l'API : erreur
-
-    // const [UserIsConnected, setUserIsConnected] = useState(false);
-    //console.log(UserIsConnected)
-
-    // useEffect(() => {
-    //     fetch(`https://api.projet-memorial.fr/config/connected.php`)
-    //     .then((response) => response.json()
-    //     .then((data) =>{
-    //         if(data === "user is connected"){
-    //             setUserIsConnected(true)
-    //             console.log(UserIsConnected)
-    //           }else{
-    //             setUserIsConnected(false)
-    //             console.log(UserIsConnected)
-    //             console.log('user not connected')
-    //           }
-    //     })
-    //     .catch((error) =>{ 
-    //         console.log(error.message);
-    //         setUserIsConnected(false)
-    //         console.log(UserIsConnected)
-    //         alert("Echec de la methode connection! "+error.message)
- 
-    //       })
-    //     )
-
-    // })
-    // console.log(UserIsConnected)
-
     // en passant par les cookies
 
     useEffect(() => {
@@ -95,6 +53,8 @@ function App(){
                   <Route path="/conflits" element={<ListConflicts/>}/>
                   <Route path="/modifier-conflit" element={<UpdateConflict/>}/>
                   <Route path="/ajouter-conflit" element={<AddConflict/>}/>
+
+                  <Route path="/stats" element={<Stats/>}/>
 
                   <Route path="/unitees" element={<ListUnits/>}/>
                   <Route path="/modifier-unitee" element={<UpdateUnit/>}/>
